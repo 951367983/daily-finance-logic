@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>艾丽财经分析方法论 · 普通人版知识图谱</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<style>
+  :root{
+    --bg:#fafaf7;
+    --ink:#1f2937;
+    --muted:#6b7280;
+    --green:#1f4d3f;
+    --green-soft:#e6efe9;
+    --amber:#d97706;
+    --amber-soft:#fdf3e3;
+    --red:#b91c1c;
+    --red-soft:#fbe9e7;
+    --grayblue:#64748b;
+    --grayblue-soft:#eef2f7;
+    --teal:#0e7490;
+    --teal-soft:#e0f2f7;
+    --line:#e5e2d9;
+    --card:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.8;font-size:16px;
+  }
+  nav.toc{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(250,250,247,0.95);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    overflow-x:auto;white-space:nowrap;padding:10px 16px;font-size:13px;
+  }
+  nav.toc a{display:inline-block;margin-right:14px;color:var(--green);text-decoration:none;font-weight:500;}
+  nav.toc a:hover{color:var(--amber);}
+  main{max-width:900px;margin:0 auto;padding:70px 20px 60px;}
+  section{margin-bottom:60px;scroll-margin-top:60px;}
+  .sec-num{display:inline-block;font-size:14px;font-weight:700;color:var(--amber);letter-spacing:2px;margin-bottom:6px;}
+  h1{font-size:30px;line-height:1.3;color:var(--green);margin:0 0 10px;font-weight:800;}
+  h2{font-size:24px;color:var(--green);border-left:5px solid var(--amber);padding-left:12px;margin:0 0 18px;}
+  h3{font-size:18px;color:var(--green);margin:18px 0 8px;}
+  .subtitle{font-size:15px;color:var(--muted);margin-bottom:16px;}
+  .disclaimer{
+    background:var(--amber-soft);border-left:4px solid var(--amber);
+    padding:12px 16px;border-radius:6px;font-size:14px;color:#7c4a03;margin:16px 0;
+  }
+  .lead{background:var(--green-soft);padding:14px 18px;border-radius:8px;font-size:15px;color:var(--green);}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:12px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  @media(max-width:640px){
+    .grid2{grid-template-columns:1fr;}
+    h1{font-size:24px;} h2{font-size:20px;}
+    main{padding:80px 14px 40px;}
+  }
+  .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card);}
+  table{width:100%;border-collapse:collapse;font-size:14px;min-width:560px;}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:var(--green);color:#fff;font-weight:600;}
+  tr:last-child td{border-bottom:none;}
+  tr:nth-child(even) td{background:#fafaf6;}
+  #graph{width:100%;height:640px;background:#fff;border:1px solid var(--line);border-radius:10px;}
+  @media(max-width:640px){#graph{height:560px;}}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0;font-size:13px;}
+  .legend span{display:inline-flex;align-items:center;gap:5px;}
+  .dot{width:12px;height:12px;border-radius:50%;display:inline-block;}
+
+  /* 八大主题卡片 */
+  .theme-card{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;margin-bottom:14px;display:flex;flex-direction:column;
+  }
+  .theme-card h3{margin:0 0 4px;font-size:17px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;}
+  .conf{font-size:12px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap;}
+  .conf.high{background:#dcfce7;color:#15803d;}
+  .conf.mid{background:var(--amber-soft);color:#92400e;}
+  .conf.low{background:var(--red-soft);color:var(--red);}
+  .theme-card .row{margin:6px 0;font-size:14px;}
+  .theme-card .row b{color:var(--green);}
+  .theme-card .row .label{display:inline-block;font-size:11px;font-weight:700;color:var(--muted);background:#f1efe6;padding:1px 6px;border-radius:4px;margin-right:6px;letter-spacing:1px;}
+  .theme-card .relation{
+    margin-top:8px;padding:8px 10px;background:var(--green-soft);border-radius:6px;
+    font-size:13px;color:var(--green);
+  }
+
+  /* 四象限 */
+  .quadrant{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--green);border-radius:8px;padding:14px 16px;}
+  .quadrant .tag{display:inline-block;font-size:12px;background:var(--green-soft);color:var(--green);padding:2px 8px;border-radius:10px;margin-bottom:6px;font-weight:600;}
+
+  /* 七层阶梯 */
+  .layer{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-bottom:8px;}
+  .layer .lvl{flex:0 0 42px;height:42px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;}
+  .layer:nth-child(1) .lvl{background:#94a3b8;}
+  .layer:nth-child(2) .lvl{background:#7a8a9e;}
+  .layer:nth-child(3) .lvl{background:#64748b;}
+  .layer:nth-child(4) .lvl{background:var(--grayblue);}
+  .layer:nth-child(5) .lvl{background:#3d6e5c;}
+  .layer:nth-child(6) .lvl{background:var(--green);}
+  .layer:nth-child(7) .lvl{background:var(--amber);}
+  .layer .lbody{flex:1;}
+  .layer .ltitle{font-weight:700;color:var(--green);}
+  .layer .lmeta{font-size:13px;color:var(--muted);}
+
+  /* 金句 */
+  .quote{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:6px;padding:12px 14px;font-size:14px;}
+  .quote b{color:var(--green);display:block;margin-bottom:4px;line-height:1.5;}
+
+  /* 六步模板 */
+  .step{display:flex;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-bottom:10px;}
+  .step .snum{flex:0 0 32px;height:32px;border-radius:50%;background:var(--amber);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;}
+  .step .sbody{flex:1;font-size:14px;}
+  .step .sbody b{color:var(--green);}
+
+  /* 案例库 / 每日卡片（预定义 CSS class，供 cron 渲染） */
+  .daily-card{
+    background:#fff;border:1px solid var(--line);border-radius:12px;
+    padding:18px;margin-bottom:18px;box-shadow:0 1px 3px rgba(0,0,0,0.04);
+  }
+  .daily-card-header{border-bottom:2px solid var(--line);padding-bottom:10px;margin-bottom:12px;}
+  .daily-date{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--red);padding:2px 10px;border-radius:10px;}
+  .daily-title{margin:8px 0 8px;font-size:18px;color:var(--green);}
+  .daily-symbols{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
+  .symbol-chip{
+    display:inline-block;font-size:12px;padding:2px 10px;border-radius:12px;
+    background:var(--teal-soft);color:var(--teal);font-weight:500;
+  }
+  .macro-snapshot{
+    width:100%;border-collapse:collapse;font-size:12px;margin:8px 0;
+  }
+  .macro-snapshot th,.macro-snapshot td{
+    border:1px solid var(--line);padding:4px 8px;text-align:center;
+  }
+  .macro-snapshot th{background:var(--green-soft);color:var(--green);}
+  /* step-1~6 左边框配色：绿/琥珀/橙/砖红/紫灰/蓝灰（紫灰仅小面积） */
+  .daily-body .step{
+    border-left:4px solid;
+    padding-left:12px;
+    flex-direction:column;gap:4px;
+  }
+  .daily-body .step h4{margin:0;font-size:14px;color:var(--green);}
+  .daily-body .step p{margin:0;font-size:14px;}
+  .daily-body .step-1{border-left-color:#1f4d3f;}
+  .daily-body .step-2{border-left-color:#d97706;}
+  .daily-body .step-3{border-left-color:#ea580c;}
+  .daily-body .step-4{border-left-color:#b91c1c;}
+  .daily-body .step-5{border-left-color:#6d5a6d;} /* 紫灰，仅边框小面积 */
+  .daily-body .step-6{border-left-color:#475569;}
+
+  /* 案例库占位 */
+  .insertion-marker{
+    border:2px dashed var(--amber);border-radius:10px;padding:18px;
+    text-align:center;color:var(--amber);font-weight:600;background:#fffbf5;margin:14px 0;
+  }
+
+  /* 每日索引表 */
+  .daily-index td:first-child{white-space:nowrap;font-weight:600;color:var(--green);}
+
+  /* 折叠规范 */
+  details.spec{
+    background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:10px 0;
+  }
+  details.spec summary{
+    cursor:pointer;font-weight:700;color:var(--green);font-size:15px;
+  }
+  details.spec pre{
+    background:#1f2937;color:#e5e7eb;padding:12px;border-radius:6px;
+    overflow-x:auto;font-size:12px;line-height:1.6;
+  }
+
+  .tag-red{color:var(--red);font-weight:600;}
+  .tag-green{color:var(--green);font-weight:600;}
+  .tag-amber{color:var(--amber);font-weight:600;}
+  blockquote.gold{
+    background:var(--amber-soft);border-left:4px solid var(--amber);
+    margin:14px 0;padding:12px 16px;border-radius:6px;font-weight:600;color:#7c4a03;
+  }
+  footer{border-top:2px solid var(--line);padding-top:20px;font-size:13px;color:var(--muted);}
+  footer ul{padding-left:20px;}
+  footer a{color:var(--green);word-break:break-all;}
+</style>
+</head>
+<body>
+
+<nav class="toc">
+  <a href="#sec0">导言</a>
+  <a href="#sec1">她是谁</a>
+  <a href="#sec2">全景图</a>
+  <a href="#sec3">八大主题</a>
+  <a href="#sec4">四象限</a>
+  <a href="#sec5">七层滤镜</a>
+  <a href="#sec6">演化追踪</a>
+  <a href="#sec7">金句</a>
+  <a href="#sec8">六步模板</a>
+  <a href="#sec9">案例库</a>
+  <a href="#sec10">每日索引</a>
+  <a href="#sec11">渲染规范</a>
+  <a href="#sec12">页脚</a>
+</nav>
+
+<main>
+
+<!-- ============ 0 导言 ============ -->
+<section id="sec0">
+  <span class="sec-num">0 / INTRO</span>
+  <h1>《艾丽财经分析方法论 · 普通人版知识图谱》</h1>
+  <p class="subtitle">一张图看懂金融世界 · 持续更新</p>
+  <div class="lead">
+    这不是投资建议，是一张<strong>"看新闻时套一下"</strong>的思维工具图——下次刷到"美债收益率破5%""霍尔木兹紧张""G7抛储"，你能在3分钟内倒推出"谁在背后、想干嘛、跟我有啥关系"。
+  </div>
+  <div class="disclaimer">
+    ⚠️ <strong>边界声明</strong>：本文是思维框架整理，不构成任何买卖建议；所有数据截至 <strong>2026年10月6日</strong>。文中不出现具体点位、不荐股、不说"买入/卖出"。
+  </div>
+</section>
+
+<!-- ============ 1 她是谁 ============ -->
+<section id="sec1">
+  <span class="sec-num">1 / WHO</span>
+  <h2>她是谁</h2>
+  <div class="card">
+    <p style="margin:0 0 8px;">🎓 <strong>艾丽娜</strong>，中国人民大学经济学本硕，维吾尔族，北京长大。</p>
+    <p style="margin:0 0 8px;">💼 资本 / 战略 / 媒体 / 文旅行业多年从业，无团队独立创作；抖音粉丝约 <strong>416 万</strong>，作品约 <strong>1539 条</strong>。账号 2020-12 起步，2024-10 粉丝 69.3 万 → 2026-03 339.2 万 → 2026-09 416 万，2025 年是爆发年。</p>
+    <blockquote class="gold" style="margin-top:12px;">
+      "别听他说什么，看他做什么；别管新闻怎么报，倒推操盘手想达成什么。"
+    </blockquote>
+    <p style="margin:0;font-size:14px;color:var(--muted);">这就是她整套方法论的入口——<strong>换位思考 + 倒推动机</strong>，不预测点位，只拆结构。</p>
+  </div>
+</section>
+
+<!-- ============ 2 力导向全景图 ============ -->
+<section id="sec2">
+  <span class="sec-num">2 / MAP</span>
+  <h2>【核心】金融世界全景力导向图</h2>
+  <p style="font-size:14px;color:var(--muted);"><strong>这张图是全页的索引</strong>——每个节点点进去，下方"八大主题深读"对应一张完整卡片，讲这个变量从她最早论述到今天判断的完整故事。</p>
+  <div class="legend">
+    <span><i class="dot" style="background:#1f4d3f;"></i>央行 / 货币类</span>
+    <span><i class="dot" style="background:#d97706;"></i>大宗商品类</span>
+    <span><i class="dot" style="background:#b91c1c;"></i>地缘政治类</span>
+    <span><i class="dot" style="background:#64748b;"></i>市场 / 情绪类</span>
+    <span><i class="dot" style="background:#0e7490;"></i>中国宏观支线</span>
+  </div>
+  <div id="graph"></div>
+  <div class="card" style="margin-top:12px;">
+    <strong>怎么看这张图：</strong>从任意一个节点出发，顺着箭头走三跳，就是一条新闻的连锁反应。节点越大=权重越高（美联储、美元、黄金最大）。
+  </div>
+</section>
+
+<!-- ============ 3 八大主题深读 ============ -->
+<section id="sec3">
+  <span class="sec-num">3 / THEMES</span>
+  <h2>八大主题深读（按变量组织，一个变量一个完整故事）</h2>
+  <p style="font-size:14px;color:var(--muted);">不按时间分块，按变量组织——每个主题讲完"最早怎么讲 → 中间翻转/升级 → 现在怎么用 → 跟你什么关系"。置信度基于证据充分度。</p>
+
+  <div class="grid2">
+
+    <!-- 主题1 美元体系 -->
+    <div class="theme-card">
+      <h3>🌍 美元体系与美元体系 2.0 <span class="conf mid">置信度 🟡 中</span></h3>
+      <div class="row"><span class="label">最早讲</span>2025-12-31 蓄水池视频："全球主要大宗商品依旧以美元定价、计价、结算，那对于美债以及这背后的美元其实问题是不大的。"当时舆论场主线还是"去美元化、美元受挑战"。</div>
+      <div class="row"><span class="label">翻转点</span><strong>2026-09</strong>（9.23/9.24 视频）：不是去美元化，而是美国<strong>主动升级</strong>美元体系 2.0——美元本身 + 石油能源 + AI 芯片 + 加密稳定币四要素；加速全球推广美元稳定币=用"新渠道"支撑美债。</div>
+      <div class="row"><span class="label">现在用</span>把伊朗（2 个月豁免期尝甜头）、俄罗斯（战后回归）、伊拉克（石油收入存纽约联储）拉回美元结算；先强美元吸全球流动性，再弱美元放水。</div>
+      <div class="relation">💡 你存的人民币、出国换汇、买进口货，最终都被这张网定价。</div>
+    </div>
+
+    <!-- 主题2 黄金蓄水池 -->
+    <div class="theme-card">
+      <h3>🥇 黄金蓄水池 <span class="conf high">置信度 🟢 高</span></h3>
+      <div class="row"><span class="label">最早讲</span><strong>2025-12-31</strong> 蓄水池理论集大成版：美元资产 / 贵金属 / 加密货币三个池子来回抽水；美国不会阻止黄金长牛（它是全球最大黄金持有国），但会阶段性剧烈震荡让钱回流美元。</div>
+      <div class="row"><span class="label">升级点</span>2026-07/08：黄金从 1 月高点 5589 跌到 4000 出头（-28%），她修正"主角"判断——黄金是"调节器"不是主角；本阶段钱流速更快去了 BTC 而非实物黄金。</div>
+      <div class="row"><span class="label">现在用</span>伦敦金现 <strong>4139.49 美元/盎司</strong>（10/4）；隐藏大招=美国账上黄金从 <strong>1100 亿重估到 1 万亿+</strong>，多出的钱走主权财富基金投 AI/芯片/能源/稀土。她给普通人的话："不要做投机者，做长期投资者，用平和心看待波动。"</div>
+      <div class="relation">💡 金价涨多了会被打下来让钱回美股——这就是你看到的"跷跷板"。</div>
+    </div>
+
+    <!-- 主题3 美联储与财政部 -->
+    <div class="theme-card">
+      <h3>🏛️ 美联储与财政部 <span class="conf high">置信度 🟢 高</span></h3>
+      <div class="row"><span class="label">最早讲</span><em>（鲍威尔/耶伦时期专门点评她未命中专门视频，证据偏弱）</em>。2025-12-31 视频间接态度："美接下来的主思路是会不断往市场里放水"——当时她默认美联储独立、降息是经济数据驱动。</div>
+      <div class="row"><span class="label">升级点</span><strong>2026 沃什/贝森特上台</strong>：她判断两人"每周吃早餐"、高度战略协同，<strong>美联储独立性被主动放弃</strong>。沃什守短端（抗通胀、撑美元），贝森特守长端（财政部回购压收益率、喂 AI 融资），两人目标互相拆台。</div>
+      <div class="row"><span class="label">现在用</span>沃什取消点阵图、弱化前瞻指引=故意让市场猜不透、放大波动好收割；贝森特是"美联储政策的垃圾处理站"，欧日中抛美债全归他接。9/16 刚加息 25bp 到 3.75%-4.00%。</div>
+      <div class="relation">💡 短端利率决定美元理财香不香；长端利率决定你的房贷和企业贷款贵不贵。</div>
+    </div>
+
+    <!-- 主题4 石油与霍尔木兹 -->
+    <div class="theme-card">
+      <h3>🛢️ 石油与霍尔木兹 <span class="conf mid">置信度 🟡 中</span></h3>
+      <div class="row"><span class="label">最早讲</span><em>（2024 年专门讲"石油美元起源/1974 美沙协议"的视频未命中专门视频）</em>。2024-06"沙特 50 年协议到期不续签"刷屏后被核查为谣言，她在 2026-10-03 视频专门辟过谣。</div>
+      <div class="row"><span class="label">翻转点</span>2026-06-27：贝森特亲口承认把伊朗/俄罗斯/伊拉克拉回石油美元体系——石油美元不是要崩，而是在<strong>主动升级 2.0</strong>。</div>
+      <div class="row"><span class="label">现在用</span>2026-10-01 布油盘中 <strong>101.59 美元/桶</strong>，10/2 再涨 5.19%；G7 同日宣布 4 个月抛 1 亿桶（前 20 天集中砸柴油），欧洲柴油单日跌 8%。霍尔木兹是全球 1/5 石油运输咽喉。</div>
+      <div class="relation">💡 一封锁，油价飞、通胀起、加油贵、国内成品油调价窗口敏感。</div>
+    </div>
+
+    <!-- 主题5 日元 -->
+    <div class="theme-card">
+      <h3>💱 日元与亚洲汇率战 <span class="conf mid">置信度 🟡 中</span></h3>
+      <div class="row"><span class="label">最早讲</span>2025-12-31：日本巴菲特五大商社是<strong>"第二蓄水池"</strong>，连持美债 10 个月到 1.2 万亿——稳定、能装钱。</div>
+      <div class="row"><span class="label">翻转点</span><strong>2026 年 7 月</strong>：USDJPY 一度逼近 <strong>164</strong>（1986 年以来 40 年新低）→ 日美 7/30-31 联合干预（2011 年以来首次），累计投入 15.3993 万亿日元（约 965 亿美元）创历史纪录 → BOJ 9 月加息到 1.25%。</div>
+      <div class="row"><span class="label">现在用</span>10/1 USDJPY 收 158.07。她判断：贝森特本人就是当年做空日元的操盘手，最懂这条链怎么发动、也最怕它反噬——日本被迫加息→抛美债→美债收益率飙升。</div>
+      <div class="relation">💡 日元暴跌可能引爆亚洲货币连锁贬值（参考 1998），你的海淘和出口企业都会受影响。</div>
+    </div>
+
+    <!-- 主题6 中国国内宏观 -->
+    <div class="theme-card">
+      <h3>🏠 中国国内宏观 <span class="conf high">置信度 🟢 高</span></h3>
+      <div class="row"><span class="label">最早讲</span>2026-01-16/01-20 双连更，数据扎实："不是水不够，是渠没疏通。"</div>
+      <div class="row"><span class="label">关键数据</span>M2 余额 <strong>340.29 万亿</strong>（+8.5%）vs GDP 5%；M2-M1 剪刀差 <strong>4.7%</strong>；居民存款 +14.6 万亿 vs 贷款仅 +4417 亿（<strong>33 倍</strong>）；政府债 94.92 万亿（<strong>+17.1%</strong>，社融唯一主力）；房地产开发投资 <strong>-17.2%</strong>；社零 +3.7%、12 月仅 +0.9%。</div>
+      <div class="row"><span class="label">现在用</span>CIPS 是 SWIFT 之外的补充但<strong>不是替代</strong>（2026-02-03 原话）；药方=解决养老/医疗/教育保障 + 资本市场规则完善 + 民企减税降费 + 地产政策一步到位。</div>
+      <div class="relation">💡 你的工资、存款、房贷、房价、A 股赚钱效应，都在这组数据里。</div>
+    </div>
+
+    <!-- 主题7 AI叙事 -->
+    <div class="theme-card">
+      <h3>🤖 AI 叙事 <span class="conf mid">置信度 🟡 中</span></h3>
+      <div class="row"><span class="label">最早讲</span>2025-12-31：把 AI 当<strong>实体需求</strong>——白银需求来自 AI/芯片/光伏的真实工业拉动。</div>
+      <div class="row"><span class="label">升级点</span><strong>2026-08-20</strong>：英伟达联合贝莱德/黑石/阿波罗/高盛/KKR/伯克希尔搞 5000 亿 GPU 残值兜底平台——GPU 被包装成"可质押基础设施资产"，类 08 次贷 MBS；她称为"AI 央行"没有国家信用背书的挤兑风险。</div>
+      <div class="row"><span class="label">现在用</span>长端利率被财政部回购压低=给 AI 续命；2026 年科技发债近 <strong>2200 亿美元</strong>（同比翻倍），与财政部在同一资金池抢钱。"AI 要是崩了，就不是三个老头唱大戏能解决的了。"</div>
+      <div class="relation">💡 美股 AI 板块、你的纳斯达克基金、全球科技股估值，都靠这个叙事撑着。</div>
+    </div>
+
+    <!-- 主题8 地缘与中期选举 -->
+    <div class="theme-card">
+      <h3>🗳️ 地缘与中期选举 <span class="conf high">置信度 🟢 高</span></h3>
+      <div class="row"><span class="label">最早讲</span>2025 年讲关税战、海湖庄园协议、俄乌（事件新闻层）。</div>
+      <div class="row"><span class="label">升级点</span><strong>2026-09-21</strong>：中东战争是被包装成战争的"能源战+金融战"——台前打仗，幕后重塑能源格局+巩固美元体系+铺垫 2.0；亚伯拉罕协议/IMEC 是剧本。</div>
+      <div class="row"><span class="label">现在用</span><strong>2026-11-03</strong> 中期选举是所有操盘手动机的时间锚。选前：股市表面繁荣、对外强硬但不开大战、给老人发补贴拉票；选后：军事工具箱打开（她引用媒体判断"特朗普预计 11 月恢复轰炸伊朗"）。</div>
+      <div class="relation">💡 所有地缘和金融动作都有"选前/选后"节拍器——这是判断时间窗口的钥匙。</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 4 四象限 ============ -->
+<section id="sec4">
+  <span class="sec-num">4 / MOTIVE</span>
+  <h2>操盘手动机分析模型（四象限）</h2>
+  <blockquote class="gold">"每个政策出来，先问三个人：谁选他上台？他欠谁的人情？他下台后去哪？"</blockquote>
+  <div class="grid2">
+    <div class="quadrant">
+      <span class="tag">政治周期 · 节拍器</span>
+      <h3>🗳️ 中期选举（11/3）</h3>
+      <p style="font-size:14px;margin:4px 0;"><strong>她怎么问：</strong>"离 11 月中期选举还有多久？选前他敢干什么、选后才敢干什么？"</p>
+      <p style="font-size:14px;margin:4px 0;"><strong>例子：</strong>选前要股市表面繁荣、对外强硬但不开大战；她引用媒体判断"特朗普预计 11 月恢复轰炸伊朗"。</p>
+    </div>
+    <div class="quadrant">
+      <span class="tag">债务约束 · 硬天花板</span>
+      <h3>🏛️ 40 万亿美债</h3>
+      <p style="font-size:14px;margin:4px 0;"><strong>她怎么问：</strong>"怎么让这 40 万亿债可持续？名义 GDP 增速能不能跑赢债务增速？"</p>
+      <p style="font-size:14px;margin:4px 0;"><strong>例子：</strong>所以必须吹 AI、不敢真加息太久、搞长债回购喂 AI、搞金融抑制（1946 老剧本让存钱的人默默还债）。</p>
+    </div>
+    <div class="quadrant">
+      <span class="tag">利益集团 · 谁得利</span>
+      <h3>💼 军工 / 石油 / 华尔街 / AI</h3>
+      <p style="font-size:14px;margin:4px 0;"><strong>她怎么问：</strong>"政策落地后，谁的股价/订单立刻涨？谁就是被服务的对象。"</p>
+      <p style="font-size:14px;margin:4px 0;"><strong>例子：</strong>六大行+英伟达搭 5000 亿 AI 平台；美国变石油净出口国（日产净出口 500 万桶）=德州票仓。</p>
+    </div>
+    <div class="quadrant">
+      <span class="tag">个人履历 · 肌肉记忆</span>
+      <h3>🎭 操盘手过去赢过哪场仗</h3>
+      <p style="font-size:14px;margin:4px 0;"><strong>她怎么问：</strong>"不看他们说什么主义，看他们过去在什么战场上赢过，就会把今天当成那个来打。"</p>
+      <p style="font-size:14px;margin:4px 0;"><strong>例子：</strong>贝森特=前索罗斯基金 CIO、主导过做空日元；沃什=2008 善后出身，本能是"先稳住再改规则"。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5 七层滤镜 ============ -->
+<section id="sec5">
+  <span class="sec-num">5 / FILTER</span>
+  <h2>七层滤镜（越往上越接近本质）</h2>
+  <div class="layer"><div class="lvl">L1</div><div class="lbody">
+    <div class="ltitle">事件新闻（表层）</div>
+    <div class="lmeta"><strong>是什么：</strong>媒体头版发生了什么。<br>
+    <strong>她怎么用：</strong>先复述事件，但立刻声明"这只是表象"。<br>
+    <strong>例子：</strong>"G20 财长会开完了，贝森特讲了五原则。"</div>
+  </div></div>
+  <div class="layer"><div class="lvl">L2</div><div class="lbody">
+    <div class="ltitle">数据异常</div>
+    <div class="lmeta"><strong>是什么：</strong>哪个数字不对劲、太整齐、太"适时"。<br>
+    <strong>她怎么用：</strong>盯数据下修、口径调整、华尔街齐声放风。<br>
+    <strong>例子：</strong>10.2：7/8 月非农合计下修 6 万、9 月仅 2.9 万——"这么整齐？"</div>
+  </div></div>
+  <div class="layer"><div class="lvl">L3</div><div class="lbody">
+    <div class="ltitle">历史类比</div>
+    <div class="lmeta"><strong>是什么：</strong>这一幕在金融史里演过哪次。<br>
+    <strong>她怎么用：</strong>自动对号入座：1998 日元、2008 次贷、1946 金融抑制、1971 布雷顿森林解体。<br>
+    <strong>例子：</strong>8.20 GPU 残值兜底=08 次贷 MBS；4.25 39 万亿债=1946 剧本。</div>
+  </div></div>
+  <div class="layer"><div class="lvl">L4</div><div class="lbody">
+    <div class="ltitle">操盘手动机</div>
+    <div class="lmeta"><strong>是什么：</strong>贝森特/沃什/特朗普各自要什么。<br>
+    <strong>她怎么用：</strong>代入履历：贝森特要护长端、沃什要守短端、特朗普要选票。<br>
+    <strong>例子：</strong>7.17：沃什唱红脸吸钱，贝森特唱白脸填坑。</div>
+  </div></div>
+  <div class="layer"><div class="lvl">L5</div><div class="lbody">
+    <div class="ltitle">政治周期</div>
+    <div class="lmeta"><strong>是什么：</strong>这件事在选举/议息/G20 时间轴的哪一格。<br>
+    <strong>她怎么用：</strong>用"选前/选后""议息前/后""豁免期两个月"定时间窗。<br>
+    <strong>例子：</strong>9.30：10 月是四条压力线交汇点；伊朗豁免期=给甜头的两个月。</div>
+  </div></div>
+  <div class="layer"><div class="lvl">L6</div><div class="lbody">
+    <div class="ltitle">利益集团博弈</div>
+    <div class="lmeta"><strong>是什么：</strong>谁出钱、谁下单、谁股价涨。<br>
+    <strong>她怎么用：</strong>拆到华尔街/军工/石油/AI 科技四家，看谁分到蛋糕。<br>
+    <strong>例子：</strong>8.20：六大行+英伟达搭平台=AI 利益集团正式合体。</div>
+  </div></div>
+  <div class="layer"><div class="lvl">L7</div><div class="lbody">
+    <div class="ltitle">普通人应对（本质层）</div>
+    <div class="lmeta"><strong>是什么：</strong>不预测点位，只给认知和方向。<br>
+    <strong>她怎么用：</strong>"先让认知变强，而不是抱怨"；提示黄金是调节器、关注确定性 vs 不确定性。<br>
+    <strong>例子：</strong>10.3："你要先让自己认知变强"——不喊买卖，只讲逻辑。</div>
+  </div></div>
+</section>
+
+<!-- ============ 6 变量演化追踪表 ============ -->
+<section id="sec6">
+  <span class="sec-num">6 / EVOLUTION</span>
+  <h2>变量演化追踪表——她坚持了什么、修正了什么</h2>
+  <p style="font-size:14px;color:var(--muted);">🟢=坚持（底层信念） · 🟠=升级（框架细化） · 🔴=翻转（被现实上课）。</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr>
+      <th style="width:18%;">变量</th>
+      <th style="width:28%;">最早观点</th>
+      <th style="width:18%;">翻转/升级点</th>
+      <th style="width:28%;">当前判断</th>
+      <th>置信度</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><b>中国房地产</b></td>
+        <td>投资 -17.2%、居民购房意愿崩塌；政策"挤牙膏"导致观望。</td>
+        <td><span class="tag-green">🟢 坚持</span></td>
+        <td>延续弱势，药方=解决养老/医疗/教育保障，地产政策要一步到位。</td>
+        <td>🟢 高</td>
+      </tr>
+      <tr>
+        <td><b>人民币国际化</b></td>
+        <td>CIPS 是 SWIFT 补充，短期不能替代；靠扩大进口/内需长期推进。</td>
+        <td><span class="tag-green">🟢 坚持</span></td>
+        <td>mBridge/站队推进，但仍强调 CIPS 不能替代 SWIFT。</td>
+        <td>🟢 高</td>
+      </tr>
+      <tr>
+        <td><b>黄金</b></td>
+        <td>蓄水池新池子，美国主导拉升后会阶段性打压；长期看好。</td>
+        <td><span class="tag-green">🟢 坚持</span></td>
+        <td>黄金是"调节器"不是主角；本阶段钱流速更快去了 BTC；1100 亿→1 万亿+重估是隐藏大招。</td>
+        <td>🟢 高</td>
+      </tr>
+      <tr>
+        <td><b>美元体系</b></td>
+        <td>舆论场讲"美元受挑战、去美元化进行中、黄金暴涨是美元信用裂痕"。</td>
+        <td><span class="tag-red">🔴 翻转</span></td>
+        <td>不是去美元化，而是美国<strong>主动升级</strong>美元体系 2.0（美元+石油+AI 芯片+稳定币）。</td>
+        <td>🟡 中</td>
+      </tr>
+      <tr>
+        <td><b>日元</b></td>
+        <td>日本巴菲特五大商社是"第二蓄水池"，稳定、连持美债 1.2 万亿。</td>
+        <td><span class="tag-red">🔴 翻转</span></td>
+        <td>日元贬到 164 后被迫加息，日本抛美债反噬——<strong>潜在爆雷点</strong>。</td>
+        <td>🟡 中</td>
+      </tr>
+      <tr>
+        <td><b>美联储独立性</b></td>
+        <td>鲍威尔降息是"风险管理式降息"，默认美联储独立于财政部。</td>
+        <td><span class="tag-amber">🟠 升级</span></td>
+        <td>沃什贝森特"每周吃早餐"、公开协同、取消点阵图=独立性被主动放弃。</td>
+        <td>🟢 高</td>
+      </tr>
+      <tr>
+        <td><b>AI 叙事</b></td>
+        <td>AI 是实体需求——白银/光伏/芯片的真实工业需求拉动。</td>
+        <td><span class="tag-amber">🟠 升级</span></td>
+        <td>AI 是美国唯一"名义增长故事"；英伟达 5000 亿平台是表外杠杆=类次贷尾部风险。</td>
+        <td>🟡 中</td>
+      </tr>
+      <tr>
+        <td><b>石油美元</b></td>
+        <td>2024 年"沙特 50 年协议到期不续签"刷屏（后被辟谣为谣言）；去美元化舆论兴起。</td>
+        <td><span class="tag-red">🔴 翻转</span></td>
+        <td>美国主动把伊朗/俄罗斯/伊拉克拉回石油美元体系；不是要崩，是在升级 2.0。</td>
+        <td>🟡 中</td>
+      </tr>
+      <tr>
+        <td><b>地缘格局</b></td>
+        <td>讲关税战、海湖庄园协议、俄乌（事件新闻层）。</td>
+        <td><span class="tag-amber">🟠 升级</span></td>
+        <td>中东战争是"台前"，幕后是能源战+金融战；亚伯拉罕协议是剧本（双层结构）。</td>
+        <td>🟢 高</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <h3 style="margin-top:0;">🎓 普通人能从这张表学到什么</h3>
+    <ul style="font-size:14px;margin:4px 0;padding-left:22px;">
+      <li><span class="tag-green">🟢 坚持的 = 她的底层信念</span>——听她讲中国房地产谨慎、人民币国际化谨慎、黄金长期逻辑时，可以高置信参考。</li>
+      <li><span class="tag-red">🔴 翻转的 = 现实给她上了课</span>——美元体系、日元是被现实硬翻过来的。说明宏观没有永远的真理，要跟着新数据调。</li>
+      <li><span class="tag-amber">🟠 升级的 = 框架在长肌肉</span>——美联储独立性、AI 叙事、地缘结构，是旧框架装了更细颗粒度，不是推翻。</li>
+      <li><strong>她最可贵的是敢于公开修正自己</strong>——不是硬撑早期判断，而是用新视频直接覆盖旧结论。普通人做判断时也该这样。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 7 金句库 ============ -->
+<section id="sec7">
+  <span class="sec-num">7 / QUOTES</span>
+  <h2>金句 / 类比库（16 条）</h2>
+  <div class="grid2">
+    <div class="quote"><b>"美元就是一张欠条"</b>美元体系本质是一张全球通用的欠条，美国靠这张欠条换真实商品。</div>
+    <div class="quote"><b>"黄金/美元/BTC 是三个流动的蓄水池"</b>钱不会消失，只会在三个池子之间被来回抽；池子涨多了就被打回去。</div>
+    <div class="quote"><b>"沃什是赌场门口吆喝的大堂经理，贝森特是蹲在里面管账单的"</b>沃什喊"客官进来就是赚"吸全球钱，贝森特一看利息账单差点背过气。</div>
+    <div class="quote"><b>"美债是扶不起的阿斗"</b>10 年期收益率像"应激的猫"，一有 G20 会议就往贝森特沃什脸上挠。</div>
+    <div class="quote"><b>"G20 财长会被开出了曲苑杂坛的风格"</b>两个老头"扯大锯拉大锯"唱大戏；贝森特第五条"培养年轻人金融素养"像赌鬼发誓好好工作。</div>
+    <div class="quote"><b>"击鼓传花，沃什敲鼓，贝森特抱花"</b>花随时可能在贝森特手里炸开。</div>
+    <div class="quote"><b>"贝森特是美联储政策的垃圾处理站"</b>沃什三线作战留下的欧日中抛美债，全归他接。</div>
+    <div class="quote"><b>"贱名好养活"</b>经济学家把"长期停滞"改名叫"长期增长"，名贱就好上口、好传播。</div>
+    <div class="quote"><b>"纳指新高和黄金新低是同一件事"</b>不是两群人在赌两个方向，是同一群人在搬同一次家。</div>
+    <div class="quote"><b>"杀死黄金的不是做空，是移情别恋"</b>价格不是因为有人砸而跌，是因为没人接而滑——讲蓄水池抽水的本质。</div>
+    <div class="quote"><b>"如果你是他，你会怎么做？"</b>她最核心的换位思考三问：你不这么做会怎样？成本和收益哪个更重要？</div>
+    <div class="quote"><b>"多站在自己的对面去想"</b>不要用"他怎么能这么做呢？"去想问题。</div>
+    <div class="quote"><b>"有些事对他来说是 have to do"</b>一旦开始就不会轻易结束——论美元重塑和地缘冲突的不可逆性。</div>
+    <div class="quote"><b>"AI 要是崩了，就不是三个老头唱大戏能解决的了"</b>AI 是美国唯一的名义增长故事。</div>
+    <div class="quote"><b>"踩在钢丝上还要耍大刀"</b>形容沃什贝森特组合的系统性风险。</div>
+    <div class="quote"><b>"你要先让自己认知变强，而不是抱怨"</b>她对普通人的总建议落点。</div>
+  </div>
+</section>
+
+<!-- ============ 8 六步模板 ============ -->
+<section id="sec8">
+  <span class="sec-num">8 / TEMPLATE</span>
+  <h2>《每日热点分析模板》——六步固定流程</h2>
+  <div class="step"><div class="snum">1</div><div class="sbody"><b>事件表象：</b>新闻标题怎么写的？关键数字是什么？（时间、价格、百分比）</div></div>
+  <div class="step"><div class="snum">2</div><div class="sbody"><b>直接影响：</b>这一下动了哪几个变量？（回到全景图对应节点）</div></div>
+  <div class="step"><div class="snum">3</div><div class="sbody"><b>连锁传导：</b>顺着力导向图的箭头，走 3 跳，会传到哪？</div></div>
+  <div class="step"><div class="snum">4</div><div class="sbody"><b>深层目的：</b>用四象限问——谁在推动？政治周期？债务约束？利益集团？操盘手履历？</div></div>
+  <div class="step"><div class="snum">5</div><div class="sbody"><b>时间窗口：</b>下一个关键节点是哪天？（议息 / 选举 / 会议 / 数据公布）</div></div>
+  <div class="step"><div class="snum">6</div><div class="sbody"><b>普通人应对：</b>这件事跟我的工资 / 房贷 / 存款 / 黄金 / 油价有什么关系？（只讲"会影响到什么"）</div></div>
+  <blockquote class="gold">"每天遇到一个新闻，按这六步填一遍，3 分钟。"</blockquote>
+</section>
+
+<!-- ============ 9 案例库 ============ -->
+<section id="sec9">
+  <span class="sec-num">9 / CASES</span>
+  <h2>案例库（持续追加）</h2>
+  <p style="font-size:14px;color:var(--muted);">这是已经套过模板的真实案例，每天会追加新的。</p>
+
+  <!-- 案例 A -->
+  <article class="daily-card" data-date="2026-10-04" data-symbols="美债,美联储,美元指数,黄金,长端利率(10Y),短端利率(2Y),AI叙事/英伟达,新兴市场资本">
+    <header class="daily-card-header">
+      <span class="daily-date">📅 2026-10-04</span>
+      <h3 class="daily-title">📊 案例 A：全球债市"世纪级"抛售——美债 10Y 破 5.24%、英国 30Y 破 6%</h3>
+      <div class="daily-symbols">
+        <span class="symbol-chip">美债10Y</span>
+        <span class="symbol-chip">DXY 101.655</span>
+        <span class="symbol-chip">黄金 4139</span>
+        <span class="symbol-chip">美联储加息</span>
+        <span class="symbol-chip">财政主导</span>
+      </div>
+    </header>
+    <table class="macro-snapshot">
+      <tr><th>联邦基金</th><th>美债10Y</th><th>美债30Y</th><th>英30Y</th><th>DXY</th><th>伦敦金</th></tr>
+      <tr><td>3.75-4.00%</td><td>5.24%（盘中5.34）</td><td>~5.64%</td><td>6.029%</td><td>101.655</td><td>4139.49</td></tr>
+    </table>
+    <div class="daily-body">
+      <div class="step step-1"><h4>① 事件表象</h4><p>美联储 9/16 刚加息 25bp 到 <strong>3.75%-4.00%</strong>（12:0 全票，2023 年 7 月以来首次），但 10/1 美国 10Y 美债盘中冲 <strong>5.34%</strong>（FRED 月度口径 5.24%，2002 年来最高），30Y 约 <strong>5.64%</strong>；英国 30Y gilt 破 <strong>6.029%</strong>（1998 年 3 月来首次），英 10Y 5.48%（2007 年来最高），法 10Y 逼近 5%。</p></div>
+      <div class="step step-2"><h4>② 直接影响</h4><p>美元指数 DXY <strong>101.655</strong>（10/2 收盘）；伦敦金现 <strong>4139.49 美元/盎司</strong>（10/4，-1.01%）；全球债市双杀，商业银行/养老金长久期资产浮亏。</p></div>
+      <div class="step step-3"><h4>③ 连锁传导</h4><p>加息 → 短端↑ → 但财政发债太猛 → 长端被抛 → 利息爆炸（FY2026 净利息 1.039 万亿，首超国防） → AI 企业发债成本↑（今年科技发债近 2200 亿美元） → AI 叙事动摇。</p></div>
+      <div class="step step-4"><h4>④ 深层目的</h4><p><span class="tag-red">财政主导</span>（fiscal dominance）压过货币政策——白宫施压美联储反而反噬，长端被加"政治风险溢价"；日欧中被迫抛美债（中国持有量 4 月 6511 亿→6 月 6334 亿→7 月再减约 154 亿）；避险逻辑断裂，市场只认美元流动性、不认美债信用。</p></div>
+      <div class="step step-5"><h4>⑤ 时间窗口</h4><p><strong>10/7</strong> 公布 9 月 FOMC 纪要 → <strong>10/27-28</strong> 下次 FOMC → <strong>11/3</strong> 中期选举。持续监控美债标售尾部利差、英国秋季预算案。</p></div>
+      <div class="step step-6"><h4>⑥ 普通人影响</h4><p>🏠 房贷利率跟随长端走高；💰 存款/国债收益率上行但通胀侵蚀购买力；🥇 黄金 4100+ 高位波动，央行 Q2 净购金 288.9 吨（同比 +62%）；🌍 新兴市场资金外流压力加大。</p></div>
+    </div>
+  </article>
+
+  <!-- 案例 B -->
+  <article class="daily-card" data-date="2026-10-04" data-symbols="原油,霍尔木兹海峡,黄金,美元指数,中期选举,石油利益集团">
+    <header class="daily-card-header">
+      <span class="daily-date">📅 2026-10-04</span>
+      <h3 class="daily-title">🛢️ 案例 B：霍尔木兹危机 × G7 抛储 1 亿桶——油价暴涨暴跌</h3>
+      <div class="daily-symbols">
+        <span class="symbol-chip">布油 101.59</span>
+        <span class="symbol-chip">G7抛储1亿桶</span>
+        <span class="symbol-chip">柴油跌8%</span>
+        <span class="symbol-chip">中期选举</span>
+        <span class="symbol-chip">霍尔木兹</span>
+      </div>
+    </header>
+    <table class="macro-snapshot">
+      <tr><th>布伦特</th><th>WTI</th><th>G7抛储</th><th>欧洲柴油</th><th>DXY</th><th>伦敦金</th></tr>
+      <tr><td>101.59（+5.19%）</td><td>~89.38</td><td>1亿桶/4月</td><td>-8%</td><td>101.655</td><td>4139.49</td></tr>
+    </table>
+    <div class="daily-body">
+      <div class="step step-1"><h4>① 事件表象</h4><p>布油 10/1 盘中冲 <strong>101.59 美元/桶</strong>（+3.6%），10/2 单日再涨 <strong>5.19%</strong>；WTI 约 89.38；同日 G7 宣布 <strong>4 个月抛 1 亿桶</strong>战略储备（前 20 天集中砸柴油），WTI 盘中跌超 5%，欧洲柴油单日一度跌 <strong>8%</strong>。</p></div>
+      <div class="step step-2"><h4>② 直接影响</h4><p>油价、通胀预期、美元（DXY 101.655）、黄金（期货 4198.80 / 现货 4139.49）联动；柴油供应缺口约 150 万桶/日，美国馏分油库存比五年均值低 14%。</p></div>
+      <div class="step step-3"><h4>③ 连锁传导</h4><p>霍尔木兹紧张 → 油价↑ → 输入性通胀 → 美联储难降息 → 短端利率撑住 → 新兴市场资本外流、本币贬值。</p></div>
+      <div class="step step-4"><h4>④ 深层目的</h4><p>特朗普 10/1 公开"拒绝伊朗重开海峡方案"，并放话"<span class="tag-red">中期选举后或再轰炸伊朗</span>"——把"动手"押到 11/3 之后；G7 抛储本质是<span class="tag-amber">欧洲拿库存赎买美国放弃柴油出口禁令</span>；真正被打的是<strong>柴油裂解价差</strong>，不是原油本身。</p></div>
+      <div class="step step-5"><h4>⑤ 时间窗口</h4><p><strong>11/3</strong> 美国中期选举；<strong>10/15 24 时</strong>国内成品油调价窗口（原油变化率约 -3.2%，预计下调约 220 元/吨，但国际油价波动大）；G7 释储 4 个月窗口至 2027 年 2 月初。</p></div>
+      <div class="step step-6"><h4>⑥ 普通人影响</h4><p>⛽ 加油价格、国内成品油调价；🥬 输入性通胀传导到菜价/物流；🥇 黄金避险需求被地缘事件短期推高；💱 新兴市场汇率与外资流动承压。</p></div>
+    </div>
+  </article>
+
+  <!-- 新每日卡片插入位置 -->
+  <div class="insertion-marker">
+    ⬇️ 后续每日卡片自动追加在这里<br>
+    <small style="font-weight:400;">（cron 每天生成 daily/YYYY-MM-DD.html 后，在主文件此位置插入完整卡片 + 在"每日索引"追加一行）</small>
+  </div>
+  <!-- 新每日卡片插入位置 -->
+</section>
+
+<!-- ============ 10 每日更新索引 ============ -->
+<section id="sec10">
+  <span class="sec-num">10 / INDEX</span>
+  <h2>每日更新索引</h2>
+  <p style="font-size:14px;color:var(--muted);">每天追加一行。完整卡片见上方"案例库"，或点开独立 daily/YYYY-MM-DD.html。</p>
+  <div class="table-wrap">
+  <table class="daily-index">
+    <thead><tr><th>日期</th><th>案例标题</th><th>涉及变量</th><th>链接</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>2026-10-04</td>
+        <td>全球债市"世纪级"抛售——美债 10Y 破 5.24%、英国 30Y 破 6%</td>
+        <td>
+          <span class="symbol-chip">美债10Y</span>
+          <span class="symbol-chip">DXY</span>
+          <span class="symbol-chip">黄金</span>
+          <span class="symbol-chip">美联储加息</span>
+        </td>
+        <td><a href="#sec9" style="color:var(--green);">本文件案例库 A</a></td>
+      </tr>
+      <tr>
+        <td>2026-10-04</td>
+        <td>霍尔木兹危机 × G7 抛储 1 亿桶——油价暴涨暴跌</td>
+        <td>
+          <span class="symbol-chip">布油</span>
+          <span class="symbol-chip">G7抛储</span>
+          <span class="symbol-chip">柴油裂解</span>
+          <span class="symbol-chip">中期选举</span>
+        </td>
+        <td><a href="#sec9" style="color:var(--green);">本文件案例库 B</a></td>
+      </tr>
+      <tr>
+        <td>2026-10-07</td>
+        <td>加息预期从50.9%崩到19.4%，但10Y美债只跌4bp——长端为什么不买账？</td>
+        <td>
+          <span class="symbol-chip">美债10Y 5.27%</span>
+          <span class="symbol-chip">30Y 24年新高</span>
+          <span class="symbol-chip">财政主导</span>
+          <span class="symbol-chip">FOMC纪要</span>
+          <span class="symbol-chip">390亿10Y拍卖</span>
+        </td>
+        <td><a href="daily/2026-10-07.html" style="color:var(--green);">打开卡片 →</a></td>
+      </tr>
+      <tr>
+        <td>2026-10-08</td>
+        <td>FOMC首提"AI基建推高通胀"——沃什给AI泡沫发了黄牌；10Y拍卖2.77倍创2016年新高</td>
+        <td>
+          <span class="symbol-chip">FOMC鹰派</span>
+          <span class="symbol-chip">AI通胀</span>
+          <span class="symbol-chip">10Y 5.28%</span>
+          <span class="symbol-chip">拍卖出清</span>
+          <span class="symbol-chip">胡塞打沙特</span>
+        </td>
+        <td><a href="daily/2026-10-08.html" style="color:var(--green);">打开卡片 →</a></td>
+      </tr>
+      <tr>
+        <td>2026-10-09</td>
+        <td>30Y拍卖过关但纳指暴跌1.25%——AI capex 7300亿vs自由现金流转负，市场第一次用脚投票</td>
+        <td>
+          <span class="symbol-chip">30Y拍卖稳健</span>
+          <span class="symbol-chip">纳指-1.25%</span>
+          <span class="symbol-chip">AI capex 7300亿</span>
+          <span class="symbol-chip">布油+4%破104</span>
+          <span class="symbol-chip">飓风Isaias</span>
+        </td>
+        <td><a href="daily/2026-10-09.html" style="color:var(--green);">打开卡片 →</a></td>
+      </tr>
+      <tr>
+        <td>2026-10-10</td>
+        <td>飓风停产墨西哥湾72% vs 普京放柴油30万吨——油价为什么还在104？</td>
+        <td>
+          <span class="symbol-chip">飓风Isaias</span>
+          <span class="symbol-chip">普京放柴油</span>
+          <span class="symbol-chip">布油104</span>
+          <span class="symbol-chip">黄金4194</span>
+          <span class="symbol-chip">央行1.2万亿</span>
+        </td>
+        <td><a href="daily/2026-10-10.html" style="color:var(--green);">打开卡片 →</a></td>
+      </tr>
+      <tr>
+        <td>2026-10-11</td>
+        <td>达里奥公开喊AI泡沫，飓风已减弱，南美元币结算上线——周末三件事指向同一方向</td>
+        <td>
+          <span class="symbol-chip">达里奥喊泡沫</span>
+          <span class="symbol-chip">飓风减弱</span>
+          <span class="symbol-chip">南美元币结算</span>
+          <span class="symbol-chip">证监会稳市</span>
+          <span class="symbol-chip">铜价1.5万</span>
+        </td>
+        <td><a href="daily/2026-10-11.html" style="color:var(--green);">打开卡片 →</a></td>
+      </tr>
+      <tr>
+        <td>2026-10-12</td>
+        <td>达里奥喊话只换来英伟达跌0.52%——市场免疫了？布油104拉锯，中欧突然缓和</td>
+        <td>
+          <span class="symbol-chip">英伟达-0.52%</span>
+          <span class="symbol-chip">布油104拉锯</span>
+          <span class="symbol-chip">中欧缓和</span>
+          <span class="symbol-chip">新质生产力</span>
+          <span class="symbol-chip">马士基+20%</span>
+        </td>
+        <td><a href="daily/2026-10-12.html" style="color:var(--green);">打开卡片 →</a></td>
+      </tr>
+      <tr>
+        <td>2026-10-13</td>
+        <td>新质生产力三利好却利好出尽，创业板暴跌2.61%，哈玛克凌晨放鹰，PCE前夜</td>
+        <td>
+          <span class="symbol-chip">哈玛克放鹰</span>
+          <span class="symbol-chip">通胀预期3.9%</span>
+          <span class="symbol-chip">创业板-2.61%</span>
+          <span class="symbol-chip">布油106</span>
+          <span class="symbol-chip">印度加息</span>
+        </td>
+        <td><a href="daily/2026-10-13.html" style="color:var(--green);">打开卡片 →</a></td>
+      </tr>
+      <tr>
+        <td>2026-10-14</td>
+        <td>CPI审判日：威廉姆斯凌晨喂定心丸"再加一次就够"，A股深V抄底，今晚见分晓</td>
+        <td>
+          <span class="symbol-chip">9月CPI今晚出</span>
+          <span class="symbol-chip">威廉姆斯鸽派</span>
+          <span class="symbol-chip">A股深V</span>
+          <span class="symbol-chip">布油106</span>
+          <span class="symbol-chip">Anthropic财报</span>
+        </td>
+        <td><a href="daily/2026-10-14.html" style="color:var(--green);">打开卡片 →</a></td>
+      </tr>
+      <tr>
+        <td>2026-10-15</td>
+        <td>CPI爆雷：核心2.6%踩线超预期，10月加息概率翻倍至51.5%，昨天深V抄底被埋</td>
+        <td>
+          <span class="symbol-chip">核心CPI 2.6%</span>
+          <span class="symbol-chip">加息概率51.5%</span>
+          <span class="symbol-chip">纳指-1.88%</span>
+          <span class="symbol-chip">半导体六连跌</span>
+          <span class="symbol-chip">黄金暴跌60刀</span>
+        </td>
+        <td><a href="daily/2026-10-15.html" style="color:var(--green);">打开卡片 →</a></td>
+      </tr>
+      <tr>
+        <td>2026-10-16</td>
+        <td>PPI环比1.3%爆得比CPI还猛，但道指涨556点——资金从AI切到医疗消费</td>
+        <td>
+          <span class="symbol-chip">PPI+1.3%</span>
+          <span class="symbol-chip">创业板-2.92%</span>
+          <span class="symbol-chip">道指+556</span>
+          <span class="symbol-chip">资金切消费</span>
+          <span class="symbol-chip">半导体内部分化</span>
+        </td>
+        <td><a href="daily/2026-10-16.html" style="color:var(--green);">打开卡片 →</a></td>
+      </tr>
+      <!-- 新索引行插入位置 -->
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ============ 11 渲染规范（折叠） ============ -->
+<section id="sec11">
+  <span class="sec-num">11 / SPEC</span>
+  <h2>每日更新渲染规范</h2>
+  <details class="spec">
+    <summary>📐 给自动化脚本看的渲染规范（点开）</summary>
+
+    <h3>A. 每日卡片 HTML 模板（CSS class 命名固定）</h3>
+    <pre><code>&lt;article class="daily-card" data-date="YYYY-MM-DD" data-symbols="美债10Y,DXY,黄金"&gt;
+  &lt;header class="daily-card-header"&gt;
+    &lt;span class="daily-date"&gt;YYYY-MM-DD&lt;/span&gt;
+    &lt;h3 class="daily-title"&gt;事件标题&lt;/h3&gt;
+    &lt;div class="daily-symbols"&gt;
+      &lt;span class="symbol-chip"&gt;美债10Y&lt;/span&gt;
+      ...
+    &lt;/div&gt;
+  &lt;/header&gt;
+  &lt;table class="macro-snapshot"&gt;...当日宏观数据快照...&lt;/table&gt;
+  &lt;div class="daily-body"&gt;
+    &lt;div class="step step-1"&gt;&lt;h4&gt;① 事件表象&lt;/h4&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;
+    &lt;div class="step step-2"&gt;&lt;h4&gt;② 直接影响&lt;/h4&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;
+    &lt;div class="step step-3"&gt;&lt;h4&gt;③ 连锁传导&lt;/h4&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;
+    &lt;div class="step step-4"&gt;&lt;h4&gt;④ 深层目的&lt;/h4&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;
+    &lt;div class="step step-5"&gt;&lt;h4&gt;⑤ 时间窗口&lt;/h4&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;
+    &lt;div class="step step-6"&gt;&lt;h4&gt;⑥ 普通人影响&lt;/h4&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+    <p style="font-size:13px;color:var(--muted);">step-1~6 左边框已预定义配色：绿 / 琥珀 / 橙 / 砖红 / 紫灰 / 蓝灰（紫灰仅边框小面积点缀）。</p>
+
+    <h3>B. 每日必拉宏观指标（cron 每天拉一次）</h3>
+    <div class="table-wrap">
+    <table style="min-width:auto;">
+      <thead><tr><th>指标</th><th>来源</th><th>格式</th></tr></thead>
+      <tbody>
+        <tr><td>美债10Y收益率</td><td>FRED / seed_finance_lookup</td><td>百分比 %</td></tr>
+        <tr><td>美债2Y收益率</td><td>同上</td><td>百分比 %</td></tr>
+        <tr><td>美元指数 DXY</td><td>同上</td><td>数字</td></tr>
+        <tr><td>布伦特原油</td><td>同上</td><td>美元/桶</td></tr>
+        <tr><td>WTI 原油</td><td>同上</td><td>美元/桶</td></tr>
+        <tr><td>伦敦金现</td><td>同上</td><td>美元/盎司</td></tr>
+        <tr><td>USDJPY</td><td>同上</td><td>数字</td></tr>
+        <tr><td>USDCNH</td><td>同上</td><td>数字</td></tr>
+        <tr><td>恒生指数 / A50</td><td>同上</td><td>点数</td></tr>
+        <tr><td>VIX 恐慌指数</td><td>同上</td><td>数字</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="font-size:13px;color:var(--muted);">拉完后在每日卡片头部 <code>.macro-snapshot</code> 小表格里嵌入当日值+日涨跌。</p>
+
+    <h3>C. 力导向图联动高亮</h3>
+    <ul style="font-size:14px;">
+      <li>当日卡片的 <code>data-symbols</code> 属性里列出激活的变量名（节点 name）。</li>
+      <li>主文件力导向图保持<strong>静态 26 节点 34 边</strong>，不每天重渲染。</li>
+      <li>可选：主 HTML 顶部 JS 读 URL 参数 <code>?highlight=美联储,黄金</code>，被高亮节点放大 1.5 倍+琥珀色发光阴影（itemStyle 里按条件判断）。</li>
+      <li>每日卡片里可单独放一个"当日激活子图"小图（只画激活节点+它们之间的边），避免主图每天重渲染。</li>
+    </ul>
+
+    <h3>D. 文件更新机制</h3>
+    <ul style="font-size:14px;">
+      <li><strong>主文件 <code>aili_finance_knowledge_graph.html</code> 保持稳定</strong>——它是知识库，不每天改。</li>
+      <li><strong>每日卡片单独生成</strong>在同目录 <code>daily/YYYY-MM-DD.html</code>（独立小 HTML，可单独分享）。</li>
+      <li><strong>主文件"每日索引"section</strong> 每天更新一次索引列表（追加一行：日期 | 标题 | 变量标签 | 链接）。</li>
+      <li><strong>宏观数据快照</strong>单独存 <code>daily/macro_snapshot.json</code>，方便 cron 读写。</li>
+      <li>知识库和流水日报分离，主文件不会因每天追加而膨胀。</li>
+    </ul>
+
+    <h3>F. 2026-10-09 升级：从投顾话术吸收的四个结构改进</h3>
+    <p style="font-size:14px;color:var(--green);"><strong>背景</strong>：用户对照某投顾直播话术，指出我们卡片"信息全但失焦、不落到持仓、不讲交易拥挤度"。以下四点从10/10日更开始强制执行。</p>
+    <ul style="font-size:14px;">
+      <li><strong>F1. 卡片头部加"市场当前定价"区块</strong>（在 macro-snapshot 表之后、step-1 之前，用一个浅色小框）：
+        <br>格式："市场现在定价：X（如加息概率20%、纳指新高、布油104）——如果Y发生，最先被推翻的是___。"
+        <br>目的：不是预测方向，而是讲清楚"price in了什么、证伪条件是什么"。这是从投顾话术学的核心——先讲不对称，再讲事件。</li>
+      <li><strong>F2. 每天只盯一个核心证伪变量</strong>：不要在卡片里列一堆节点（FOMC/拍卖/飓风/选举…），最后加一行"今日唯一要盯的就是___（日期+事件）"。其他节点作为背景出现即可。</li>
+      <li><strong>F3. step-6"普通人影响"分两层</strong>：
+        <br>① <strong>你的钱包</strong>（油价、房贷、加油钱、菜篮子）；
+        <br>② <strong>你的资产</strong>——明确点到板块：A股成长股（对利率最敏感的DCF长久期板块）、港股科技、黄金、存款/短债、银行/高股息。不说"买/卖"，但要讲清楚这类环境下哪类资产压力大、哪类有支撑。
+        <br>用户是A股参与者，不是只关心油价。</li>
+      <li><strong>F4. step-3"连锁传导"里加一行交易拥挤度观察</strong>："现在谁仓位最重、边际买盘跟不跟得上？"——比如"纳指新高但半导体开始跌=AI交易拥挤到边际买盘跟不上"。这是艾丽蓄水池理论的交易面版本。</li>
+      <li><strong>F5. 正反面必须都写</strong>：不能像投顾那样只讲单边风险。每个"可能坏的方向"旁边要补一句"什么情况下这个判断不成立"（如"但本周30Y拍卖间接投标人72%=5.6%有真实买家托底，长端不一定站得上去"）。</li>
+    </ul>
+
+    <h3>G. 2026-10-10 升级：吸收"愚人《穷人，经济的晴雨表》"的三个视角</h3>
+    <p style="font-size:14px;color:var(--green);"><strong>背景</strong>：用户提供了抖音作者"愚人"的文章《穷人，经济的晴雨表》。文章核心论点：穷人是经济最灵敏的传感器——没有缓冲区、边际消费倾向接近100%、恩格尔系数40%被迫持有高波动消费篮子，任何经济波动先穿过他们才轮到别人。以下三条从10/10日更开始融入。</p>
+    <ul style="font-size:14px;">
+      <li><strong>G1. 每日卡片加"街角信号"小框</strong>（在F1"市场当前定价"之后）：定性观察中国国内底层温度计，不需要精确数字——
+        <br>① 低价食品动态（方便面/5元袋面/快餐行业有没有新动作）
+        <br>② 折扣零售/拼多多/名创优品/零食很忙等赛道新闻
+        <br>③ 5万以下新车、二手车、闲鱼/转转等二手交易动态
+        <br>④ 劳务市场工价、灵活就业、结婚登记数
+        <br>⑤ 黄金回收/典当行生意
+        <br>没有值得写的就写"今日无显著街角信号变化"，不硬凑。</li>
+      <li><strong>G2. 看任何统计数字先怀疑"表针是不是被掰过"</strong>：引用作者原话"表针可以人为掰回去，天气不会"。
+        <br>以后引用国内数据（失业率、社零、CPI、结婚登记、消费贷款）时，必须多问一句：这个好转是真好转，还是口径变了/补贴拉的/把人统计出去了？
+        <br>典型例子（作者原文）：美国SNAP食品券2026年从4200万掉到3660万，不是穷人翻身了，是新法案抬高工作门槛把人踢出去了。</li>
+      <li><strong>G3. 传导链里固定加一环"最先被冻住的是谁"</strong>：F4交易拥挤度之外，step-3连锁传导末尾必须写一句"这一轮收缩/扩张，最先被点名的是哪类人？"——
+        <br>裁员从可替代性最高的岗位开始（日结工→流水线→行政→工程师）；涨价从食品开始传导（穷人恩格尔系数40%最先感受到）；钱松出来时最后流到穷人手里。
+        <br>这一环不是为了加戏，是让读者知道：自己如果不是传感器本身，也该从传感器的反应里提前一个季度做准备。</li>
+      <li style="color:var(--muted);font-size:13px;">⚠️ 边界：愚人文章写中国国内宏观，我们日更主线是全球热点。不要每天硬把全球事件往中国穷人身上扯；街角信号是独立观察框，全球传导链里加"最先被冻住的是谁"这一问即可。</li>
+    </ul>
+
+    <h3>E. 每日 cron 调用清单（伪代码）</h3>
+    <pre><code>每天早 8:00 cron 触发：
+1. seed_finance_lookup 拉 10 个宏观指标 → 存 daily/macro_snapshot.json
+2. general_search 搜昨日至今晨全球金融/地缘热点（3-5 个 query 并行）
+3. 挑 1-2 个最有"表象 vs 深层"张力的热点
+4. 套六步模板写卡片（表象/直接影响/连锁传导/深层目的/时间窗口/普通人影响）
+5. 识别卡片激活的力导向图节点 name，填入 data-symbols
+6. 生成 daily/YYYY-MM-DD.html 独立卡片
+7. 更新主 HTML"每日索引"section，追加一行
+8. （可选）热点足够重要时，在主 HTML"案例库"也追加一份完整卡片
+9. 写一份简短给 MainAgent 的汇报：今日卡片路径、激活变量、关键数据</code></pre>
+  </details>
+</section>
+
+<!-- ============ 12 页脚 ============ -->
+<section id="sec12">
+  <footer>
+    <h3 style="margin-top:0;">数据来源</h3>
+    <ul>
+      <li>美联储 9/16 FOMC 声明：<a href="https://www.newyorkfed.org/medialibrary/media/markets/fomc-statement-20260916.pdf" target="_blank">newyorkfed.org FOMC statement 20260916</a></li>
+      <li>FRED 美债收益率数据：<a href="https://fred.stlouisfed.org/graph/?g=1aSQ1" target="_blank">fred.stlouisfed.org/graph/?g=1aSQ1</a></li>
+      <li>英国 30Y gilt 破 6%：<a href="https://www.globalbankingandfinance.com/uk-30-year-gilt-yields-surge-highest-since-1998/" target="_blank">globalbankingandfinance.com</a>；<a href="https://finance.sina.com.cn/world/2026-10-01/doc-inittkrz1099289.shtml" target="_blank">新浪财经</a></li>
+      <li>G7 释储 1 亿桶：<a href="https://finance.sina.com.cn/roll/2026-10-03/doc-initwrap4259981.shtml" target="_blank">新浪财经 2026-10-03</a></li>
+      <li>布油 101.59 / 油市综述：<a href="https://www.morningstar.com/news/dow-jones/202610016482/" target="_blank">Morningstar / Dow Jones 2026-10-01</a></li>
+      <li>美债 40.05 万亿 / 净利息 1.039 万亿：美国财政部转引；TIC 持仓数据（中国连续减持）</li>
+      <li>美元指数 / 黄金现货行情：同花顺期货、贵金属行情（2026-10-02 / 10-04）</li>
+      <li>USDJPY 158.07：<a href="https://finance.eastmoney.com/a/202610013888235569.html" target="_blank">东方财富 2026-10-01</a></li>
+      <li>艾丽原视频文案（2026）：抖音分享页 iesdouyin.com（多条）；MCNDATA <a href="https://www.mcndata.cn/m/118506882/videos" target="_blank">mcndata.cn</a>；喜马拉雅 <a href="https://www.ximalaya.com/album/122472429" target="_blank">ximalaya.com/album/122472429</a></li>
+      <li>2024-2025 补遗：抖音百科 <a href="https://m.baike.com/wiki/%E8%89%BE%E4%B8%BD%E7%9A%84%E6%97%A0%E5%BA%9F%E8%AF%9D%E8%B4%A2%E7%BB%8F/7424319847213826100" target="_blank">账号成长数据</a>；蓄水池原点 12.31 <a href="https://www.iesdouyin.com/share/video/7589840907743811771" target="_blank">视频直链</a>；社融盘点 1.16 <a href="https://www.iesdouyin.com/share/video/7595901424853456827" target="_blank">直链</a>；经济数据 1.20 <a href="https://www.iesdouyin.com/share/video/7597371200134294385" target="_blank">直链</a></li>
+      <li>行业背景交叉印证：证券时报（鲍威尔 2025 三次降息）、新华网、财新网、中国金融新闻网</li>
+    </ul>
+    <p style="margin-top:14px;"><strong>免责声明：</strong>本页面仅为对公开财经内容的方法论整理，不构成任何投资建议；不出现买卖点位、不荐股。投资有风险，决策需独立。</p>
+    <p>制作日期：<strong>2026-10-06</strong> · 数据截至当日。</p>
+  </footer>
+</section>
+
+</main>
+
+<script>
+// ============ ECharts 力导向图（保持 26 节点 34 边静态） ============
+(function(){
+  var chartDom = document.getElementById('graph');
+  var myChart = echarts.init(chartDom);
+
+  var CAT = {
+    CB: '#1f4d3f', CMD: '#d97706', GEO: '#b91c1c', MKT: '#64748b', CN: '#0e7490'
+  };
+
+  var nodes = [
+    {name:'美联储',       category:0, symbolSize:62},
+    {name:'美债',         category:0, symbolSize:55},
+    {name:'美元指数',     category:0, symbolSize:55},
+    {name:'美元流动性',   category:0, symbolSize:42},
+    {name:'沃什（主席）', category:0, symbolSize:38},
+    {name:'贝森特（财长）',category:0, symbolSize:38},
+    {name:'短端利率(2Y)', category:0, symbolSize:38},
+    {name:'长端利率(10Y)',category:0, symbolSize:42},
+    {name:'日元',         category:0, symbolSize:32},
+    {name:'黄金',         category:1, symbolSize:55},
+    {name:'原油',         category:1, symbolSize:48},
+    {name:'OPEC',         category:1, symbolSize:32},
+    {name:'霍尔木兹海峡', category:2, symbolSize:42},
+    {name:'中期选举',     category:2, symbolSize:38},
+    {name:'军工利益集团', category:2, symbolSize:30},
+    {name:'石油利益集团', category:2, symbolSize:30},
+    {name:'新兴市场资本', category:3, symbolSize:32},
+    {name:'AI叙事/英伟达',category:3, symbolSize:42},
+    {name:'华尔街',       category:3, symbolSize:38},
+    {name:'M2货币空转(340万亿)', category:4, symbolSize:32},
+    {name:'存款-贷款剪刀差33倍', category:4, symbolSize:30},
+    {name:'政府债依赖度(+17.1%)', category:4, symbolSize:30},
+    {name:'M2-M1剪刀差4.7%', category:4, symbolSize:28},
+    {name:'美国黄金重估(1100亿→1万亿+)', category:4, symbolSize:30},
+    {name:'日本巴菲特商社(蓄水池→爆雷点)', category:4, symbolSize:30},
+    {name:'CIPS vs SWIFT(补充非替代)', category:4, symbolSize:28}
+  ];
+
+  var links = [
+    {source:'沃什（主席）', target:'短端利率(2Y)', label:{formatter:'守短端/抗通胀'}},
+    {source:'贝森特（财长）', target:'长端利率(10Y)', label:{formatter:'长债回购压长端'}},
+    {source:'美联储', target:'短端利率(2Y)', label:{formatter:'加息→抽水回美元'}},
+    {source:'短端利率(2Y)', target:'美元指数', label:{formatter:'利差↑→美元强'}},
+    {source:'美元指数', target:'美元流动性', label:{formatter:'强美元吸全球流动性'}},
+    {source:'美元流动性', target:'新兴市场资本', label:{formatter:'抽水→资本外流'}},
+    {source:'美债', target:'长端利率(10Y)', label:{formatter:'发债太猛→长端被抛'}},
+    {source:'长端利率(10Y)', target:'AI叙事/英伟达', label:{formatter:'发债成本↑→AI续命难'}},
+    {source:'贝森特（财长）', target:'美债', label:{formatter:'40万亿利息爆炸'}},
+    {source:'日元', target:'美债', label:{formatter:'日本被迫加息→抛美债'}},
+    {source:'美元指数', target:'日元', label:{formatter:'强美元→日元弱'}},
+    {source:'霍尔木兹海峡', target:'原油', label:{formatter:'紧张→风险溢价↑'}},
+    {source:'OPEC', target:'原油', label:{formatter:'供给调节'}},
+    {source:'原油', target:'美联储', label:{formatter:'油价↑→通胀不退→难降息'}},
+    {source:'原油', target:'石油利益集团', label:{formatter:'高油价=票仓受益'}},
+    {source:'美元指数', target:'黄金', label:{formatter:'强美元→压制金价'}},
+    {source:'霍尔木兹海峡', target:'黄金', label:{formatter:'避险→金价↑'}},
+    {source:'黄金', target:'美元流动性', label:{formatter:'蓄水池抽水→回流美元'}},
+    {source:'中期选举', target:'霍尔木兹海峡', label:{formatter:'选后再动手'}},
+    {source:'中期选举', target:'石油利益集团', label:{formatter:'能源票仓'}},
+    {source:'霍尔木兹海峡', target:'军工利益集团', label:{formatter:'台前战争→订单持续'}},
+    {source:'军工利益集团', target:'中期选举', label:{formatter:'选票+订单'}},
+    {source:'华尔街', target:'AI叙事/英伟达', label:{formatter:'六大行搭5000亿平台'}},
+    {source:'华尔街', target:'美元流动性', label:{formatter:'齐声放风降加息预期'}},
+    {source:'AI叙事/英伟达', target:'美元指数', label:{formatter:'AI叙事→吸全球资本'}},
+    {source:'新兴市场资本', target:'美元指数', label:{formatter:'资本回流美元资产'}},
+    {source:'M2货币空转(340万亿)', target:'M2-M1剪刀差4.7%', label:{formatter:'钱在金融体系空转'}},
+    {source:'M2货币空转(340万亿)', target:'存款-贷款剪刀差33倍', label:{formatter:'居民多存少贷'}},
+    {source:'存款-贷款剪刀差33倍', target:'政府债依赖度(+17.1%)', label:{formatter:'私人不借→政府顶上'}},
+    {source:'政府债依赖度(+17.1%)', target:'M2货币空转(340万亿)', label:{formatter:'社融唯一主力'}},
+    {source:'黄金', target:'美国黄金重估(1100亿→1万亿+)', label:{formatter:'隐藏大招'}},
+    {source:'日元', target:'日本巴菲特商社(蓄水池→爆雷点)', label:{formatter:'从蓄水池→潜在爆雷点'}},
+    {source:'美元指数', target:'CIPS vs SWIFT(补充非替代)', label:{formatter:'CIPS是补充不是替代'}},
+    {source:'M2货币空转(340万亿)', target:'新兴市场资本', label:{formatter:'中国支线联动'}}
+  ];
+
+  // 支持 ?highlight=美联储,黄金 动态高亮
+  var highlightNames = [];
+  try{
+    var qs = new URLSearchParams(location.search);
+    var h = qs.get('highlight');
+    if(h) highlightNames = h.split(',').map(function(s){return s.trim();});
+  }catch(e){}
+
+  var dataWithStyle = nodes.map(function(n){
+    var isH = highlightNames.indexOf(n.name) >= 0;
+    var style = {
+      symbolSize: isH ? n.symbolSize * 1.5 : n.symbolSize,
+      itemStyle: isH ? {
+        shadowBlur: 20,
+        shadowColor: '#d97706',
+        shadowOffsetX:0, shadowOffsetY:0,
+        borderColor:'#d97706', borderWidth:2
+      } : {}
+    };
+    return Object.assign({}, n, style);
+  });
+
+  var option = {
+    tooltip: {
+      formatter: function(p){
+        if(p.dataType==='edge') return p.data.source + ' → ' + p.data.target;
+        return p.data.name;
+      }
+    },
+    legend: [{
+      data: ['央行/货币类','大宗商品类','地缘政治类','市场/情绪类','中国宏观支线'],
+      bottom: 0, textStyle:{fontSize:12}
+    }],
+    series: [{
+      type: 'graph', layout: 'force', roam: true, draggable: true,
+      categories: [
+        {name:'央行/货币类', itemStyle:{color:CAT.CB}},
+        {name:'大宗商品类',   itemStyle:{color:CAT.CMD}},
+        {name:'地缘政治类',   itemStyle:{color:CAT.GEO}},
+        {name:'市场/情绪类',  itemStyle:{color:CAT.MKT}},
+        {name:'中国宏观支线', itemStyle:{color:CAT.CN}}
+      ],
+      data: dataWithStyle,
+      links: links,
+      force: { repulsion: 320, edgeLength: [80, 200], gravity: 0.08 },
+      label: { show: true, position: 'right', fontSize: 12, color: '#1f2937', fontWeight: 500 },
+      edgeSymbol: ['none','arrow'], edgeSymbolSize: 8,
+      lineStyle: { color: '#94a3b8', width: 1.4, curveness: 0.1 },
+      edgeLabel: {
+        show: true, fontSize: 10, color: '#7c4a03',
+        formatter: function(p){ return p.data.label ? p.data.label.formatter : ''; }
+      },
+      emphasis: { lineStyle: { width: 2.5 }, label: { fontSize: 13 } }
+    }]
+  };
+
+  myChart.setOption(option);
+  window.addEventListener('resize', function(){ myChart.resize(); });
+})();
+</script>
+
+</body>
+</html>
