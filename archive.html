@@ -20,16 +20,29 @@
   .stat b{color:var(--green);font-size:16px;}
   a.back{color:var(--teal);text-decoration:none;font-size:13px;}
   a.back:hover{text-decoration:underline;}
-  .day-card{background:#fff;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:16px 20px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
-  .day-card:hover{box-shadow:0 2px 8px rgba(0,0,0,0.06);}
-  .date{font-weight:700;color:var(--green);font-size:16px;min-width:110px;}
-  .title{flex:1;font-size:14px;}
-  .tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px;}
-  .tag{font-size:11px;background:var(--teal-soft);color:var(--teal);padding:2px 8px;border-radius:10px;}
-  .open{font-size:13px;color:#fff;background:var(--green);padding:6px 14px;border-radius:6px;text-decoration:none;white-space:nowrap;}
-  .open:hover{background:#163a2f;}
-  .latest{border-left-color:var(--amber);}
-  .latest-badge{display:inline-block;font-size:11px;background:var(--amber);color:#fff;padding:1px 8px;border-radius:8px;margin-left:8px;vertical-align:middle;}
+
+  .month-group{margin-bottom:12px;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+  .month-header{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;cursor:pointer;user-select:none;background:var(--green-soft);}
+  .month-header:hover{background:#dde9e3;}
+  .month-title{font-size:16px;font-weight:700;color:var(--green);margin-left:8px;}
+  .month-count{font-size:12px;color:var(--muted);background:#fff;padding:2px 10px;border-radius:10px;}
+  .chevron{transition:transform 0.2s;color:var(--green);font-size:12px;display:inline-block;}
+  .month-group.open .chevron{transform:rotate(90deg);}
+  .month-body{display:none;padding:8px 0;}
+  .month-group.open .month-body{display:block;}
+
+  .day-row{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;border-top:1px solid var(--line);gap:12px;flex-wrap:wrap;}
+  .day-row:first-child{border-top:none;}
+  .day-row:hover{background:#fafaf9;}
+  .date-badge{font-weight:700;color:var(--green);font-size:15px;min-width:90px;}
+  .day-title{flex:1;font-size:13px;}
+  .tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:3px;}
+  .tag{font-size:11px;background:var(--teal-soft);color:var(--teal);padding:1px 8px;border-radius:10px;}
+  .open-btn{font-size:12px;color:#fff;background:var(--green);padding:5px 12px;border-radius:6px;text-decoration:none;white-space:nowrap;}
+  .open-btn:hover{background:#163a2f;}
+  .latest-badge{display:inline-block;font-size:10px;background:var(--amber);color:#fff;padding:1px 6px;border-radius:8px;margin-left:6px;vertical-align:middle;}
+  .latest-row{background:#fffbeb;}
+
   footer{text-align:center;color:var(--muted);font-size:12px;margin-top:30px;padding-top:20px;border-top:1px dashed var(--line);}
 </style>
 </head>
@@ -37,11 +50,11 @@
 <header>
   <a class="back" href="./艾丽财经分析方法论_普通人知识图谱.html">← 返回主知识库（方法论+知识图谱）</a>
   <h1>📚 每日全球热点金融逻辑 · 归档</h1>
-  <p class="sub">按艾丽六步模板 + F1-G3 规范生成，每天一张卡片，保留全部历史，方便按日期回看。</p>
+  <p class="sub">按月份折叠，点月份标题展开/收起。和手机日历一样，按月归档，点日期进卡片。</p>
   <div class="stats">
     <div class="stat">📅 已更新 <b id="count">—</b> 天</div>
     <div class="stat">🔄 最近更新 <b id="latest">—</b></div>
-    <div class="stat">🎯 下次触发 <b>每日 07:45</b></div>
+    <div class="stat">🗂 月份数 <b id="months">—</b></div>
   </div>
 </header>
 
@@ -66,22 +79,50 @@ const cards = [
   {date:"2026-10-07", title:"加息预期崩了但长端不买账", tags:["加息预期","长端利率","鲍曼鹰派"]}
 ];
 
-const list = document.getElementById('list');
+const groups = {};
 cards.forEach((c,i)=>{
+  const [y,m] = c.date.split('-');
+  const key = `${y}年${parseInt(m)}月`;
+  if(!groups[key]) groups[key] = [];
+  groups[key].push({...c, isLatest: i===0});
+});
+
+const list = document.getElementById('list');
+const monthKeys = Object.keys(groups);
+monthKeys.forEach((key, idx)=>{
+  const items = groups[key];
   const div = document.createElement('div');
-  div.className = 'day-card' + (i===0?' latest':'');
+  div.className = 'month-group' + (idx===0?' open':'');
   div.innerHTML = `
-    <div class="date">${c.date}${i===0?'<span class="latest-badge">最新</span>':''}</div>
-    <div class="title">
-      ${c.title}
-      <div class="tags">${c.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+    <div class="month-header">
+      <div><span class="chevron">▶</span><span class="month-title">${key}</span></div>
+      <span class="month-count">${items.length} 天</span>
     </div>
-    <a class="open" href="./daily/${c.date}.html">打开 →</a>
+    <div class="month-body"></div>
   `;
+  const body = div.querySelector('.month-body');
+  items.forEach(c=>{
+    const row = document.createElement('div');
+    row.className = 'day-row' + (c.isLatest?' latest-row':'');
+    row.innerHTML = `
+      <div class="date-badge">${c.date.slice(5)}${c.isLatest?'<span class="latest-badge">最新</span>':''}</div>
+      <div class="day-title">
+        ${c.title}
+        <div class="tags">${c.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+      </div>
+      <a class="open-btn" href="./daily/${c.date}.html">打开 →</a>
+    `;
+    body.appendChild(row);
+  });
+  div.querySelector('.month-header').addEventListener('click', ()=>{
+    div.classList.toggle('open');
+  });
   list.appendChild(div);
 });
+
 document.getElementById('count').textContent = cards.length;
 document.getElementById('latest').textContent = cards[0].date;
+document.getElementById('months').textContent = monthKeys.length;
 </script>
 </body>
 </html>
