@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>2026-11-10 日更 · 美股一夜涨回2.7%，A股只涨0.32%——外面的恐慌退了，里面的钱没回来</title>
+<style>
+  :root{
+    --green:#1f4d3f;--green-soft:#e8f1ed;--teal:#0e7490;--teal-soft:#e0f2f7;
+    --amber:#d97706;--amber-soft:#fef3c7;--red:#b91c1c;--red-soft:#fee2e2;
+    --line:#e5e7eb;--muted:#6b7280;--card:#fafaf9;--bg:#f5f5f4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:#1f2937;line-height:1.7;padding:16px;max-width:860px;margin:0 auto;}
+  .daily-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:18px;box-shadow:0 1px 3px rgba(0,0,0,0.04);}
+  .daily-card-header{border-bottom:2px solid var(--line);padding-bottom:12px;margin-bottom:14px;}
+  .daily-date{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--green);padding:2px 12px;border-radius:10px;}
+  .daily-title{margin:10px 0 8px;font-size:20px;color:var(--green);line-height:1.4;}
+  .daily-symbols{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+  .symbol-chip{display:inline-block;font-size:12px;padding:3px 10px;border-radius:12px;background:var(--teal-soft);color:var(--teal);font-weight:500;}
+  .macro-snapshot{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0;}
+  .macro-snapshot th,.macro-snapshot td{border:1px solid var(--line);padding:5px 8px;text-align:center;}
+  .macro-snapshot th{background:var(--green-soft);color:var(--green);}
+  .market-pricing{background:var(--amber-soft);border-left:4px solid var(--amber);padding:10px 14px;border-radius:6px;font-size:13px;margin:10px 0;}
+  .street-signal{background:var(--green-soft);border-left:4px solid var(--green);padding:10px 14px;border-radius:6px;font-size:13px;margin:10px 0;}
+  .step{display:flex;flex-direction:column;gap:4px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:10px;border-left:4px solid;}
+  .step h4{margin:0;font-size:15px;color:var(--green);}
+  .step p{margin:0;font-size:14px;}
+  .step-1{border-left-color:#1f4d3f;}
+  .step-2{border-left-color:#d97706;}
+  .step-3{border-left-color:#ea580c;}
+  .step-4{border-left-color:#b91c1c;}
+  .step-5{border-left-color:#6d5a6d;}
+  .step-6{border-left-color:#475569;}
+  .tag-red{color:var(--red);font-weight:600;}
+  .tag-amber{color:var(--amber);font-weight:600;}
+  .tag-green{color:var(--green);font-weight:600;}
+  .footnote{font-size:12px;color:var(--muted);margin-top:14px;padding-top:10px;border-top:1px dashed var(--line);}
+  .back-link{font-size:13px;color:var(--teal);text-decoration:none;display:inline-block;margin-bottom:14px;}
+  .back-link:hover{text-decoration:underline;}
+  .prev-link{font-size:13px;color:var(--amber);text-decoration:none;display:inline-block;margin-bottom:14px;margin-left:10px;}
+  .watch{background:#fffbeb;border:1px dashed var(--amber);padding:10px 14px;border-radius:6px;font-size:13px;margin-top:10px;}
+  .right{background:#f0fdf4;border:1px dashed var(--green);padding:10px 14px;border-radius:6px;font-size:13px;margin-top:10px;}
+</style>
+</head>
+<body>
+<a class="back-link" href="../艾丽财经分析方法论_普通人知识图谱.html">← 返回主知识库</a>
+<a class="prev-link" href="./2026-11-09.html">上一交易日：非农16.5万 / A股时差税 →</a>
+
+<article class="daily-card" data-date="2026-11-10" data-symbols="纳指+2.74%,VIX-21.8%,上证+0.32%,1340只下跌,缩量1.48万亿,连板晋级率9.09%">
+  <header class="daily-card-header">
+    <span class="daily-date">2026-11-10 周二（早 05:30，A股未开盘）｜数据归属：11/09 周一收盘 + 11/09 隔夜美股</span>
+    <h2 class="daily-title">美股一夜涨回 2.7%，A股只涨 0.32%——外面的恐慌退了，里面的钱没回来</h2>
+    <div class="daily-symbols">
+      <span class="symbol-chip">纳指 +2.74%</span>
+      <span class="symbol-chip">VIX -21.8%</span>
+      <span class="symbol-chip">上证 +0.32%</span>
+      <span class="symbol-chip">1340 只下跌</span>
+      <span class="symbol-chip">缩量 1.48 万亿</span>
+      <span class="symbol-chip">连板晋级率 9.09%</span>
+    </div>
+  </header>
+
+  <table class="macro-snapshot">
+    <tr><th>指标</th><th>最新（11/09 收盘）</th><th>变动</th><th>指标</th><th>最新（11/09 收盘）</th><th>变动</th></tr>
+    <tr><td>上证指数</td><td>3660.79</td><td style="color:#1f4d3f">+0.32%</td><td>创业板指</td><td>2458.56</td><td style="color:#b91c1c">-0.27%</td></tr>
+    <tr><td>深证成指</td><td>11145.49</td><td style="color:#b91c1c">-0.27%</td><td>科创50</td><td>1256.96</td><td style="color:#1f4d3f">+0.30%</td></tr>
+    <tr><td>涨跌家数</td><td>919 涨 / 1340 跌</td><td style="color:#b91c1c">跌多涨少</td><td>两市成交</td><td>1.48 万亿</td><td style="color:#b91c1c">缩量约 1751 亿</td></tr>
+    <tr><td>涨停 / 跌停</td><td>54 / 2</td><td style="color:#1f4d3f">封板率 52.29%</td><td>最高连板</td><td>6 板</td><td style="color:#d97706">晋级率 9.09%</td></tr>
+    <tr><td>恒生指数</td><td>24448.95</td><td style="color:#b91c1c">-0.13%</td><td>道指</td><td>52389.75</td><td style="color:#1f4d3f">+2.15%</td></tr>
+    <tr><td>纳指</td><td>25253.14</td><td style="color:#1f4d3f">+2.74%</td><td>标普500</td><td>7549.94</td><td style="color:#1f4d3f">+2.35%</td></tr>
+    <tr><td>VIX</td><td>20.05</td><td style="color:#1f4d3f">-21.8%</td><td>美元指数</td><td>101.657</td><td style="color:#1f4d3f">-0.63%</td></tr>
+    <tr><td>美元兑日元</td><td>157.77</td><td style="color:#1f4d3f">前值 158.49</td><td>人民币中间价</td><td>6.7188</td><td style="color:#b91c1c">贬 20 基点</td></tr>
+    <tr><td>伦敦金现</td><td>4100 上方</td><td style="color:#1f4d3f">重回 4100</td><td>原油（WTI/布油）</td><td>待观察</td><td style="color:#1f4d3f">WTI 跌超 3%</td></tr>
+  </table>
+
+  <div class="right">
+    <strong>✅ 上一张卡片的验证（F2 兑现情况）</strong><br>
+    昨天（11/09）我的 F2 是：<strong>"A股开盘能否把上周五'按费半-10%打折、结果当晚费半+4.2%'这个时差错配修回来"</strong>。<br>
+    <strong>答案：修回来了，但只修了一半。</strong><br>
+    <strong>修回来的那一半</strong>：上证收 3660.79（<strong>+0.32%</strong>）、科创50 +0.30%，算力芯片确实反攻——燧原科技涨超 17%、寒武纪 +6.02%（851.21，成交 103.88 亿），PCB 概念震荡拉升（超声电子、奥士康涨停）。<strong>"A股上周五是错杀"这个判断，成立了。</strong><br>
+    <strong>没修回来的那一半</strong>：创业板 2458.56（<strong>-0.27%</strong>）、深成指 -0.27%，<strong>上涨 919 家 vs 下跌 1340 家</strong>，成交从 16577.9 亿继续缩到 <strong>1.48 万亿</strong>（又少 1751 亿）。<strong>所以"补涨"是真的，但"补"的是指数，不是你的账户。</strong>
+  </div>
+
+  <div class="market-pricing">
+    <strong>📊 市场当前定价（F1）</strong>：现在 price in 了"CPI 之前不动手"。证据是三条一起看：<strong>①成交三天连缩</strong>（11/05 的 21179 亿 → 11/06 的 16578 亿 → 11/09 的 14826 亿，累计缩掉 6353 亿）；<strong>②连板晋级率 9.09%</strong>（11/06 还有 33.33%，一夜腰斩），三连板及以上只剩 1 只，说明接力资金集体停手；<strong>③指数靠权重撑</strong>——煤炭（郑州煤电、云煤能源涨停）、银行这类"低估值、高股息"在买，题材股在被卖。市场同时在定价两件相反的事：<strong>外面（美股）已经把衰退和监管恐慌全部删掉</strong>（VIX 从 25.64 砸到 20.05、纳指 +2.74%），<strong>里面（A股）却在等 11/10 的 CPI</strong>，不敢加仓。<strong>证伪条件</strong>：CPI 低于预期 → 加息的叙事松一格，被压着的成长股有修复空间，A股这三天的缩量就是"等消息"而不是"撤离"；CPI 再超预期 → 11/06 那天的杀估值会重演一遍，而且这次不能再指望"美股超跌反弹"来救，因为美股已经不超跌了。
+  </div>
+
+  <div class="street-signal">
+    <strong>🏪 街角信号（G1）</strong>：今日有三条真的变化。<strong>①油价大跌</strong>——WTI 单日跌超 3%、布油基金跌约 5.3%（伊朗战事外交斡旋推进），国内成品油下一轮调价的下调窗口明显变宽，这对开车通勤的人是实在的省。<strong>②黄金重回 4100 美元上方</strong>——金店挂牌价会跟着上抬，但这也意味着<strong>黄金回收价同步走高</strong>，手里有旧金饰想出手的，这几天的报价比上周好。<strong>③冰雪经济在街头真的热了</strong>——龙江交通 8 天 4 板、晶雪节能 20CM 涨停、冰山冷热走强。这不是纯炒作：滑雪场、冷库、制冰设备在冬季是有真订单的，而且它属于"几百块的平价快乐"，正好是消费降级期的典型受益项。<strong>其余（方便面/折扣零售/5万以下新车/劳务工价）今日无显著变化，不硬凑。</strong>
+  </div>
+
+  <div class="daily-body">
+    <div class="step step-1">
+      <h4>① 事件表象</h4>
+      <p>昨天（11/09 周一）出现了<strong>两个方向完全相反的"红"</strong>：<br>
+      <strong>外面是普涨的红</strong>：道指 52389.75（+2.15%，+1102.84）、<strong>纳指 25253.14（+2.74%，+673.72）</strong>、标普 7549.94（+2.35%，+173.08），<strong>VIX 从 25.64 砸到 20.05（-21.8%）</strong>，美元指数回落到 101.657（-0.63%），黄金重回 4100 上方。这是"恐慌全退"的样子。<br>
+      <strong>里面是勉强的红</strong>：上证 3660.79（<strong>+0.32%</strong>，只涨 11.61 点），但<strong>创业板 2458.56（-0.27%）、深成指 11145.49（-0.27%）都是绿的</strong>；全市场<strong>上涨 919 家、下跌 1340 家</strong>；成交<strong>1.48 万亿</strong>（又缩 1751 亿）；<strong>54 只涨停、2 只跌停、封板率 52.29%、连板晋级率 9.09%</strong>。<br>
+      <strong>盘面是"防守接棒"</strong>：煤炭（郑州煤电、云煤能源涨停）、覆铜板、PCB、机器人（华培动力、日盈电子、金固股份）、冰雪旅游在涨；<strong>光伏高开低走</strong>（阳光电源、隆基绿能下挫）、能源金属走低。</p>
+    </div>
+
+    <div class="step step-2">
+      <h4>② 直接影响（勾变量）</h4>
+      <p>同时激活：<strong>纳指+2.74%</strong>、<strong>VIX-21.8%</strong>、<strong>上证+0.32%</strong>、<strong>1340只下跌</strong>、<strong>缩量1.48万亿</strong>、<strong>连板晋级率9.09%</strong>。</p>
+    </div>
+
+    <div class="step step-3">
+      <h4>③ 连锁传导（顺图走3跳）</h4>
+      <p><strong>第一跳（外面的恐慌为什么退得这么快）</strong>：上周五那波砸盘，是"民主党控两院 + 数据中心审批放缓"的恐慌，加上非农把降息预期打死。周末这两天，两件事同时被重新定价：<strong>①油价跌了（伊朗战事外交斡旋推进，WTI 跌超 3%）</strong>——能源是通胀的源头，油价跌等于给 CPI 让路，市场马上把"通胀失控"的剧本收回去了；<strong>②超跌的芯片股被捡了</strong>（dip buyers 进场买被打压的芯片和 AI 基础设施，Mag7 全线跟涨）。于是 VIX 一天跌 21.8%——<strong>这不是"情绪修复"，是"空头平仓踩踏"</strong>，恐慌盘自己踩自己。<br>
+      <strong>第二跳（A股为什么只涨 0.32%）</strong>：因为 A股昨天涨的,是"<strong>权重</strong>"，不是"<strong>人气</strong>"。煤炭、银行、两桶油这类低估值高股息在买——它们的逻辑跟美股芯片完全无关，是纯粹的"避险 + 分红"。而真正跟隔夜美股挂钩的算力链（燧原 +17%、寒武纪 +6%、PCB），涨了，但<strong>没有把人气带起来</strong>：连板晋级率 9.09%、三连板以上只剩 1 只、成交再缩 1751 亿。<strong>说白了：贵的东西在涨，便宜的人气在死。</strong><br>
+      <strong>第三跳（钱到底去哪了）</strong>：三天缩量 6353 亿，这不是"撤退"的量级，是"<strong>集体停手</strong>"的量级——大家在等 11/10 的 CPI。谁都不愿意在数据公布前一天押方向，尤其是上周刚被"非农 + 费半"来回打脸两次。<strong>所以现在的市场不是没方向，是不肯先下注。</strong><br>
+      <strong>📌 交易拥挤度（F4）</strong>：现在最拥挤的位置是"<strong>防守型高股息</strong>"——煤炭、银行这类，因为所有人都往这儿躲。拥挤的坏处是：一旦 CPI 温和、成长股可以打了，这批防守仓位会面临"资金回流成长"的反向挤压，涨得动但涨不快。另一头，"算力题材"的拥挤度已经从极热降到中性（连板晋级率 9.09% 就是证据，接力的人跑光了），<strong>边际买盘跟不上的不是权重，是题材</strong>。<br>
+      <strong>🧊 最先被冻住的是谁（G3）</strong>：连板晋级率从 33.33% 掉到 9.09%，最先被冻住的就是<strong>打板资金和追连板的散户</strong>——上周五 11 只连板股里只有 1 只晋级成功，其余全断。往现实里对：这类"日内博弈"的钱，背后是券商营业部的短线账户；而这批人一旦连续两周被打脸，会直接缩手，<strong>缩手之后最难的不是他们，是靠成交量吃饭的整个链条</strong>——从营业部的佣金，到"看盘吃饭"的自媒体，到每天靠热度选题的内容号。</p>
+    </div>
+
+    <div class="step step-4">
+      <h4>④ 深层目的（操盘手四象限倒推）</h4>
+      <p><span class="tag-amber">"缩量"这件事现在是在给谁看</span>：1.48 万亿是这三天的地量，它传递的信息不是"没钱"，是"<strong>没人愿意先动</strong>"。在 CPI 前一天维持地量，对多方和空方都是最优解：多方不动，就不会在数据出来前被打脸；空方不动，就不会在数据出来前被逼空。<strong>深层：这轮不是在"等方向"，是在"等定价权交接"</strong>——上周是美联储（非农）在定价，这周是 CPI 在定价。中间这段真空期，谁动谁吃亏。<br>
+      <span class="tag-red">📌 没被头条报道的那个数字（H1）</span>：头条昨天会喊"沪指三连阳/微涨 0.32%、算力芯片强势反攻"。<strong>头条没说的是三个数</strong>：<strong>①下跌 1340 家 vs 上涨 919 家</strong>——指数是红的，多数账户是绿的；<strong>②连板晋级率 9.09%，比上周五的 33.33% 直接腰斩再腰斩</strong>，三连板及以上只剩 1 只；<strong>③成交第三天缩量，累计缩掉 6353 亿</strong>。还有一个：<strong>VIX 一天跌 21.8%，但纳指成交额并没有比前一日放大</strong>——这说明美股那 2.74% 更多是空头回补，不是新增买盘进场，跟 A股"人气接不上"是同一件事的两面。<br>
+      <span class="tag-red">正反面（F5）</span>：<strong>什么情况下"A股只是滞后、还会补"</strong>：①今晚 CPI 低于预期，加息叙事松掉，分母压力解除，被压的成长股能修复；②成交重新回到 1.7 万亿以上，说明买盘真回来了；③连板晋级率回到 20% 以上，人气接上。以上三条缺一条，就是"只补指数不补账户"。<strong>什么情况下"A股是资金真撤、不是等消息"</strong>：①CPI 再超预期，加息落地，11/06 的杀估值重演；②成交继续缩到 1.3 万亿以下；③上证的红靠煤炭银行撑到第三周——<strong>防守板块连涨三周，通常不是"稳"，是"没人敢买别的"</strong>。</p>
+    </div>
+
+    <div class="step step-5">
+      <h4>⑤ 时间窗口（验证/证伪节点）</h4>
+      <p><strong>今天 11/10（周二）09:30</strong>：A股能否把成交从 1.48 万亿拉回来——<strong>不要求涨，只要求放量</strong>，量不起来说明还在等（<strong>尚未发生，待观察</strong>）。<br>
+      <strong>今晚 11/10 21:30</strong>：<strong>美国 10 月 CPI</strong>——12 月 8-9 日议息会议前<strong>最后一份通胀读数</strong>，全周唯一的真变量。<br>
+      <strong>11/13（周五）</strong>：美国 10 月 PPI，看通胀有没有从上游往下游传。<br>
+      <strong>12/8-9</strong>：FOMC，加息与否的真方向。<br>
+      <strong>2027 年 1 月</strong>：民主党正式就位，AI 监管从口号变法案（慢变量的兑现点，不是今年的变量）。</p>
+    </div>
+
+    <div class="step step-6">
+      <h4>⑥ 普通人影响（四档分档）</h4>
+      <p>💰 <strong>你的钱包</strong>：<strong>油价这头明确变好了</strong>——WTI 单日跌超 3%、布油基金跌 5.3%，国内成品油下一轮调价的下调空间比上周明显变宽，开车通勤的每月油钱能省一点。<strong>黄金这头是反向的</strong>——金价重回 4100 上方，金店挂牌价上抬，但回收价也同步走高，家里有旧金饰想变现的，现在报价比上周好；想买金饰的，等回调别追高。房贷这块今天没有新变化，LPR 要等 11 月下旬的报价窗口。<br>
+      📈 <strong>你的资产（按风险承受力分四档）</strong>：<br>
+      · <strong>保守型</strong>（存款/国债/银行高股息）：<strong>这档这两天最舒服</strong>——上证那 0.32% 的红，主要就是这类资产撑的；CPI 出来前，钱放这儿既不吃亏也不心慌。<br>
+      · <strong>稳健型</strong>（+黄金）：<strong>短期顺风</strong>——金价重回 4100、美元回落 0.63%，两个方向都对黄金有利；但要注意这是"避险+降息预期"给的，CPI 若超预期会立刻回吐。<br>
+      · <strong>平衡型</strong>（+A股宽基/沪深300）：<strong>这档最能看清真相</strong>——昨天上证红、创业板绿，宽基夹在中间不涨不跌；它的好处是"跌的时候比题材少跌"，坏处是"涨的时候也比题材少涨"，CPI 前它就是"不动"的代名词。<br>
+      · <strong>积极型</strong>（+创业板/科创/算力/纳指/港股科技）：<strong>这档昨天最分裂</strong>——纳指一夜 +2.74%，A股算力（燧原 +17%、寒武纪 +6%）确实跟了，但创业板整体还是绿的、成交还在缩。<strong>说明这不是"反转"，是"反弹"</strong>：外面给的力，里面只接到一半。今晚 CPI 就是这档的分水岭。<br>
+      🧊 <strong>对照自己（G3）</strong>：如果你昨天看到"美股大涨"就以为 A股会跟，收盘发现账户还是绿的——<strong>这不是你判断错了，是 A股这轮涨的东西和你的持仓不是同一批</strong>。指数红的是煤炭银行，你手里多半是算力题材。记住这句：<strong>指数红≠账户红，尤其在缩量的时候。</strong></p>
+    </div>
+  </div>
+
+  <div class="watch">
+    <strong>🎯 今日唯一要盯的（F2）</strong>：<strong>今晚 21:30 美国 10 月 CPI</strong>——12 月议息会议前最后一份通胀读数。看两个方向：<strong>核心 CPI 同比若低于预期</strong>，"12 月加息"这条叙事会松一格，A股这三天的缩量就是"等消息"而非"撤离"，被压的成长股有修复空间；<strong>若再超预期</strong>，11/06 那天的杀估值会重演，且这次没有"美股超跌反弹"可以借力，因为美股已经不超跌了。次要看点是今天 09:30 A股成交能否从 1.48 万亿回到 1.7 万亿以上。
+  </div>
+
+  <div class="footnote">
+    数据来源：同花顺/Wind/深交所/央广网/证券时报·数据宝/财联社/东方财富/新华网/中国银行（2026-11-10 05:30 CST 拉取，A股当日未开盘，数据归属 11/09 周一收盘 + 11/09 隔夜美股收盘）。<br>
+    本卡片按艾丽六步模板+F1-F5+G1-G3+H1-H2 规范生成，仅为思维框架演示，不构成任何投资建议。<br>
+    ⚠️ 表针怀疑（G2）：①"上证 +0.32%、三连阳"要问一句——<strong>涨跌家数是 919:1340，这个红是权重撑的，不是普涨</strong>，单看指数会误判体感；②"54 只涨停"有口径差（证券时报口径为封死涨停 57 只、封板率 52.29%；财联社/东财口径 54 只、封板率 55%），封板未遂 44–52 只，我取证券时报口径；③成交额 1.48 万亿是沪 6825.33 亿 + 深 8000.81 亿加总，与部分媒体口径的"1.48 万亿"一致，但深市含创业板口径差异需注意；④"油价大跌"我用的是 WTI 单日跌超 3% 与布油基金 -5.3% 两个侧证，<strong>11/09 布油与 WTI 的精确收盘价未取到，标"待观察"</strong>，未用 11/06 的旧值冒充；⑤伦敦金"4100 上方"来自证券时报标题，<strong>精确收盘点位待确认</strong>；⑥美股涨跌额存在两源差异（纳指同花顺涨跌额 671.13、新浪 673.71），我按收盘点位 25253.14 与前收 24579.42 反算为 +673.72 / +2.74%，采用反算值。<br>
+    📌 本卡已回避引用"参议院通过临时拨款法案结束政府停摆"一类消息——检索到的相关稿件发布时间为 2025 年 11 月，属旧闻，不作为 2026-11-09 的当日事件使用。
+  </div>
+</article>
+</body>
+</html>
