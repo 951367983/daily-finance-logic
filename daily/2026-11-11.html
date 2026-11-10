@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>2026-11-11 日更 · CPI从0.6%降到0.4%，市场却在讨论加息50个基点</title>
+<style>
+  :root{
+    --green:#1f4d3f;--green-soft:#e8f1ed;--teal:#0e7490;--teal-soft:#e0f2f7;
+    --amber:#d97706;--amber-soft:#fef3c7;--red:#b91c1c;--red-soft:#fee2e2;
+    --line:#e5e7eb;--muted:#6b7280;--card:#fafaf9;--bg:#f5f5f4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:#1f2937;line-height:1.7;padding:16px;max-width:860px;margin:0 auto;}
+  .daily-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:18px;box-shadow:0 1px 3px rgba(0,0,0,0.04);}
+  .daily-card-header{border-bottom:2px solid var(--line);padding-bottom:12px;margin-bottom:14px;}
+  .daily-date{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--green);padding:2px 12px;border-radius:10px;}
+  .daily-title{margin:10px 0 8px;font-size:20px;color:var(--green);line-height:1.4;}
+  .daily-symbols{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+  .symbol-chip{display:inline-block;font-size:12px;padding:3px 10px;border-radius:12px;background:var(--teal-soft);color:var(--teal);font-weight:500;}
+  .macro-snapshot{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0;}
+  .macro-snapshot th,.macro-snapshot td{border:1px solid var(--line);padding:5px 8px;text-align:center;}
+  .macro-snapshot th{background:var(--green-soft);color:var(--green);}
+  .market-pricing{background:var(--amber-soft);border-left:4px solid var(--amber);padding:10px 14px;border-radius:6px;font-size:13px;margin:10px 0;}
+  .street-signal{background:var(--green-soft);border-left:4px solid var(--green);padding:10px 14px;border-radius:6px;font-size:13px;margin:10px 0;}
+  .inflation-box{background:#fdf6ec;border:1px solid var(--amber);border-radius:8px;padding:14px 16px;margin:12px 0;}
+  .inflation-box h3{font-size:16px;color:var(--red);margin-bottom:10px;padding-left:0;}
+  .inflation-box .q{font-size:14px;margin-bottom:10px;}
+  .inflation-box .q b{color:var(--green);}
+  .step{display:flex;flex-direction:column;gap:4px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:10px;border-left:4px solid;}
+  .step h4{margin:0;font-size:15px;color:var(--green);}
+  .step p{margin:0;font-size:14px;}
+  .step-1{border-left-color:#1f4d3f;}
+  .step-2{border-left-color:#d97706;}
+  .step-3{border-left-color:#ea580c;}
+  .step-4{border-left-color:#b91c1c;}
+  .step-5{border-left-color:#6d5a6d;}
+  .step-6{border-left-color:#475569;}
+  .tag-red{color:var(--red);font-weight:600;}
+  .tag-amber{color:var(--amber);font-weight:600;}
+  .tag-green{color:var(--green);font-weight:600;}
+  .footnote{font-size:12px;color:var(--muted);margin-top:14px;padding-top:10px;border-top:1px dashed var(--line);}
+  .back-link{font-size:13px;color:var(--teal);text-decoration:none;display:inline-block;margin-bottom:14px;}
+  .back-link:hover{text-decoration:underline;}
+  .prev-link{font-size:13px;color:var(--amber);text-decoration:none;display:inline-block;margin-bottom:14px;margin-left:10px;}
+  .watch{background:#fffbeb;border:1px dashed var(--amber);padding:10px 14px;border-radius:6px;font-size:13px;margin-top:10px;}
+</style>
+</head>
+<body>
+<a class="back-link" href="../艾丽财经分析方法论_普通人知识图谱.html">← 返回主知识库</a>
+<a class="prev-link" href="./2026-11-10.html">上一交易日：美股涨2.74% / A股只涨0.32% →</a>
+
+<article class="daily-card" data-date="2026-11-11" data-symbols="CPI环比+0.4%,核心CPI连续3月0.3%,美债破5.012%,英伟达-5%,上证+0.08%,A股95只涨停,成交1.50万亿">
+  <header class="daily-card-header">
+    <span class="daily-date">2026-11-11 周三（早 05:30，A股未开盘）｜数据归属：11/10 周二 A股收盘 + 11/10 美东美股收盘</span>
+    <h2 class="daily-title">CPI 从 0.6% 降到 0.4%，市场却在讨论加息 50 个基点</h2>
+    <div class="daily-symbols">
+      <span class="symbol-chip">CPI 环比 +0.4%</span>
+      <span class="symbol-chip">核心 CPI 连续 3 月 +0.3%</span>
+      <span class="symbol-chip">美债盘中破 5.012%</span>
+      <span class="symbol-chip">英伟达 -5%</span>
+      <span class="symbol-chip">上证 +0.08%</span>
+      <span class="symbol-chip">A股 95 只涨停</span>
+      <span class="symbol-chip">成交 1.50 万亿</span>
+    </div>
+  </header>
+
+  <table class="macro-snapshot">
+    <thead>
+      <tr><th>指标</th><th>最新值</th><th>变化</th><th>数据归属</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>美国10月CPI（环比）</td><td>+0.4%</td><td class="tag-red">预期 +0.3%，前值 +0.6%</td><td>11/10 21:30 公布</td></tr>
+      <tr><td>美国10月核心CPI（环比）</td><td>+0.3%</td><td class="tag-red">预期 +0.2%，连续 3 个月 0.3%</td><td>11/10 公布</td></tr>
+      <tr><td>美债10年期收益率</td><td>盘中 5.012%</td><td class="tag-red">+12BP（11/09 收 4.868%）</td><td>11/10 美东盘中</td></tr>
+      <tr><td>美元指数</td><td>102.230</td><td class="tag-red">+0.56%</td><td>11/10 纽约尾市</td></tr>
+      <tr><td>美元兑日元</td><td>158.78</td><td>前值 157.77</td><td>11/10 纽约尾市</td></tr>
+      <tr><td>人民币中间价</td><td>6.7167</td><td class="tag-green">升值 21 基点</td><td>11/10 外汇交易中心</td></tr>
+      <tr><td>纳斯达克</td><td>25065.87</td><td class="tag-red">-0.74%</td><td>11/10 美东收盘</td></tr>
+      <tr><td>标普500</td><td>7520.93</td><td class="tag-red">-0.38%</td><td>11/10 美东收盘</td></tr>
+      <tr><td>道琼斯</td><td>52231.89</td><td class="tag-red">-0.30%</td><td>11/10 美东收盘</td></tr>
+      <tr><td>上证指数</td><td>3663.72</td><td class="tag-green">+0.08%</td><td>11/10 A股收盘</td></tr>
+      <tr><td>深证成指</td><td>11241.54</td><td class="tag-green">+0.86%</td><td>11/10 A股收盘</td></tr>
+      <tr><td>创业板指</td><td>2494.40</td><td class="tag-green">+1.46%</td><td>11/10 A股收盘</td></tr>
+      <tr><td>两市成交额</td><td>15048 亿</td><td class="tag-green">放量 222 亿</td><td>11/10 A股收盘</td></tr>
+      <tr><td>涨跌家数</td><td>4273 涨 / 1149 跌</td><td class="tag-green">95 涨停 / 0 跌停</td><td>11/10 A股收盘</td></tr>
+      <tr><td>恒生指数</td><td>24557.04</td><td class="tag-green">+0.44%</td><td>11/10 港股收盘</td></tr>
+      <tr><td>WTI 原油</td><td>86.30 美元</td><td>-0.64%（前收 86.85）</td><td>11/10 收盘</td></tr>
+      <tr><td>布伦特原油</td><td>92.20 美元</td><td>11/09 收盘；11/10 盘中一度跌破 90</td><td>11/09 收 / 11/10 待确认</td></tr>
+      <tr><td>伦敦金现</td><td>盘中 4099</td><td class="tag-red">日内跌约 1%（11/09 收 4140.93）</td><td>11/10 盘中，收盘待确认</td></tr>
+      <tr><td>VIX</td><td>19.92</td><td class="tag-green">-22.31%（前收 25.64）</td><td>11/09 收盘（最新可得）</td></tr>
+    </tbody>
+  </table>
+
+  <div class="market-pricing">
+    <strong>① 市场当前定价（F1）</strong>：现在 <strong>price in 了“12 月加息”</strong>——不是“可能加”，而是“几成定局”，并且已经有资金在 price in “加 50 个基点”这个更狠的版本。<br>
+    证据：美债 10 年期盘中直接破 5.012%、美元指数单日 +0.56% 冲到 102.23、黄金跳水 1%、纳指转跌、英伟达跌超 5%——这是典型的“贴现率上升、长久期资产先挨打”的定价方式。<br>
+    <strong>证伪条件</strong>：①如果 12 月议息会议最终只加 25 个基点、或干脆不动，这套定价要原地回吐；②如果 11 月 CPI 环比掉回 0.2% 以下，加息叙事立刻松一格；③如果就业数据突然转弱（比如新增就业大幅低于预期），美联储会被迫收手。<strong>这三个里出现任何一个，今天的跌法都要反着看。</strong>
+  </div>
+
+  <div class="street-signal">
+    <strong>② 街角信号（G1）</strong>：<strong>今日无显著街角信号变化</strong>——方便面/折扣零售/5 万以下新车/劳务工价/黄金回收这五个体温计，今天没有可靠的当日新增数据，不硬凑。<br>
+    <strong>唯一可以顺着油价说一句的</strong>：WTI 11/10 收 86.30、布油盘中一度跌破 90，国际油价连续两日走低，国内成品油下一轮调价（窗口在 11 月下旬）<strong>下调的方向更稳了一点</strong>——这对每天开车通勤的人是真金白银，对跑网约车、跑物流的师傅是直接的日成本。但调价要等窗口，不是今天生效。
+  </div>
+
+  <div class="inflation-box">
+    <h3>③ 通胀三问（I1，今日重点）</h3>
+    <p class="q"><b>第一问：一次性还是粘性？——粘性，而且是“表面降温、内核不退”。</b><br>
+    看三个证据：<strong>①商品与服务分项背离</strong>：能源涨幅显著回落（外源在降温），但住房项环比仍 +0.3%、占当月涨幅 30% 以上，餐饮等服务仍有韧性——<strong>商品在退、服务不退，这是粘性的典型形态</strong>。<strong>②连续性</strong>：核心 CPI 8 月、9 月、10 月连续三个月环比 +0.3%，一条平线，没有向下拐。<strong>③同比与环比背离这条今天用不了</strong>——因为 2025 年 10 月美国政府停摆、劳工统计局没采到当月数据，<strong>这份报告根本没公布同比</strong>。这是今天最要命的一点：判断通胀趋势最重要的一根线直接缺席，市场只能拿环比做文章，而环比恰恰最容易被单月扰动带跑。</p>
+    <p class="q"><b>第二问：内源还是外源？——内源为主，外源在帮忙。</b><br>
+    住房、服务、工资这条链是国内需求侧自己推的，属于内源；能源和大宗这两块是输入型，现在在<strong>反向帮忙</strong>（油价连跌）。所以这一轮通胀的真实结构是：<strong>外面的便宜送进来了，里面的贵退不下去</strong>。判断依据也对得上：涨价集中在住房、餐饮这类不可贸易的服务品，而不是集中在进口商品上——如果涨价集中在可贸易品，那是汇率和关税的问题；现在集中在服务，那就是工资和租金的问题。</p>
+    <p class="q"><b>第三问：危害在哪？分三层看。</b><br>
+    <strong>对政策</strong>：这是最直接的一层——粘性 + 内源，意味着<strong>降息的空间被堵死了，甚至要反向往上加</strong>。沃勒已经放话 12 月可能加 50 个基点，美债盘中破 5% 就是市场在给这个可能性定价。换句话说，这一轮不是“通胀让央行难受”，是“通胀让央行只能更紧”。<br>
+    <strong>对企业</strong>：外源涨价（油价）对企业是<strong>挤压毛利</strong>，因为成本转嫁不出去；而利率上升对<strong>长久期资产</strong>是直接杀估值。两件事同时发生：英伟达 -5%、纳指 -0.74%，就是“贴现率上升”最标准的受伤方式。反过来，银行、能源这类短久期、现金流靠前的资产反而抗跌。<br>
+    <strong>对普通人</strong>：两股力方向相反，别只看一边。<br>
+    · <strong>坏的一边</strong>：美元走强 → 进口商品、海外代购、出国成本往上；美债利率高企 → 全球资金成本抬升，最终会传导到国内的房贷和企业融资环境（虽然国内 LPR 要等 11 月下旬报价才见分晓）。<br>
+    · <strong>好的一边</strong>：油价跌 → 成品油下一轮调价有下调空间，开车、跑运输的成本下降。<br>
+    · <strong>具体到“哪类支出先涨”</strong>：这轮涨价最先动的是<strong>住（房租）和吃（餐饮服务）</strong>，这两项砍不掉；而汽油这项在跌。<strong>所以体感会分裂——你觉得加油便宜了，但房租和外卖没便宜</strong>，而后者在你支出里的占比更硬。<br>
+    · 一个缓冲：人民币中间价 6.7167，在美元单日涨 0.56% 的情况下还<strong>升值了 21 个基点</strong>，说明人民币这头暂时扛住了，输入型压力没有立刻放大。</p>
+  </div>
+
+  <div>
+    <div class="step step-1">
+      <h4>④ 事件表象</h4>
+      <p>美国 10 月 CPI 出来了：<strong>环比 +0.4%，比 9 月的 +0.6% 明显回落</strong>。头条的写法基本都是“通胀降温”“涨幅收窄”“压力缓解”。如果只看这一个数，结论很清楚：通胀在退。</p>
+    </div>
+
+    <div class="step step-2">
+      <h4>⑤ 直接影响</h4>
+      <p>但市场的反应是反的：<strong>美债 10 年期收益率盘中升破 5.012%（+12BP）、美元指数涨 0.56%、现货黄金日内跌 1%、纳指转跌 0.74%、英伟达跌超 5%</strong>。<br>
+      原因就一个字：<strong>核心</strong>。整体 CPI 从 0.6% 降到 0.4%，可<strong>核心 CPI 环比 +0.3%，高于预期的 0.2%，而且是连续第三个月 0.3%</strong>。市场看的不是你降了多少，是“该降的那部分降没降”。核心没降，就意味着<strong>降息要往后推</strong>。</p>
+    </div>
+
+    <div class="step step-3">
+      <h4>⑥ 连锁传导</h4>
+      <p><strong>第一条链（全球定价）</strong>：核心 CPI 超预期 → 12 月加息预期升温 → 美债收益率破 5% → 全球资产的“贴现率”抬高 → <strong>越靠远期赚钱的资产越先挨打</strong>（AI、成长股、长久期科技）。英伟达跌超 5%、纳指跌 0.74% 走的就是这条链。<br>
+      <strong>第二条链（美元与资金流）</strong>：美元走强 → 新兴市场资金流出压力上升 → 港股、A股的外资边际买盘受抑制。但 11/10 港股恒指还涨了 0.44%，A股更是普涨——<strong>说明这条链今天没走通，或者说被别的力量对冲了</strong>。<br>
+      <strong>第三条链（A股的“时差”）</strong>：这是今天最有意思的地方。<strong>美股在跌，A股在涨</strong>。上证 +0.08%、深成 +0.86%、创业板 +1.46%，4273 只上涨、95 只涨停、0 只跌停，成交放大到 1.50 万亿。<strong>A股走的是自己的节奏，不是美股的影子</strong>：昨天 A股被 CPI 压着等消息（缩量三天），今天消息落地、虽然利空但“靴子掉了”，资金反而敢动了。<br>
+      <strong class="tag-amber">交易拥挤度观察（F4）</strong>：钱在<strong>换方向，不是加总量</strong>。11/10 领涨的是 AI 短剧、物理 AI、光通信、存储器、房地产、汽车；领跌的是油气开采、煤炭开采、港口航运、保险。<strong>这是典型的“从防守搬到进攻”</strong>——前期撑着指数的煤炭、油气、保险被卖，钱流向了题材端。所以拥挤度上升在<strong>题材这一侧</strong>（AI 应用），而防守端在松动。这种切换往往先涨得热闹、后劲看能不能持续放量。<br>
+      <strong class="tag-red">这一轮收缩，最先被冻住的是哪类人（G3）</strong>：不是国内的日结工，而是<strong>跟美元利率、跟出口绑在一起的那批</strong>——做外贸的中小厂（美元强、海外需求被高利率压着）、靠美元债融资的行业（融资成本直接上抬）、以及出口链上的流水线工人。国内这头，油价跌反而是缓冲，跑运输的先受益。<strong>同一件事，在不同的人身上是相反的。</strong></p>
+    </div>
+
+    <div class="step step-4">
+      <h4>⑦ 深层目的（含 H1：头条没说的那个数字）</h4>
+      <p><strong>H1 —— 头条都在喊“CPI 0.4%，低于前值 0.6%，通胀降温”，头条没说的是两件事：</strong><br>
+      <strong>第一件：核心 CPI 连续三个月 0.3%，一条平线。</strong>0.3% 乘以 12，年化就是 3.6% 左右，离 2% 的目标差得很远。<strong>“降温”是整体数字给的假象，核心根本没动。</strong><br>
+      <strong>第二件，更少人提：这份报告没有同比数据。</strong>因为 2025 年 10 月美国政府停摆，劳工统计局没采到当月物价数据，所以这次的同比算不出来、直接不公布。这意味着<strong>市场判断“通胀趋势”最常用的那根线，今天缺席了</strong>，所有人只能拿环比说事——而环比最容易被单月扰动带偏。换句话说，<strong>今天这场“超预期”的讨论，是在一个缺了一条腿的数据上做的</strong>。<br>
+      <strong>再往里一层（深层目的）</strong>：美联储现在的处境是“两边都不能错”。通胀没退，它不敢松；但利率已经到 5% 附近，再往上加，企业和政府的付息压力都在顶。所以它选择的是<strong>“放话比动手狠”</strong>——沃勒说 12 月可能加 50 个基点，先把预期压住，让市场自己收紧，真到会上再视情况打折。<strong>用嘴代替手，是这一轮美联储最典型的手法。</strong>对市场的含义是：<strong>波动会集中在“官员讲话”和“数据公布”这两个时点，而不是在真正的议息会议当天。</strong></p>
+    </div>
+
+    <div class="step step-5">
+      <h4>⑧ 时间窗口</h4>
+      <p><strong>11/13（本周五）</strong>：美国 10 月 PPI——生产端价格，是 CPI 的上游印证。若 PPI 也超预期，加息叙事会更硬。<br>
+      <strong>11 月下旬</strong>：国内 LPR 报价窗口，看房贷这头有没有变化。<br>
+      <strong>12 月 8-9 日</strong>：美联储议息会议，这是本轮定价的“判决日”。<br>
+      <strong>12 月中</strong>：11 月 CPI——如果这次同比数据能恢复公布，那才是真正能判断趋势的一份。<br>
+      <strong>短期（今天到本周五）</strong>：A股能不能把这 1.50 万亿的放量延续下去，是这轮“题材接棒”成不成立的关键。</p>
+    </div>
+
+    <div class="step step-6">
+      <h4>⑨ 普通人影响（四档分档 + 钱包）</h4>
+      <p>💰 <strong>你的钱包</strong>：<strong>两股力在打架，你要分清哪股更贴自己。</strong><br>
+      · <strong>油价这头是好的</strong>：WTI 收 86.30、布油盘中一度跌破 90，国内成品油下一轮调价下调的方向更稳。开车通勤的、跑网约车和物流的，这个月能省一点。<br>
+      · <strong>利率这头是紧的</strong>：美债破 5%，虽然国内房贷利率由 LPR 决定、不是直接跟着美债走，但全球资金成本抬升最终会传导——11 月下旬 LPR 报价是第一个观察点。<br>
+      · <strong>汇率这头暂时稳</strong>：人民币中间价 6.7167、还升值了 21 个基点，进口商品暂时没被推贵，出国换汇的成本没恶化。<br>
+      · <strong>房租和餐饮是硬支出</strong>：美国住房项涨 0.3% 是它的事，但国内房价租金这头今天没有新数据，别把美国的房租涨价直接套到自己身上。<br>
+      📈 <strong>你的资产（按风险承受力分四档，只讲攻守比例）</strong>：<br>
+      · <strong>保守型</strong>（存款/国债/银行高股息）：<strong>这档今天是逆风里相对稳的一档，但要留意一件事</strong>——高利率环境下，长债的价格是承压的，而银行、能源这类“现金流靠前”的板块相对抗跌。攻守比大致是守七攻三。<br>
+      · <strong>稳健型</strong>（+黄金）：<strong>今天明确吃了一次亏</strong>——金价日内跌约 1%，因为美元涨、实际利率升，黄金的持有成本上去了。这一档短期压力最大，支撑要看后面的加息是不是真落地（若 12 月只加 25BP，黄金会松一口气）。攻守比偏向守六攻四。<br>
+      · <strong>平衡型</strong>（+A股宽基/沪深300）：<strong>今天这档最能看清“结构”</strong>——沪深300 只涨 0.07%、上证 +0.08%，而创业板 +1.46%。宽基夹在中间，等于“既没吃到题材的肉，也没挨权重的打”。它的价值在于不偏科，代价是这种切换行情里它最不敏感。攻守各半。<br>
+      · <strong>积极型</strong>（+创业板/科创/算力/AI应用/纳指/港股科技）：<strong>今天这档内外分裂得最厉害</strong>——A股这一侧的 AI 应用（短剧、物理AI、光通信、存储）在涨、95 只涨停，但海外这一侧的纳指在跌、英伟达 -5%。<strong>A股炒的是“应用和故事”，美股杀的是“算力和估值”</strong>，同一个 AI，两套定价逻辑。这档今天的攻守比可以偏进攻，但要认清：<strong>赚的是国内流动性的钱，不是全球产业景气的钱</strong>，两者的期限不一样。<br>
+      🧊 <strong>对照自己（G3）</strong>：如果你昨天因为“等 CPI”没敢动，今天看到普涨、95 只涨停，心里发慌——<strong>这很正常，但别把“靴子落地”当成“利空出尽”</strong>。今天的上涨是因为 A股自己的钱在换方向，不是因为外面的风险解除了。外面的风险一点没解除，美债还在 5% 门口站着。<strong>钱换方向的时候最容易追在最后一棒，尤其在你只看到涨停数量、看不到成交结构的时候。</strong></p>
+    </div>
+  </div>
+
+  <div class="watch">
+    <strong>🎯 今日唯一要盯的（F2）</strong>：<strong>美债 10 年期收益率今天能不能收在 5% 上方（11/11 美东收盘）</strong>。昨天盘中已经摸到 5.012%，这是 2026 年以来最敏感的一道线。<br>
+    <strong>若站上 5% 并收住</strong>——说明市场认了“更高更久”，全球成长股的估值压力会延续，A股这轮题材行情要开始防备“外面抽水”的风险；<strong>若冲高回落、重新回到 4.9% 以下</strong>——说明市场认为这次只是单月扰动、加息加不到 50 个基点，昨晚的杀跌就是一次性的，被压的成长方向有修复空间。<br>
+    次要看点：A股 09:30 开盘后，成交能不能把 1.50 万亿接住。放量能续，题材切换才成立；缩回去，今天这 95 只涨停就是一次性脉冲。
+  </div>
+
+  <div class="footnote">
+    数据来源：美国劳工统计局（BLS）10 月 CPI 原报告、新华社/新华财经、中国金融信息网、财联社、东方财富、新浪财经、同花顺、深交所、上交所、香港交易所、中国货币网、中国外汇交易中心、Wind（2026-11-11 05:30 CST 拉取；A股当日未开盘，数据归属 11/10 周二 A股收盘 + 11/10 美东美股收盘）。<br>
+    本卡片按艾丽六步模板 + F1-F5 + G1-G3 + H1-H2 + I1 通胀规范生成，仅为思维框架演示，不构成任何投资建议。<br>
+    ⚠️ <strong>表针怀疑（G2）——今天这张表有三处必须打问号</strong>：<br>
+    ① <strong>最要命的一处：同比数据根本没有。</strong>因 2025 年 10 月政府停摆未采集数据，本次报告未公布 CPI 同比。所有“通胀降温/通胀顽固”的结论，今天都建立在环比之上，<strong>而环比是单月扰动最重的口径</strong>。这是“表针被掰回去”最典型的形态——不是数字变好，是少了一根针。<br>
+    ② <strong>“整体 CPI 回落”这个说法要拆开看。</strong>0.6% → 0.4% 的回落主要来自能源。能源是外源、可逆，下个月油价一反弹就能吐回来；而核心 0.3% 连续三个月没动。<strong>用整体的回落去代表“通胀在退”，是把可逆的部分当成了趋势。</strong><br>
+    ③ <strong>数据勘误：11/09 的 VIX 我昨天记错了。</strong>前一日卡片与快照写的是 20.05（-21.8%），经同花顺与 Anadolu 双源核对，实际收盘为 <strong>19.92（-22.31%，前收 25.64）</strong>。今天已在本快照中更正，昨日卡片文本未回溯修改，以此处为准。<br>
+    ④ <strong>两处“待确认”没有用旧值冒充</strong>：布伦特 11/10 收盘价未取到（仅有 11/09 收 92.20 与 11/10 盘中跌破 90 的报价）、伦敦金 11/10 收盘精确点位未取到（仅有盘中 4099.33 与 11/09 收 4140.93），均按实际可得时点标注，未拿前一交易日数据顶替。<br>
+    ⑤ <strong>成交额口径差</strong>：两市成交 15048.15 亿（沪 6740 亿 + 深 8308.63 亿），同花顺另一口径为 15167 亿；我取交易所口径，放量幅度按 222.02 亿计。<br>
+    ⑥ <strong>涨跌家数两个口径</strong>：4273 涨 / 1149 跌，与“超 4200 只个股上涨”的媒体表述一致；涨停 95 只、跌停 0 只，取自盘后汇总，与部分口径的“近百股涨停”一致。
+  </div>
+</article>
+</body>
+</html>
