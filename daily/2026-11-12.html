@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>2026-11-12 日更 · 加息恐慌只活了一天，AI业绩就把它推翻了</title>
+<style>
+  :root{
+    --green:#1f4d3f;--green-soft:#e8f1ed;--teal:#0e7490;--teal-soft:#e0f2f7;
+    --amber:#d97706;--amber-soft:#fef3c7;--red:#b91c1c;--red-soft:#fee2e2;
+    --line:#e5e7eb;--muted:#6b7280;--card:#fafaf9;--bg:#f5f5f4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:#1f2937;line-height:1.7;padding:16px;max-width:860px;margin:0 auto;}
+  .daily-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:18px;box-shadow:0 1px 3px rgba(0,0,0,0.04);}
+  .daily-card-header{border-bottom:2px solid var(--line);padding-bottom:12px;margin-bottom:14px;}
+  .daily-date{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--green);padding:2px 12px;border-radius:10px;}
+  .daily-title{margin:10px 0 8px;font-size:20px;color:var(--green);line-height:1.4;}
+  .daily-symbols{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+  .symbol-chip{display:inline-block;font-size:12px;padding:3px 10px;border-radius:12px;background:var(--teal-soft);color:var(--teal);font-weight:500;}
+  .macro-snapshot{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0;}
+  .macro-snapshot th,.macro-snapshot td{border:1px solid var(--line);padding:5px 8px;text-align:center;}
+  .macro-snapshot th{background:var(--green-soft);color:var(--green);}
+  .market-pricing{background:var(--amber-soft);border-left:4px solid var(--amber);padding:10px 14px;border-radius:6px;font-size:13px;margin:10px 0;}
+  .street-signal{background:var(--green-soft);border-left:4px solid var(--green);padding:10px 14px;border-radius:6px;font-size:13px;margin:10px 0;}
+  .inflation-box{background:#fdf6ec;border:1px solid var(--amber);border-radius:8px;padding:14px 16px;margin:12px 0;}
+  .inflation-box h3{font-size:16px;color:var(--red);margin-bottom:10px;}
+  .inflation-box .q{font-size:14px;margin-bottom:10px;}
+  .inflation-box .q b{color:var(--green);}
+  .step{display:flex;flex-direction:column;gap:4px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:10px;border-left:4px solid;}
+  .step h4{margin:0;font-size:15px;color:var(--green);}
+  .step p{margin:0;font-size:14px;}
+  .step-1{border-left-color:#1f4d3f;}
+  .step-2{border-left-color:#d97706;}
+  .step-3{border-left-color:#ea580c;}
+  .step-4{border-left-color:#b91c1c;}
+  .step-5{border-left-color:#6d5a6d;}
+  .step-6{border-left-color:#475569;}
+  .tag-red{color:var(--red);font-weight:600;}
+  .tag-amber{color:var(--amber);font-weight:600;}
+  .tag-green{color:var(--green);font-weight:600;}
+  .footnote{font-size:12px;color:var(--muted);margin-top:14px;padding-top:10px;border-top:1px dashed var(--line);}
+  .back-link{font-size:13px;color:var(--teal);text-decoration:none;display:inline-block;margin-bottom:14px;}
+  .back-link:hover{text-decoration:underline;}
+  .prev-link{font-size:13px;color:var(--amber);text-decoration:none;display:inline-block;margin-bottom:14px;margin-left:10px;}
+  .watch{background:#fffbeb;border:1px dashed var(--amber);padding:10px 14px;border-radius:6px;font-size:13px;margin-top:10px;}
+</style>
+</head>
+<body>
+<a class="back-link" href="../艾丽财经分析方法论_普通人知识图谱.html">← 返回主知识库</a>
+<a class="prev-link" href="./2026-11-11.html">上一交易日：CPI 降了却讨论加息 50BP →</a>
+
+<article class="daily-card" data-date="2026-11-12" data-symbols="纳指100+2.28%,闪迪+11.9%,美光+11%,创业板+3.11%,源杰科技20CM,黄金破4000,成交1.68万亿,美债休市">
+  <header class="daily-card-header">
+    <span class="daily-date">2026-11-12 周四（早 05:30，A股未开盘）｜数据归属：11/11 周二 A股收盘 + 11/11 美东美股收盘</span>
+    <h2 class="daily-title">加息恐慌只活了一天：AI 业绩一出来，纳指就收复了全部跌幅</h2>
+    <div class="daily-symbols">
+      <span class="symbol-chip">纳指100 +2.28%</span>
+      <span class="symbol-chip">闪迪 +11.9% / 美光 +11%</span>
+      <span class="symbol-chip">创业板 +3.11%</span>
+      <span class="symbol-chip">源杰科技 20CM 涨停</span>
+      <span class="symbol-chip">黄金跌破 4000</span>
+      <span class="symbol-chip">两市成交 1.68 万亿</span>
+      <span class="symbol-chip">美债 11-11 休市</span>
+    </div>
+  </header>
+
+  <table class="macro-snapshot">
+    <tr><th>指标</th><th>最新值</th><th>变化</th><th>数据归属</th></tr>
+    <tr><td>美债10Y</td><td>待观察</td><td>11-11 退伍军人节债市休市；11-10 盘中曾 5.012%</td><td>待 11-12 恢复交易确认</td></tr>
+    <tr><td>美元指数</td><td>102.15</td><td>+0.6% 区间</td><td>11-10 收盘</td></tr>
+    <tr><td>WTI 原油</td><td>86.53</td><td>+0.38%</td><td>11-11 结算</td></tr>
+    <tr><td>伦敦金现</td><td>3984.01</td><td class="tag-red">-1.36%（跌破 4000）</td><td>11-11</td></tr>
+    <tr><td>VIX</td><td>19.46</td><td>-2.31%</td><td>11-10 收盘</td></tr>
+    <tr><td>上证指数</td><td>3680.64</td><td class="tag-green">+0.46%</td><td>A股 11-11 收盘</td></tr>
+    <tr><td>创业板指</td><td>2572.07</td><td class="tag-green">+3.11%</td><td>A股 11-11 收盘</td></tr>
+    <tr><td>两市成交</td><td>16762.79 亿</td><td class="tag-green">放量 1714.64 亿</td><td>A股 11-11</td></tr>
+    <tr><td>道琼斯</td><td>52486.49</td><td class="tag-green">+0.49%</td><td>美股 11-11 收盘</td></tr>
+    <tr><td>标普500</td><td>7619.38</td><td class="tag-green">+1.31%</td><td>美股 11-11 收盘</td></tr>
+    <tr><td>纳斯达克</td><td>25466.19</td><td class="tag-green">+1.60%</td><td>美股 11-11 收盘</td></tr>
+    <tr><td>纳指100</td><td>+2.28%</td><td class="tag-green">盘中收复中期选举以来全部跌幅</td><td>美股 11-11</td></tr>
+    <tr><td>涨/跌家数</td><td>3538 / 1827</td><td>涨停 85 / 跌停 1</td><td>A股 11-11</td></tr>
+  </table>
+
+  <div class="market-pricing">
+    <b>市场当前在定价什么（F1）：</b>昨天 CPI 后，市场 price in 的是"12 月可能加息 50BP、AI 高估值要杀"；一夜之间，CoreWeave 业绩超预期、Anthropic IPO 火爆、OpenAI 季度亮眼，加上存储企业级颗粒口头涨价，市场把定价切到了"AI 产业景气还在加速、分母的事先放一放"。<br>
+    <b>证伪条件：</b>今晚美债恢复交易后，若 10Y 重新上冲 5.1% 以上，说明利率那条腿根本没松，昨天的上涨只是"分子盖过分母"的单日行情；若 10Y 回落到 4.9% 下方，则加息叙事真的降温。
+  </div>
+
+  <div class="street-signal">
+    <b>街角信号（G1）：</b>今日无显著街角信号变化。A 股这轮是机构与游资在科技方向换仓，3538 家上涨里真正涨得猛的是 CPO、光模块、算力硬件，与便利店、折扣零售、二手车这些底层温度计暂时无关。
+  </div>
+
+  <div class="inflation-box">
+    <h3>I1 · 通胀三问（今日无新数据，延续 11-10 判断）</h3>
+    <div class="q"><b>1）一次性还是粘性？</b>仍是<span class="tag-amber">粘性</span>。核心 CPI 连续三个月 0.3%，住房项占当月涨幅 30% 以上，商品与能源已降温而服务未退。今天市场敢忽略它，不是因为粘性消失，而是被 AI 分子端的强催化暂时盖住了。</div>
+    <div class="q"><b>2）内源还是外源？</b>仍是<span class="tag-amber">内源为主</span>（住房、餐饮等不可贸易服务），外源（能源、汇率）在帮忙降温。这意味着美联储没有"外部冲击可忽略"的借口，沃勒那句 12 月或加 50BP 不会因为一天股市上涨就消失。</div>
+    <div class="q"><b>3）危害讲三层：</b>对政策——粘性＋内源继续压缩宽松空间；对企业——服务涨价是提价窗口但会杀需求；对普通人——工资不涨而住房、餐饮这些必需品缓涨，实际购买力被慢慢磨。今天股市狂欢，跟普通人钱包的关系还没传到。</div>
+  </div>
+
+  <div class="step step-1">
+    <h4>第一步 · 事件表象</h4>
+    <p>前一晚（11-10 美东）：CPI 出来，道指 -0.30%、纳指 -0.74%，英伟达跌超 5%，市场在讨论"12 月加息 50BP"。仅仅一个交易日后（11-11 美东）：道指 +0.49%、标普 +1.31%、纳指 +1.60%，纳指100 大涨 2.28%，盘中收复中期选举以来全部跌幅；闪迪 +11.9%、美光 +11%、海力士 +9%。A 股白天已经先动：创业板 +3.11%，CPO 爆发，源杰科技 20CM 涨停。</p>
+  </div>
+
+  <div class="step step-2">
+    <h4>第二步 · 直接影响</h4>
+    <p>资金一夜之间从"避险/防守"切回"进攻/AI"。黄金应声跌破 4000（-1.36%），VIX 回落到 19.46。A 股这边，昨天还在领跌的通信设备、光模块直接变成领涨：源杰科技 774.85 元、成交 72.5 亿、换手 8.24%；光迅科技、剑桥科技涨停；新易盛、中际旭创涨超 5%。两市成交放大到 1.68 万亿，比前一天多 1715 亿。</p>
+  </div>
+
+  <div class="step step-3">
+    <h4>第三步 · 连锁传导</h4>
+    <p>链条是：AI 公司业绩（CoreWeave、OpenAI）+ 一级市场热度（Anthropic IPO）+ 存储涨价传闻 → 市场重新相信"AI 资本开支周期没结束" → 先买最确定的卖铲人（存储、光模块）→ A 股映射 CPO/算力硬件。<br>
+    <b>交易拥挤度（F4）：</b>现在仓位最重的是刚从"加息恐慌"里解冻的 AI 硬件；边际买盘能不能跟上，要看今晚美债方向和明天 A 股量能是否守住 1.6 万亿。<br>
+    <b>谁最先被冻住（G3）：</b>这一轮不是收缩，是<span class="tag-amber">解冻</span>。最先被解冻的是昨天被利率压住的出口链硬科技；反过来，前几天靠"加息避险"撑着的方向（黄金、高股息防守）被抽水。普通人这一头还没感受到——换仓发生在机构账户之间。</p>
+  </div>
+
+  <div class="step step-4">
+    <h4>第四步 · 深层目的（头条没说的数字）</h4>
+    <p>头条在喊"AI 交易热情重燃、纳指收复全部跌幅"。<b>没说的是：</b>① 11-11 是美国退伍军人节，<b>美债市场休市</b>——"10Y 站上 5%"这件事，根本没有经过第二个交易日的检验，它是在债市关门的时候被股市单方面宣布"没事了"；② VIX 19.46 只是回到平静区，不是恐慌解除；③ 存储那波涨的催化是"口头涨价意向、提价函尚未正式下发"，渠道先动，不是合同落地。<br>
+    <b>真正的定价结构：</b>股市把"分子（盈利/产业）"和"分母（利率）"当成两件事在交易——分子强就先买分子，分母的账留到债市开门再算。</p>
+  </div>
+
+  <div class="step step-5">
+    <h4>第五步 · 时间窗口</h4>
+    <p>这一天的反转能不能站住，看两个时间点：<br>
+    <b>今晚（11-12 美东）</b>：美债恢复交易，10Y 开盘方向——这是真正的验证点。<br>
+    <b>未来三个交易日（11-12 至 11-14）</b>：A 股成交能否守住 1.6 万亿、CPO/算力硬件能否连板——一天爆发是脉冲，三天不破才是换仓。<br>
+    <b>11-13 晚</b>：美国 10 月 PPI，决定"高位滞留"还是"加息叙事降温"。</p>
+  </div>
+
+  <div class="step step-6">
+    <h4>第六步 · 普通人这跟你有什么关系（F3 四档）</h4>
+    <p><b>你的钱包：</b>油价 86.5 美元一桶，没怎么动；房贷这头，利率锚还没松，不要因为股市涨了就觉得贷款要降。<br>
+    <b>你的资产，按四档看攻守比例：</b></p>
+    <p>· <b>保守型</b>（存款/国债/银行高股息）：存款国债无波动；高股息短线被抽水（资金搬到进攻方向），但只是轮动不是逻辑破坏。<br>
+    · <b>稳健型</b>（+黄金）：黄金今天 -1.36% 破 4000，短线承压；中长期逻辑没变，别在单日轮动里下结论。<br>
+    · <b>平衡型</b>（+A股宽基/沪深300）：今天直接受益（沪深300 收 4075.71），攻守配比不用动。<br>
+    · <b>积极型</b>（+A股成长/纳指/港股科技）：今天弹性最大（创业板 +3.11%、CPO 爆发、纳指100 +2.28%），但明天波动也最大——这是"分子盖过分母"的行情，不是分母消失了。</p>
+  </div>
+
+  <div class="watch">
+    <b>F2 · 今日唯一要盯的就是：</b>今晚（11-12 美东）美债恢复交易后，<b>10 年期美债收益率开盘往哪走</b>——是站在 5% 上方继续，还是回落。因为昨天债市关门，股市单方面宣布"加息不怕了"，这笔账今晚才开始算。
+  </div>
+
+  <div class="footnote">
+    <b>G2 · 表针怀疑：</b>①"收复中期选举以来全部跌幅"是从某个低点算的相对位置，不等于"创新高"，看一眼就好别当结论；②存储"口头涨价"提价函未下，渠道抢跑，与合同涨价不是一回事；③A 股 85 涨停 vs 1 跌停，情绪很热，但源杰科技单日成交 72 亿、换手 8.24%，这种票的波动会很大。<br>
+    <b>数据来源：</b>新浪财经、央广网、财联社、证券时报、新华社、同花顺、Wind；美债 11-11 因退伍军人节休市，相关数据待 11-12 更新。<br>
+    <b>免责：</b>本卡片只做方法论演示与逻辑拆解，不构成任何投资建议；不荐股、不给具体点位。
+  </div>
+</article>
+</body>
+</html>
