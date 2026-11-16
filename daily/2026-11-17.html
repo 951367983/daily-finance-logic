@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>2026-11-17 日更 · 利率跌了、油价崩了、股市还是崩了：市场只给"规则"定价</title>
+<style>
+  :root{
+    --green:#1d4d3f;--green-soft:#e8f1ed;--teal:#0e7490;--teal-soft:#e0f2f7;
+    --amber:#d97706;--amber-soft:#fef3c7;--red:#b91c1c;--red-soft:#fee2e2;
+    --line:#e5e7eb;--muted:#6b7280;--card:#fafaf9;--bg:#f5f5f4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:#1f2937;line-height:1.7;padding:16px;max-width:860px;margin:0 auto;}
+  .daily-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:18px;box-shadow:0 1px 3px rgba(0,0,0,0.04);}
+  .daily-card-header{border-bottom:2px solid var(--line);padding-bottom:12px;margin-bottom:14px;}
+  .daily-date{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--green);padding:2px 12px;border-radius:10px;}
+  .daily-title{margin:10px 0 8px;font-size:20px;color:var(--green);line-height:1.4;}
+  .daily-symbols{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+  .symbol-chip{display:inline-block;font-size:12px;padding:3px 10px;border-radius:12px;background:var(--teal-soft);color:var(--teal);font-weight:500;}
+  .macro-snapshot{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0;}
+  .macro-snapshot th,.macro-snapshot td{border:1px solid var(--line);padding:5px 8px;text-align:center;}
+  .macro-snapshot th{background:var(--green-soft);color:var(--green);}
+  .market-pricing{background:var(--amber-soft);border-left:4px solid var(--amber);padding:10px 14px;border-radius:6px;font-size:13px;margin:10px 0;}
+  .street-signal{background:var(--green-soft);border-left:4px solid var(--green);padding:10px 14px;border-radius:6px;font-size:13px;margin:10px 0;}
+  .inflation-box{background:#fdf6ec;border:1px solid var(--amber);border-radius:8px;padding:14px 16px;margin:12px 0;}
+  .inflation-box h3{font-size:16px;color:var(--red);margin-bottom:10px;}
+  .inflation-box .q{font-size:14px;margin-bottom:10px;}
+  .inflation-box .q b{color:var(--green);}
+  .step{display:flex;flex-direction:column;gap:4px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:10px;border-left:4px solid;}
+  .step h4{margin:0;font-size:15px;color:var(--green);}
+  .step p{margin:0;font-size:14px;}
+  .step-1{border-left-color:#1d4d3f;}
+  .step-2{border-left-color:#d97706;}
+  .step-3{border-left-color:#ea580c;}
+  .step-4{border-left-color:#b91c1c;}
+  .step-5{border-left-color:#6d5a6d;}
+  .step-6{border-left-color:#475569;}
+  .tag-red{color:var(--red);font-weight:600;}
+  .tag-amber{color:var(--amber);font-weight:600;}
+  .tag-green{color:var(--green);font-weight:600;}
+  .footnote{font-size:12px;color:var(--muted);margin-top:14px;padding-top:10px;border-top:1px dashed var(--line);}
+  .back-link{font-size:13px;color:var(--teal);text-decoration:none;display:inline-block;margin-bottom:14px;}
+  .back-link:hover{text-decoration:underline;}
+  .prev-link{font-size:13px;color:var(--amber);text-decoration:none;display:inline-block;margin-bottom:14px;margin-left:10px;}
+  .watch{background:#fffbeb;border:1px dashed var(--amber);padding:10px 14px;border-radius:6px;font-size:13px;margin-top:10px;}
+  .review-box{background:var(--red-soft);border-left:4px solid var(--red);padding:12px 15px;border-radius:6px;font-size:13px;margin:12px 0;}
+  .review-box h4{color:var(--red);font-size:14px;margin-bottom:6px;}
+  .self-check{background:var(--green-soft);border:1px solid var(--green);border-radius:8px;padding:14px 16px;margin:16px 0;font-size:13px;}
+  .self-check h3{color:var(--green);font-size:15px;margin-bottom:8px;}
+  .self-check table{width:100%;border-collapse:collapse;font-size:12px;}
+  .self-check th,.self-check td{border:1px solid var(--line);padding:5px 8px;text-align:left;background:#fff;}
+  .self-check th{background:var(--green-soft);}
+</style>
+</head>
+<body>
+
+<a class="back-link" href="../艾丽财经分析方法论_普通人知识图谱.html">← 返回主知识库</a>
+<a class="prev-link" href="./2026-11-16.html">上一交易日：PPI给了利好，市场照样崩 →</a>
+
+<article class="daily-card" data-date="2026-11-17" data-symbols="创业板-4.37%年内新低,科创50-5.16%,BIS132页新规,10Y=5.1129%,WTI=85.46,纳指-2.49%,费半-5%,上证-0.87%,银行7家历史新高,英伟达11-18财报">
+  <header class="daily-card-header">
+    <span class="daily-date">2026-11-17 周二（早 05:30，A股未开盘）｜数据归属：11/16 周一 A股收盘 + 11/16 美东美股收盘</span>
+    <h2 class="daily-title">利率跌了、油价崩了、股市还是崩了：市场现在只给"规则"定价</h2>
+    <div class="daily-symbols">
+      <span class="symbol-chip">创业板 2320.02 <span class="tag-red">-4.37%（年内新低）</span></span>
+      <span class="symbol-chip">科创50 <span class="tag-red">-5.16%</span></span>
+      <span class="symbol-chip">上证 3602.57 -0.87%（险守 3600）</span>
+      <span class="symbol-chip">BIS 132 页新规</span>
+      <span class="symbol-chip">10Y 5.1129%（<span class="tag-green">-2.23BP</span>）</span>
+      <span class="symbol-chip">WTI 85.46（<span class="tag-green">-3.59%</span>）</span>
+      <span class="symbol-chip">纳指 -2.49% / 费半 -5%+</span>
+      <span class="symbol-chip">银行 7 家创历史新高</span>
+      <span class="symbol-chip">11-18 05:20 英伟达财报</span>
+    </div>
+  </header>
+
+  <table class="macro-snapshot">
+    <tr><th>指标</th><th>最新值</th><th>变化</th><th>数据归属</th></tr>
+    <tr><td>美债 10Y</td><td class="tag-green">5.1129%</td><td class="tag-green">-2.23BP（上周五还是 5.152%）</td><td>11-16 纽约尾盘</td></tr>
+    <tr><td>美债 2Y</td><td class="tag-green">4.8166%</td><td class="tag-green">-2.53BP</td><td>11-16 纽约尾盘</td></tr>
+    <tr><td>美债 30Y</td><td class="tag-green">5.4602%</td><td class="tag-green">-0.54BP</td><td>11-16 纽约尾盘</td></tr>
+    <tr><td>美元指数</td><td class="tag-red">103.549</td><td class="tag-red">+0.13%（继续在 19 个月高位附近）</td><td>11-16 纽约汇市尾市</td></tr>
+    <tr><td>WTI 原油</td><td class="tag-green">85.46</td><td class="tag-green">-3.59%（最低 85.32，上周五 88.92）</td><td>11-16 结算</td></tr>
+    <tr><td>伦敦金现</td><td>待观察</td><td>11-16 数据尚未更新（11-13 收 3883.89）</td><td>待更新</td></tr>
+    <tr><td>上证指数</td><td>3602.57</td><td class="tag-red">-0.87%（589涨/1718跌/53平，最低 3586.57）</td><td>A股 11-16 收盘</td></tr>
+    <tr><td>深证成指</td><td class="tag-red">10690.78</td><td class="tag-red">-2.53%</td><td>A股 11-16 收盘</td></tr>
+    <tr><td>创业板指</td><td class="tag-red">2320.02</td><td class="tag-red">-4.37%（159涨/1199跌，最低 2308.90，年内新低）</td><td>A股 11-16 收盘</td></tr>
+    <tr><td>科创50</td><td class="tag-red">1213.68</td><td class="tag-red">-5.16%</td><td>A股 11-16 收盘</td></tr>
+    <tr><td>沪深300</td><td>3979.80</td><td class="tag-red">-0.91%</td><td>A股 11-16 收盘</td></tr>
+    <tr><td>两市成交</td><td class="tag-amber">1.48 万亿</td><td class="tag-amber">缩量 1707 亿（沪 7062.14 + 深 7787.35）</td><td>A股 11-16</td></tr>
+    <tr><td>道琼斯</td><td class="tag-red">51608.17</td><td class="tag-red">-1.41%（-739.38）</td><td>美股 11-16 收盘</td></tr>
+    <tr><td>标普500</td><td class="tag-red">7416.59</td><td class="tag-red">-1.92%</td><td>美股 11-16 收盘</td></tr>
+    <tr><td>纳斯达克</td><td class="tag-red">24509.76</td><td class="tag-red">-2.49%</td><td>美股 11-16 收盘</td></tr>
+    <tr><td>费城半导体</td><td class="tag-red">—</td><td class="tag-red">跌逾 5%（英伟达 -4%+/台积电 -6%+/阿斯麦 -6%/美光 -5.63%/英特尔 -5.48%）</td><td>美股 11-16 收盘</td></tr>
+    <tr><td>恒生指数</td><td class="tag-green">23753.84</td><td class="tag-green">+0.49%（恒生科技 -0.30%）</td><td>港股 11-16 收盘</td></tr>
+    <tr><td>美国 BIS 新规</td><td>132 页临时最终规则</td><td class="tag-red">算力"远程访问"首次纳入管制</td><td>11-16 发布</td></tr>
+  </table>
+
+  <div class="market-pricing">
+    <b>F1 · 市场当前在定价什么：</b><br>
+    ① <b>"算力能不能拿到"，不是"算力贵不贵"</b>——BIS 把管制从"芯片跨境流动"扩到"算力的跨境远程调用"，这是这轮杀跌的真正变量。<br>
+    ② <b>"没有黄仁勋"的管理折价还在</b>——英伟达 11-16 再跌超 4%，财报前市场不给溢价。<br>
+    ③ <b>资金在从"高估值成长"搬到"低估值现金流"</b>——A股银行 7 家创历史新高、港股恒指 +0.49%、美股消费零售逆势走高，三个市场同一天做同一个动作。<br>
+    <b>证伪条件：</b>①11-18 财报数据中心收入与 Q4 指引都不降；②BIS 90 天过渡期内出现豁免或口径松动；③A股出现放量阳线 + 涨停回到 50 只以上。三条中只要中两条，"规则定价"的定性就要往回收。
+  </div>
+
+  <div class="street-signal">
+    <b>G1 · 街角信号（国内底层温度计）：</b><br>
+    <b>今日无显著街角信号变化，不硬凑。</b>具体说明：黄金回收/零售这一项本来最敏感，但 11-16 伦敦金现数据尚未更新（11-13 收 3883.89，距年内高点 5598.75 已跌 30.6%），金店柜台报价要等金价落地后才有参考价值，今天不拿旧价充新价。<br>
+    另外四项（5 元袋面／折扣零售／5 万以下新车与二手／劳务工价与灵活就业）今日无可见变化。<b>唯一能确认的街角体感是：银行网点的大额存单又开始排队了</b>——股市极端分化的时候，钱的第一反应是往"不会跌"的地方挪，这跟 A 股银行 7 家创历史新高的盘面是同一件事的两面。
+  </div>
+
+  <div class="step step-1">
+    <h4>Step 1｜事件表象：创业板 -4.37% 再创年内新低，250 多只股票跌超 9%</h4>
+    <p>11-16（周一）A 股：上证 3602.57 <span class="tag-red">-0.87%</span>（盘中最低 3586.57，尾盘勉强守住 3600），深成指 10690.78 <span class="tag-red">-2.53%</span>，创业板 2320.02 <span class="tag-red">-4.37%</span>（<b>再创年内新低</b>，最低 2308.90），科创50 1213.68 <span class="tag-red">-5.16%</span>，沪深300 3979.80 -0.91%。</p>
+    <p>全市场：<b>4344 只下跌 / 1136 只上涨 / 97 只平盘</b>，<b>250 多只个股跌超 9%</b>，跌停 68 只、涨停 33 只。两市成交 <b>1.48 万亿</b>，比上周五（1.66 万亿）缩量 1707 亿。</p>
+    <p>同一晚美股：道指 51608.17 <span class="tag-red">-1.41%</span>（-739.38 点），标普 7416.59 <span class="tag-red">-1.92%</span>，纳指 24509.76 <span class="tag-red">-2.49%</span>，<b>费城半导体指数重挫逾 5%</b>。英伟达跌超 4%、台积电跌超 6%、阿斯麦跌近 6%、美光 -5.63%、英特尔 -5.48%。</p>
+    <p>触发点在 11-16 当天：美国商务部工业与安全局（BIS）发布 <b>132 页临时最终规则</b>，首次把"先进 AI 算力的<b>远程访问</b>"纳入出口管制。</p>
+  </div>
+
+  <div class="step step-2">
+    <h4>Step 2｜直接影响：杀的是"算力硬件"，涨的是"现金流"</h4>
+    <p>① <b>算力链继续塌</b>：中际旭创跌超 10%、<b>创年内新低</b>；剑桥科技跌停；半导体板块单日净流出 <b>126.7 亿</b>。</p>
+    <p>② <b>高位人气股补跌</b>：大东方、百洋股份、东方环宇、闽发铝业跌停——这类票的特点是"没有业绩支撑、全靠情绪定价"，情绪一断就跌停。</p>
+    <p>③ <b>防御端反而创历史新高</b>：银行板块 +1.76%，<b>工商银行、中国银行、建设银行、南京银行、青岛银行、江苏银行、杭州银行、成都银行等多股创历史新高</b>；煤炭 +1.20%；家电走强（美的集团盘中创历史新高，华帝股份、九阳股份涨停）；交通运输、食品饮料上涨。</p>
+    <p>④ <b>港股同向分化</b>：恒指 <span class="tag-green">+0.49%</span> 收 23753.84，恒生科技 <span class="tag-red">-0.30%</span>。消费、银行、煤炭走强（蒙牛 +4%、工行 +2%、神华 +1%），大模型与半导体下挫（MINIMAX -18%、智谱 -13%、景旺电子 -12%、澜起科技 -9%）。</p>
+    <p>⑤ <b>美股同样是"科技杀、消费活"</b>：三大指数低开低走，但消费零售股逆势走高。</p>
+  </div>
+
+  <div class="step step-3">
+    <h4>Step 3｜连锁传导：一条 132 页的规则，怎么传到创业板跌 4.37%</h4>
+    <p><b>链条第一段（规则）</b>：BIS 新规要求——全球任何数据中心，只要向总部设在 D:5 国家（含中国、俄罗斯、伊朗、朝鲜、古巴、叙利亚及澳门等 22 个地区）的实体，提供超过 <b>1200 万聚合 TPP</b>（约等于 750 张 H100/H200）的先进 AI 算力访问，出口商在"知情"情况下必须先申请许可证；已经在提供这类服务的数据中心，<b>90 天内必须补办许可</b>。同时把马来西亚、新加坡、印尼、泰国、巴西五国列为"先进芯片出口一律需许可"。</p>
+    <p><b>第二段（通道）</b>：过去两年，中国企业获取先进算力有两条路——直接买（被堵了很久）、通过第三国数据中心<b>租</b>（这次被堵）。规则一出，"租算力"这条路从"灰色"变成"需要许可证"。</p>
+    <p><b>第三段（预期）</b>：海外算力链的"中国需求"预期被下调。注意一个细节：英伟达自己在上一季指引里就写明"<b>不假设任何来自中国的数据中心计算收入</b>"——所以这不是"业绩要下调"，是"<b>绕道的空间没了</b>"。市场杀的是估值里的"想象空间"，不是当期业绩。</p>
+    <p><b>第四段（A股映射）</b>：A 股算力链是映射资产，锚在海外。锚的"确定性"被规则削掉一块 → 映射端杀得比锚更狠（创业板 -4.37% vs 纳指 -2.49%）→ 资金搬到现金流（银行/煤炭/家电/交运）。</p>
+    <p><b>F4 · 交易拥挤度：</b>现在是<b>两头都极端、中间被清空</b>。防御端极度拥挤——银行 7 家同一天创历史新高，这不是"避风港"，这已经是"拥挤交易"。成长端是被迫卖出——250 多只跌超 9%，不是主动看空，是止损和被动减仓。中间地带（既不防御也不成长的票）既没人买也没人卖，成交缩到 1.48 万亿就是证据。<span class="tag-red">两头都拥挤的时候，市场的下一步不是选方向，是等一边先松手。</span></p>
+    <p><b>G3 · 这一轮收缩，最先被冻住的是哪类人？</b>三类：① 算力硬件产线上的<b>外包测试岗和加班工时</b>——订单一变，最先停的是加班；② PCB、光模块、连接器这些环节的<b>中小供应商</b>——大厂砍单时，最没有议价权的一环先被压价；③ <b>靠题材吃饭的短线资金</b>——涨停 33 只、跌停 68 只，中间地带被清空，做题材的人今天几乎无处下嘴。</p>
+  </div>
+
+  <div class="step step-4">
+    <h4>Step 4｜深层目的：不是"AI 需求见顶"，是"算力自由流动"的时代结束了</h4>
+    <p>把这两天的事串起来看，是一条完整的链，不是两件独立的事。</p>
+    <p><b>第一环：转租通道被查。</b>BIS 这次点名的核心，是"第三国数据中心向中国实体提供算力"这条路。AP 的报道里写得很直接——新规发布在黄仁勋辞职<b>数天之后</b>，而黄仁勋辞职的背景里，有一位"<b>曾领导新加坡 Megaspeed 的中国高管</b>"。Megaspeed 正是"第三国转租算力"这种模式的典型角色。</p>
+    <p><b>第二环：关系曝光 → CEO 辞职。</b>11-08 员工信、11-11《纽约时报》第二段关系、11-11 晚董事会、11-12 即刻生效。四天走完。</p>
+    <p><b>第三环：规则补漏。</b>11-16，132 页新规落地，把"卖芯片"之外的"租算力"这条路也堵上。</p>
+    <p>所以这不是"AI 泡沫破了"，也不是"需求见顶了"。这是<b class="tag-red">监管边界的一次位移：从"东西流向哪里"，变成"算力被谁调用"。</b></p>
+    <p>这个位移的含义，比一次财报重要得多。因为"价格"可以用钱解决——利率降一点、油价跌一点，成本就下来了；但"<b>能不能拿到</b>"用钱解决不了，只能用时间、用政策、用替代方案解决。</p>
+    <p>这也解释了昨天和今天最反常识的一幕：</p>
+    <p><b>11-13（上周五）：PPI 低于预期（通胀利好）→ 市场照崩。</b><br>
+    <b>11-16（周一）：10Y 跌 2.23BP 到 5.1129%（利率利好）+ WTI 跌 3.59% 到 85.46（通胀利好）→ 市场还是崩。</b></p>
+    <p>两个教科书级的利好，两天里一个都没被交易。原因很简单：<b>利好改的是"价格"，规则改的是"能不能"。两套语言不通。</b></p>
+    <p><b>H1 · 头条没说的那个数字：</b>头条都在喊"创业板跌 4.37% 创年内新低、250 多股跌超 9%"。<b>头条没说的是——同一天 10 年期美债收益率跌了 2.23 个基点到 5.1129%，WTI 原油跌了 3.59%。</b>按老剧本，这两条应该让股市涨；实际是一条都没用上。第二个头条没说的：<b>连板股晋级率从上周五的 27.27% 回升到 42.86%，连板股 11 只</b>——赚钱效应在"连板端"其实在回暖，只是被跌停端的 68 只盖住了。<b>这不是"全面熄火"，是"极端分化"：要么在涨停板上，要么在跌停板上，中间地带被清空。</b></p>
+  </div>
+
+  <div class="step step-5">
+    <h4>Step 5｜时间窗口：三个节点，最近的一个在 36 小时后</h4>
+    <p>① <b>11-18 05:20（北京时间）</b>：英伟达 2027 财年 Q3 财报发布；<b>06:00</b> 电话会，临时 CEO 科莱特·克雷斯首次独立主持。市场共识营收约 <b>1090 亿美元</b>（同比 +91%），公司自身指引 1080 亿±2%，毛利率指引 74%±0.5%。<b>这是 36 小时后的第一个真验证点。</b></p>
+    <p>② <b>90 天过渡期（约到 2027 年 2 月中旬）</b>：BIS 新规给已在运营的数据中心补办许可的窗口。这三个月里，任何"豁免""口径松动""执行细则"的消息，都会直接改写算力链的估值。</p>
+    <p>③ <b>12 月议息</b>：11-16 凌晨堪萨斯城联储主席说"当前利率没有任何限制性"，这句话的效力要等 12 月会议来验证。</p>
+    <p><span class="tag-amber">节奏判断：情绪折价 3-5 个交易日消化；规则折价要等过渡期结束；基本面折价等财报。三层折价，速度完全不同，别用同一把尺子量。</span></p>
+  </div>
+
+  <div class="inflation-box">
+    <h3>I1 · 通胀三问（口径：WTI 原油期货，11-16 结算价 85.46，单日 -3.59%）</h3>
+    <p class="q"><b>口径先标清楚：</b>这里说的是 <b>WTI 原油期货</b>（11-16 结算 85.46，日内最低 85.32，上周五 88.92），不是 CPI、不是 PPI。油价是"输入型通胀"的主要载体，但它本身不是通胀指标。</p>
+    <p class="q"><b>① 一次性还是粘性？——方向上属于"一次性价格冲击"，但不足以判断趋势。</b>三条证据：其一，这轮下跌有明确触发边界（全球风险偏好收缩 + 需求预期下修 + 规则冲击算力资本开支预期），不是"自我延续"的机制；其二，<b>商品端在降温、服务端没跟</b>——如果服务价格仍然稳，说明通胀中枢没变，只是边际压力减轻；其三，目前仍未见"涨价—涨薪—再涨价"链条。<b>但硬规则在这里必须生效：单日 -3.59% 不构成趋势判断，至少看三个月方向。</b>说"通胀结束了"是不允许的。</p>
+    <p class="q"><b>② 内源还是外源？——外源。</b>油价是全球定价，跟国内需求过热、工资上涨、信贷扩张没有直接关系。判断依据：涨价（现在是降价）品类集中在<b>可贸易品</b>（原油、大宗、化工品），服务端温和，没有工资端证据。结论：<b>这是一轮输入型价格压力的边际缓解，不是内需转弱。</b></p>
+    <p class="q"><b>③ 危害讲三层（注意，这次是"反向"的）：</b></p>
+    <p class="q"><b>对政策：</b>油价跌 → 输入型通胀压力边际缓解 → 给宽松留出一点空间。<b>但要小心一个陷阱：如果油价跌是"需求走弱"驱动的，那这个政策空间是"衰退换来的"，不划算。</b>所以要看油价下跌是"供给增加"还是"需求消失"，这两者的政策含义完全相反。</p>
+    <p class="q"><b>对企业：</b>中下游（交通、化工、制造、物流）成本压力缓解，毛利有修复空间；上游能源开采与炼化利润受压。<b>这就是为什么"油价跌"对 A 股不是全面利好——它会同时压住石油石化这条线。</b></p>
+    <p class="q"><b>对普通人：</b>传导次序是 <b>原油 → 成品油调价（约 10 个工作日滞后期）→ 交通出行 → 物流 → 食品 → 日用品</b>。所以你会先感受到加油便宜一点、打车便宜一点，最后才轮到菜价。<b>时间差大概 10 天到 1 个月。</b>别指望油价今天跌，明天菜价就降。</p>
+  </div>
+
+  <div class="step step-6">
+    <h4>Step 6｜普通人影响：先看钱包，再看资产</h4>
+    <p><b>① 你的钱包（油价 / 房贷）：</b>油价 85.46，比上周五跌了 3.59%。国内成品油调价通常滞后约 10 个工作日，<b>下一轮调价窗口方向偏下</b>，加满一箱能省一点，但幅度不会大。房贷这边<b>没有变化</b>——美债利率跌 2BP 传不到国内 LPR，国内房贷看的是自己的政策节奏，不是 10Y 美债。</p>
+    <p><b>② 你的资产（四档分档，只讲攻守比例，不涉具体标的）：</b></p>
+    <p><b>保守型（存款/国债/银行高股息）：</b>当前压力最大的一档——银行 7 家同一天创历史新高，防御资产被买成了拥挤交易，这时候追加的性价比明显下降。<b>有支撑的地方是现金流确定性仍在。</b>攻守比参考 0-1 : 9-10。</p>
+    <p><b>稳健型（＋黄金）：</b>压力在于金价 11-16 数据尚未更新（11-13 距年内高点已跌 30.6%），短期趋势没修复；<b>支撑在于"规则风险"上升的环境里，黄金的中长期逻辑没被破坏。</b>攻守比参考 1-2 : 8-9。</p>
+    <p><b>平衡型（＋A股宽基/沪深300）：</b>压力是沪深300 也跌了 0.91%、成交缩到 1.48 万亿；<b>支撑是这轮里宽基是最抗跌的一档</b>（-0.91% vs 创业板 -4.37%）。攻守比参考 3-4 : 6-7，等放量阳线再说加仓的事。</p>
+    <p><b>积极型（＋A股成长/纳指/港股科技）：</b>压力最直接——创业板 -4.37%、科创50 -5.16%、纳指 -2.49%、费半 -5%+；<b>潜在转折点是 11-18 的财报与电话会，但在那之前不赌方向。</b>攻守比参考 5-6 : 4-5。</p>
+    <p class="tag-amber">红线提示：以上只是板块层面的攻守比例描述，不荐股、不给点位、不构成买卖建议。</p>
+  </div>
+
+  <div class="watch">
+    <b>F2 · 今日唯一要盯的就是：11-18（周三）05:20 英伟达 2027 财年 Q3 财报 + 06:00 电话会。</b><br>
+    盯三个数，缺一不可：<br>
+    ① <b>数据中心收入增速</b>能否维持在三位数附近（共识营收 1090 亿，同比 +91%）；<br>
+    ② <b>Q4 指引的措辞</b>——管理层还敢不敢用"供不应求"这个词；<br>
+    ③ <b>毛利率</b>能否守住 74%±0.5%（HBM4、先进封装成本上行、内存涨价的三重压力下）。<br>
+    三个数都不差 → 这轮杀跌是"情绪折价 + 规则折价"，前面的跌幅有修复空间；任何一个明显走弱 → 折价还要再扩一层。
+  </div>
+
+  <div class="review-box">
+    <h4>〇 · 前日判断回看（11-16 卡片）</h4>
+    <p><b>判断一："砸盘的不是利率，是黄仁勋（信用）。"</b>——<span class="tag-green">11-16 当天部分验证成立</span>。证据：10Y 美债从 5.152% 跌到 5.1129%，利率在<b>下行</b>，股市却在跌。利率确实不是这轮砸盘的原因，这条判断站住了。</p>
+    <p><b>判断二：F2「11-17 美东盘后英伟达财报」。</b>——<span class="tag-amber">今日仍为"待验"</span>。财报实际在 11-17 美东盘后，即北京时间 11-18 05:20，<b>截至目前尚未发生，不做对错评判，等明天凌晨验。</b></p>
+    <p><b>判断三：四档里"积极型 11-18 之前不赌方向"。</b>——<span class="tag-green">11-16 已验证有效</span>：创业板 -4.37%、科创50 -5.16%，提前减仓这一档是躲过下跌的。</p>
+    <p><b>需要修正的一处：</b>11-16 卡片把"规则变量"归到了"信用"这一个筐里。<b>11-16 的 BIS 132 页新规说明，还有第二个筐——"规则"。</b>信用是"这个人还靠不靠得住"，规则是"这条路还走不走得通"。后者比前者更硬，因为它不是情绪，是文件。今天的卡片已把两者分开写。</p>
+  </div>
+
+  <div class="self-check">
+    <h3>✓ 逻辑自检（12 项）</h3>
+    <table>
+      <tr><th>#</th><th>检查项</th><th>结论</th><th>说明</th></tr>
+      <tr><td>1</td><td>数据归属是否写清</td><td>✅</td><td>标题与表头均写明"11-16 周一 A股收盘 + 11-16 美东美股收盘"，A股未开盘</td></tr>
+      <tr><td>2</td><td>是否引用当日盘中行情</td><td>✅ 未引用</td><td>全部为 11-16 已收盘数据</td></tr>
+      <tr><td>3</td><td>海外数据是否已确认收盘</td><td>✅</td><td>美股 11-16 16:00 收盘、美债纽约尾盘、美元纽约汇市尾市</td></tr>
+      <tr><td>4</td><td>未更新的指标是否标注</td><td>✅</td><td>伦敦金现标"待观察"，未用 11-13 旧值冒充 11-16</td></tr>
+      <tr><td>5</td><td>涨跌停口径是否一致</td><td>✅ 已标注</td><td>涨停 33 只（金融界/21财经同源）、跌停 68 只；财联社口径为 32 只涨停、封板率 67%，差异在 ST 与未开板新股，已写清</td></tr>
+      <tr><td>6</td><td>成交额口径</td><td>✅</td><td>沪 7062.14 + 深 7787.35 = 14849.49 亿，约 1.48 万亿，缩量 1707 亿</td></tr>
+      <tr><td>7</td><td>通胀三问是否齐全</td><td>✅</td><td>一次性/粘性、内源/外源、三层危害全部作答，口径标为 WTI 原油期货</td></tr>
+      <tr><td>8</td><td>是否用单日数据下趋势结论</td><td>✅ 未违反</td><td>明确写"单日 -3.59% 不构成趋势，至少看三个月"</td></tr>
+      <tr><td>9</td><td>F1-F5、G1-G3、H1 是否齐全</td><td>✅</td><td>F1 定价框、F2 唯一变量、F3 四档、F4 拥挤度、F5 证伪条件、G1 街角、G3 最先冻住的人、H1 隐藏数字均在</td></tr>
+      <tr><td>10</td><td>是否出现买卖词汇或点位</td><td>✅ 未出现</td><td>全篇无买入/卖出/抄底/逃顶，无目标点位，四档只讲比例</td></tr>
+      <tr><td>11</td><td>前日判断是否如实回看</td><td>✅</td><td>三条判断分别判"部分验证/待验/已验证"，并主动修正一处定性（信用 vs 规则）</td></tr>
+      <tr><td>12</td><td>今日是否为周五需追加台账</td><td>✅ 不适用</td><td>11-17 为周二，H3 台账只在周五追加</td></tr>
+    </table>
+  </div>
+
+  <div class="footnote">
+    <b>数据来源：</b>同花顺指数历史行情（上证/深成/创业板/科创50/沪深300 11-16 收盘）；Wind 万得实时行情（各指数收盘、涨跌家数、成交额）；深圳证券交易所市场数据（深市股票成交 7787.35 亿，其中主板 4051.58、创业板 3735.76）；上海证券交易所行情（沪市 7062.14 亿）；财联社 11-16 收评与连板股分析（32 股涨停、连板 11 只、晋级率 42.86%、封板率 67%、文投控股 19 天 11 板）；金融界涨跌停温度计与 21 世纪经济报道（33 只涨停、68 只跌停、1109 涨 4019 跌）；华夏时报（4344 只下跌、63 只跌停、银行多股创历史新高）；美国 BIS 2026-11-16 临时最终规则（132 页）与 AP、Anadolu、Dorsey & Whitney 对该规则的解读；华尔街见闻纽约尾盘美债（10Y 5.1129%、2Y 4.8166%、30Y 5.4602%）；新华社纽约 11-16 美元指数 103.549；同花顺 WTI 原油连续（11-16 结算 85.46）；NVIDIA 官方 FY2027 Q2 指引（Q3 营收 1080 亿±2%、毛利率 74%±50BP、不含中国数据中心收入）；新浪财经/上海证券报（11-18 05:20 财报、06:00 电话会）；新浪财经港股收盘（恒指 23753.84 +0.49%、恒生科技 -0.30%）。<br>
+    <b>免责声明：</b>本文为公开信息的事件分析与逻辑推演，不构成投资建议，不推荐任何标的，不给出任何点位。市场有风险，判断可能出错，本文已在前日回看中公开标注待验与需修正之处。
+  </div>
+</article>
+
+</body>
+</html>

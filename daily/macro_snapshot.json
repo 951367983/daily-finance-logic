@@ -1,20 +1,202 @@
-[
-  {"name":"美债10Y","value":"5.152%","change":"本周+29BP","date":"2026-11-13","note":"2025年4月以来最大周涨幅"},
-  {"name":"美债2Y","value":"4.848%","change":"本周+35.2BP","date":"2026-11-13","note":"2024年10月以来最大单周"},
-  {"name":"美元指数","value":"103.41","change":"本周+1.10%","date":"2026-11-13","note":"继续刷19个月新高"},
-  {"name":"WTI原油","value":"88.92","change":"+0.22%","date":"2026-11-13"},
-  {"name":"布伦特原油","value":"待更新","change":"","date":"2026-11-13"},
-  {"name":"伦敦金现","value":"3883.89","change":"+0.19%，距年内高点-30.6%","date":"2026-11-13","note":"年内高点5598.75"},
-  {"name":"USDCNY","value":"6.6726","change":"大致走平","date":"2026-11-13"},
-  {"name":"上证指数","value":"3634.35","change":"-0.59%","date":"2026-11-13","note":"379涨/1941跌"},
-  {"name":"深证成指","value":"10968.79","change":"-2.05%","date":"2026-11-13"},
-  {"name":"创业板指","value":"2426.08","change":"-3.32%","date":"2026-11-13","note":"143涨/1218跌"},
-  {"name":"沪深300","value":"4016.29","change":"-0.68%","date":"2026-11-13"},
-  {"name":"两市成交","value":"约1.9万亿","change":"放量下杀","date":"2026-11-13"},
-  {"name":"道琼斯","value":"52347.55","change":"+0.10%","date":"2026-11-13"},
-  {"name":"标普500","value":"7561.67","change":"-0.40%","date":"2026-11-13"},
-  {"name":"纳斯达克","value":"25136.27","change":"-0.91%","date":"2026-11-13"},
-  {"name":"美国10月PPI","value":"同比+6.5%","change":"环比+0.3%（预期0.4%）","date":"2026-11-13","note":"2022年11月以来最高"},
-  {"name":"VIX","value":"待更新","change":"","date":"2026-11-13"},
-  {"name":"恒生指数","value":"待更新","change":"","date":"2026-11-13"}
-]
+{
+  "date": "2026-11-17",
+  "generated_at": "2026-11-17T05:35:00+08:00",
+  "data_attribution": {
+    "a_share": "2026-11-16 周一收盘",
+    "us_stock": "2026-11-16 美东收盘",
+    "us_bond": "2026-11-16 纽约尾盘",
+    "note": "A股未开盘，全部为前一交易日收盘数据"
+  },
+  "indicators": {
+    "us10y": {
+      "value": 5.1129,
+      "unit": "%",
+      "change": -2.23,
+      "change_unit": "BP",
+      "prev": 5.152,
+      "source": "华尔街见闻 纽约尾盘"
+    },
+    "us2y": {
+      "value": 4.8166,
+      "unit": "%",
+      "change": -2.53,
+      "change_unit": "BP",
+      "source": "华尔街见闻 纽约尾盘"
+    },
+    "us30y": {
+      "value": 5.4602,
+      "unit": "%",
+      "change": -0.54,
+      "change_unit": "BP",
+      "source": "华尔街见闻 纽约尾盘"
+    },
+    "dxy": {
+      "value": 103.549,
+      "change_pct": 0.13,
+      "source": "新华社 纽约汇市尾市 11-16"
+    },
+    "wti": {
+      "value": 85.46,
+      "change_pct": -3.59,
+      "low": 85.32,
+      "prev": 88.92,
+      "unit": "美元/桶",
+      "source": "同花顺 WTI连续 11-16 结算"
+    },
+    "brent": {
+      "value": null,
+      "status": "待观察",
+      "note": "本轮未取到 11-16 布油结算价"
+    },
+    "gold_london": {
+      "value": null,
+      "status": "待观察",
+      "prev_date": "2026-11-13",
+      "prev_value": 3883.89,
+      "prev_high_year": 5598.75,
+      "drop_from_high_pct": -30.6,
+      "note": "11-16 数据尚未更新，禁止用 11-13 旧值冒充"
+    },
+    "usdcny": {
+      "value": null,
+      "status": "待观察",
+      "prev_date": "2026-11-13",
+      "prev_value": 6.6726
+    },
+    "usdjpy": {
+      "value": null,
+      "status": "待观察"
+    },
+    "vix": {
+      "value": null,
+      "status": "待观察"
+    }
+  },
+  "a_share": {
+    "shanghai": {
+      "close": 3602.57,
+      "change_pct": -0.87,
+      "low": 3586.57,
+      "high": 3623.12,
+      "up": 589,
+      "down": 1718,
+      "flat": 53
+    },
+    "shenzhen": {
+      "close": 10690.78,
+      "change_pct": -2.53
+    },
+    "chinext": {
+      "close": 2320.02,
+      "change_pct": -4.37,
+      "low": 2308.9,
+      "high": 2398.19,
+      "up": 159,
+      "down": 1199,
+      "flat": 12
+    },
+    "star50": {
+      "close": 1213.68,
+      "change_pct": -5.16
+    },
+    "csi300": {
+      "close": 3979.8,
+      "change_pct": -0.91
+    },
+    "total_turnover_yi": 14849.49,
+    "turnover_breakdown": {
+      "sh": 7062.14,
+      "sz": 7787.35,
+      "sz_main": 4051.58,
+      "sz_chinext": 3735.76
+    },
+    "turnover_change_yi": -1707.19,
+    "up_count": 1136,
+    "down_count": 4344,
+    "flat_count": 97,
+    "limit_up": 33,
+    "limit_down": 68,
+    "limit_up_cls": 32,
+    "zhaban": 16,
+    "seal_rate_pct": 67.0,
+    "stocks_down_over_9pct": "250+",
+    "lianban": 11,
+    "lianban_3plus": 3,
+    "promotion_rate_pct": 42.86,
+    "max_board": 4,
+    "top_boards": "北纬科技4连板；广百股份/国统股份3连板；文投控股19天11板；龙江交通13天7板；凯撒文化5天4板",
+    "sector_up": [
+      "银行+1.76%（工行/中行/建行/南京/青岛/江苏/杭州/成都创历史新高）",
+      "煤炭+1.20%",
+      "家用电器（美的盘中创历史新高、华帝九阳涨停）",
+      "交通运输",
+      "食品饮料"
+    ],
+    "sector_down": [
+      "算力硬件（中际旭创跌超10%创年内新低、剑桥科技跌停）",
+      "半导体（净流出126.7亿）",
+      "CPO/光模块",
+      "存储",
+      "高位人气股（大东方/百洋股份/东方环宇/闽发铝业跌停）"
+    ]
+  },
+  "us_stock": {
+    "dow": {
+      "close": 51608.17,
+      "change_pct": -1.41,
+      "change": -739.38
+    },
+    "spx": {
+      "close": 7416.59,
+      "change_pct": -1.92
+    },
+    "nasdaq": {
+      "close": 24509.76,
+      "change_pct": -2.49
+    },
+    "sox": {
+      "change_pct": "<-5",
+      "note": "费城半导体指数重挫逾5%；英伟达-4%+、台积电-6%+、阿斯麦-6%、美光-5.63%、英特尔-5.48%、AMD-2.37%"
+    },
+    "sector_up": [
+      "消费零售逆势走高"
+    ]
+  },
+  "hk_stock": {
+    "hsi": {
+      "close": 23753.84,
+      "change_pct": 0.49
+    },
+    "hstech": {
+      "close": 3801.64,
+      "change_pct": -0.3
+    },
+    "note": "大模型/半导体下挫（MINIMAX-18%、智谱-13%）；消费/银行/煤炭走强（蒙牛+4%、工行+2%、神华+1%）"
+  },
+  "key_event": {
+    "title": "美国BIS发布132页临时最终规则，首次管制先进AI算力远程访问",
+    "date": "2026-11-16",
+    "key_points": [
+      "全球数据中心向D:5国家（含中国、俄罗斯、伊朗、朝鲜、古巴、叙利亚及澳门等22个地区）实体提供超过1200万聚合TPP（约750张H100/H200）算力访问，出口商知情下须先申请许可",
+      "已在运营的此类数据中心须在90天内取得许可",
+      "马来西亚、新加坡、印尼、泰国、巴西五国出口先进芯片一律需许可",
+      "监管边界从芯片/服务器跨境流动延伸到算力的跨境远程调用"
+    ],
+    "link_to_nvidia": "AP报道：新规发布在黄仁勋辞职数天后；黄辞职背景含一位曾领导新加坡Megaspeed的中国高管，Megaspeed为第三国转租算力模式典型角色"
+  },
+  "next_catalyst": {
+    "event": "英伟达 2027 财年 Q3 财报",
+    "time_cst": "2026-11-18 05:20 财报 / 06:00 电话会",
+    "consensus_revenue_usd_bn": 1090,
+    "consensus_yoy_pct": 91,
+    "company_guidance_usd_bn": 1080,
+    "guidance_range_pct": 2,
+    "gross_margin_guidance_pct": 74.0,
+    "executive": "临时CEO 科莱特·克雷斯首次独立主持",
+    "watch": [
+      "数据中心收入增速",
+      "Q4指引措辞(是否仍'供不应求')",
+      "毛利率能否守住74%"
+    ]
+  }
+}
