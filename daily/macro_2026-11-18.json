@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-18",
+  "generated_at": "2026-11-18 05:35 CST",
+  "data_attribution": "A股 11-17（周二）收盘；美股 11-17（美东）收盘；英伟达财报 北京时间 11-18 05:20 发布，电话会 06:00 尚未开始",
+  "indicators": {
+    "us10y": {"value": "待观察", "prev": "5.1129%（11-16 纽约尾盘）", "change": "11-17 收盘数据暂未取得，不用旧值冒充", "as_of": "待更新"},
+    "us2y": {"value": "待观察", "prev": "4.8166%（11-16 纽约尾盘）", "change": "同上", "as_of": "待更新"},
+    "us30y": {"value": "待观察", "prev": "5.4602%（11-16 纽约尾盘）", "change": "同上", "as_of": "待更新"},
+    "dxy": {"value": "待观察", "prev": "103.495（11-16 美元指数连续）/ 103.58（11-16 纽约尾市）", "change": "两份口径略有差异，11-17 未更新", "as_of": "待更新"},
+    "wti": {"value": "85.73", "prev": "85.06", "change": "+0.79%（同花顺美原油连续 11-17 收盘，日内高 87.38 低 84.68）", "as_of": "11-17 收盘"},
+    "gold": {"value": "待观察", "prev": "3856.41（伦敦金现 AUUSDO，11-16 收盘）", "change": "11-17 数据未更新", "as_of": "待更新"},
+    "sh": {"value": "3584.58", "change": "-0.50%（失守 3600，日内高 3604.98 低 3565.59）", "as_of": "A股 11-17 收盘"},
+    "sz": {"value": "10638.52", "change": "-0.49%（日内高 10768.06 低 10556.29）", "as_of": "A股 11-17 收盘"},
+    "cyb": {"value": "2292.20", "change": "-1.20%（日内高 2343.15 低 2263.74）", "as_of": "A股 11-17 收盘"},
+    "kc50": {"value": "逆势上涨", "change": "+0.62%（早盘一度涨超 3%，午后回落）", "as_of": "A股 11-17 收盘"},
+    "hs300": {"value": "3976.46", "change": "-0.08%", "as_of": "A股 11-17 收盘"},
+    "hsi": {"value": "23508.17", "change": "-1.03%", "as_of": "港股 11-17 收盘"},
+    "dji": {"value": "50759.42", "change": "-1.65%（-849 点，日内低 50566.98）", "as_of": "美股 11-17 收盘"},
+    "spx": {"value": "7340.53", "change": "-1.02%", "as_of": "美股 11-17 收盘"},
+    "ixic": {"value": "24328.38", "change": "-0.74%", "as_of": "美股 11-17 收盘"}
+  },
+  "a_share": {
+    "turnover_yi": 14675,
+    "turnover_change": "缩量 266 亿",
+    "advance": 1326,
+    "flat": 133,
+    "decline": 4119,
+    "limit_up": 37,
+    "limit_down": 84,
+    "seal_rate": 61.67,
+    "heat": 22.0,
+    "net_outflow_yi": 266.09,
+    "note": "涨跌家数为沪深两市口径；跌停 84 只为证券时报口径（财联社口径 77 只、封板 37、炸板 20、封板率 65%），差异在 ST 与未开板新股"
+  },
+  "us_stock": {
+    "style_note": "风格反转：11-16 纳指领跌 -2.49%，11-17 纳指最抗跌 -0.74%，道指 -1.65% 领跌（-849 点）"
+  },
+  "hk_stock": {"note": "恒指 -1.03%，与 A 股同向"},
+  "key_event": {
+    "name": "英伟达 FY2027 Q3 财报（黄仁勋辞职后首份，临时 CEO 克雷斯首份成绩单）",
+    "time": "2026-11-18 05:20 CST",
+    "revenue_usd_bn": 115.8,
+    "revenue_yoy": "+103%",
+    "revenue_qoq": "+20%",
+    "consensus_usd_bn": 109.33,
+    "company_guide_usd_bn": 108.0,
+    "datacenter_usd_bn": 107.6,
+    "datacenter_yoy": "+110%",
+    "datacenter_share": "93%",
+    "hyperscale_usd_bn": 60.1,
+    "acie_usd_bn": 47.5,
+    "eps_adj": 2.68,
+    "eps_consensus": 2.47,
+    "net_income_usd_bn": 65.3,
+    "gross_margin_ng": "74.9%",
+    "guide_q4_usd_bn": "1274–1326（中值 1300）",
+    "guide_q4_consensus_usd_bn": 125.25,
+    "guide_q4_gm": "71%–72%",
+    "q4_extra_week": true,
+    "china_dc_revenue_in_guide": false,
+    "after_hours": "+2.7%~+2.8%"
+  },
+  "next_catalyst": {
+    "name": "英伟达 FY2027 Q3 电话会",
+    "time": "2026-11-18 06:00 CST（美东 11-17 17:00）",
+    "watch": [
+      "FY2028 营收 +70% 的初步展望是否重申（上一季首次提前一年给出，是本轮需求底锚）",
+      "客户融资担保 / 循环融资（Apollo、BlackRock 等 5000 亿美元第三方平台、take-or-pay 模式）是否收紧",
+      "永久 CEO 人选有无消息（管理折价能否收敛）"
+    ]
+  }
+}
