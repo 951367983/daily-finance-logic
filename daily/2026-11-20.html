@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>2026-11-20 日更 · 两天破两道关：金价 3634、VIX 28，跌的不是恐慌，是"钱的价格"</title>
+<style>
+  :root{
+    --green:#1d4d3f;--green-soft:#e8f1ed;--teal:#0e7490;--teal-soft:#e0f2f7;
+    --amber:#d97706;--amber-soft:#fef3c7;--red:#b91c1c;--red-soft:#fee2e2;
+    --line:#e5e7eb;--muted:#6b7280;--card:#fafaf9;--bg:#f5f5f4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:#1f2937;line-height:1.7;padding:16px;max-width:860px;margin:0 auto;}
+  .daily-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:18px;box-shadow:0 1px 3px rgba(0,0,0,0.04);}
+  .daily-card-header{border-bottom:2px solid var(--line);padding-bottom:12px;margin-bottom:14px;}
+  .daily-date{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--green);padding:2px 12px;border-radius:10px;}
+  .daily-title{margin:10px 0 8px;font-size:20px;color:var(--green);line-height:1.45;}
+  .daily-symbols{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+  .symbol-chip{font-size:11.5px;background:var(--green-soft);color:var(--green);padding:3px 9px;border-radius:10px;}
+  .back-link,.prev-link{display:inline-block;font-size:12.5px;color:var(--green);text-decoration:none;background:#fff;border:1px solid var(--line);padding:5px 12px;border-radius:8px;margin-bottom:10px;}
+  .prev-link{float:right;}
+  .macro-snapshot{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 16px;}
+  .macro-snapshot th{background:var(--green);color:#fff;padding:6px 8px;text-align:left;font-weight:600;}
+  .macro-snapshot td{padding:5px 8px;border-bottom:1px solid var(--line);}
+  .tag-red{color:var(--red);font-weight:600;}
+  .tag-green{color:var(--green);font-weight:600;}
+  .tag-amber{color:var(--amber);font-weight:600;}
+  .market-pricing{background:var(--teal-soft);border-left:4px solid var(--teal);border-radius:0 8px 8px 0;padding:12px 14px;margin:12px 0;font-size:13.5px;}
+  .street-signal{background:var(--amber-soft);border-left:4px solid var(--amber);border-radius:0 8px 8px 0;padding:12px 14px;margin:12px 0;font-size:13.5px;}
+  .step{margin:18px 0;padding-bottom:6px;border-bottom:1px dashed var(--line);}
+  .step h4{font-size:15px;color:var(--green);margin-bottom:8px;padding-left:9px;border-left:3px solid var(--amber);}
+  .step p{font-size:14px;margin-bottom:10px;text-align:justify;}
+  .review-box{background:var(--red-soft);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:12px 14px;margin:12px 0;font-size:13.5px;}
+  .review-box h4{font-size:14px;color:var(--red);margin-bottom:6px;}
+  .watch{background:#fffbeb;border:1px solid #f3d9a8;border-left:5px solid var(--amber);border-radius:8px;padding:12px 14px;margin:16px 0;font-size:14px;}
+  .inflation-box{background:var(--green-soft);border:1px solid #cfe3da;border-radius:10px;padding:14px 16px;margin:16px 0;}
+  .inflation-box h3{font-size:15px;color:var(--green);margin-bottom:8px;}
+  .inflation-box .q{font-size:13.5px;margin-bottom:9px;}
+  .ledger{background:var(--amber-soft);border:1px solid #f3d9a8;border-left:5px solid var(--amber);border-radius:8px;padding:14px 16px;margin:16px 0;}
+  .ledger h3{font-size:15px;color:var(--amber);margin-bottom:8px;}
+  .ledger p,.ledger li{font-size:13.5px;}
+  .ledger table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:8px;background:#fff;}
+  .ledger th{background:var(--amber);color:#fff;padding:6px 8px;text-align:left;}
+  .ledger td{padding:6px 8px;border-bottom:1px solid var(--line);}
+  .self-check{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:16px 0;}
+  .self-check h3{font-size:15px;color:var(--green);margin-bottom:8px;}
+  .self-check table{width:100%;border-collapse:collapse;font-size:12.5px;}
+  .self-check th{background:var(--green);color:#fff;padding:6px 8px;text-align:left;}
+  .self-check td{padding:6px 8px;border-bottom:1px solid var(--line);}
+  .footnote{font-size:11.5px;color:var(--muted);line-height:1.65;margin-top:16px;padding-top:12px;border-top:1px solid var(--line);}
+  @media(max-width:640px){body{padding:10px;} .daily-card{padding:14px;} .daily-title{font-size:17.5px;} .macro-snapshot{font-size:12px;}}
+</style>
+</head>
+<body>
+
+<a class="back-link" href="../艾丽财经分析方法论_普通人知识图谱.html">← 返回主知识库</a>
+<a class="prev-link" href="./2026-11-19.html">上一交易日：12 月从"降息"改写成"加息" →</a>
+
+<article class="daily-card" data-date="2026-11-20" data-symbols="伦敦金3634.42跌2.82%,两日连破3800与3700,金价回撤超33%,VIX28.04涨14.17%,美元103.974创19个月新高,沃勒支持12月加50BP,10年期TIPS2.8546%,美股10Y5.0461%,两市成交13051亿年内新低,沪指3577.62跌0.28%,恒指22841.62跌1.95%,先进封装领涨">
+
+  <div class="daily-card-header">
+    <span class="daily-date">2026-11-20 周五</span>
+    <h2 class="daily-title">两天破两道关：金价 3634、VIX 28，跌的不是恐慌，是"钱的价格"</h2>
+    <p style="font-size:13px;color:var(--muted);margin-top:6px;">
+      数据归属：2026-11-19（周四）A 股收盘 · 11-19 美东美股与美债收盘 · 此刻 A 股未开盘（09:30 才开）
+    </p>
+    <div class="daily-symbols">
+      <span class="symbol-chip">伦敦金 3634</span>
+      <span class="symbol-chip">两日破 3800/3700</span>
+      <span class="symbol-chip">VIX 28.04</span>
+      <span class="symbol-chip">美元 103.97（19 个月高）</span>
+      <span class="symbol-chip">沃勒：支持加 50BP</span>
+      <span class="symbol-chip">10Y TIPS 2.85%</span>
+      <span class="symbol-chip">成交 13051 亿（年内新低）</span>
+      <span class="symbol-chip">恒指 -1.95%</span>
+      <span class="symbol-chip">先进封装领涨</span>
+    </div>
+    <p style="margin-top:12px;font-size:15px;font-weight:600;color:var(--red);">
+      一句话核心：黄金两天跌掉两道整数关，不是"避险"失灵了，是"分母"又紧了一格——沃勒把 50 个基点摆上桌、美元摸到 19 个月新高 103.97、10 年期通胀保值国债收益率 2.85%，金价只能按实际利率重新定价；同一天 VIX 冲到 28、港股跌 1.95%、A 股缩量到 13051 亿的年内新低，是同一个分母在打第二轮。
+    </p>
+  </div>
+
+  <h3 style="font-size:15px;color:var(--green);margin:8px 0 4px;">宏观快照（归属交易日见"数据"列）</h3>
+  <table class="macro-snapshot">
+    <tr><th>指标</th><th>最新值</th><th>涨跌</th><th>数据归属</th></tr>
+    <tr><td>伦敦金现（美元/盎司）</td><td class="tag-red">3634.42</td><td class="tag-red">-2.82%</td><td>11-19 美盘</td></tr>
+    <tr><td>COMEX 黄金</td><td class="tag-red">3661</td><td class="tag-red">-2.16%</td><td>11-19 美盘</td></tr>
+    <tr><td>12 月白银期价</td><td class="tag-red">跌破 45</td><td class="tag-red">跌超 2%</td><td>11-19 美盘</td></tr>
+    <tr><td>WTI 原油</td><td class="tag-green">84.02</td><td class="tag-green">+0.78%</td><td>11-19 收盘</td></tr>
+    <tr><td>ICE 布油</td><td class="tag-green">92.65</td><td class="tag-green">+0.76%</td><td>11-19 盘中/收盘</td></tr>
+    <tr><td>美元指数（ICE）</td><td class="tag-red">103.899</td><td class="tag-red">+0.03%（日内高 103.974）</td><td>11-19 纽约尾盘</td></tr>
+    <tr><td>美债 10Y</td><td>5.0461%</td><td class="tag-green">-2.22BP</td><td>11-19 纽约尾盘</td></tr>
+    <tr><td>美债 2Y</td><td>4.7682%</td><td class="tag-green">-3.60BP</td><td>11-19 纽约尾盘</td></tr>
+    <tr><td>10Y TIPS（实际利率）</td><td class="tag-red">2.8546%</td><td class="tag-green">-1.61BP</td><td>11-19</td></tr>
+    <tr><td>USDCNH</td><td class="tag-red">6.6940</td><td class="tag-red">+0.3869%</td><td>11-20 05:26</td></tr>
+    <tr><td>USDJPY</td><td>159.70</td><td class="tag-amber">+0.23%</td><td>11-20 05:26</td></tr>
+    <tr><td>VIX</td><td class="tag-red">28.04</td><td class="tag-red">+14.17%（日内高 28.99）</td><td>11-19 收盘</td></tr>
+    <tr><td>上证指数</td><td class="tag-red">3577.62</td><td class="tag-red">-0.28%</td><td>11-19 收盘</td></tr>
+    <tr><td>深证成指</td><td class="tag-red">10583.20</td><td class="tag-red">-0.71%</td><td>11-19 收盘</td></tr>
+    <tr><td>创业板指</td><td class="tag-red">2293.34</td><td class="tag-red">-0.79%</td><td>11-19 收盘</td></tr>
+    <tr><td>沪深 300</td><td class="tag-green">3984.84</td><td class="tag-green">+0.03%</td><td>11-19 收盘</td></tr>
+    <tr><td>两市成交额</td><td class="tag-red">13051 亿</td><td class="tag-red">年内新低</td><td>11-19</td></tr>
+    <tr><td>恒生指数</td><td class="tag-red">22841.62</td><td class="tag-red">-1.95%</td><td>11-19 收盘</td></tr>
+    <tr><td>恒生科技</td><td class="tag-red">3649.14</td><td class="tag-red">-2.33%</td><td>11-19 收盘</td></tr>
+    <tr><td>富时中国 A50</td><td>12781.28</td><td class="tag-green">+0.04%</td><td>11-19 收盘</td></tr>
+  </table>
+
+  <div class="market-pricing">
+    <b>【F1 · 市场当前定价了什么】</b><br>
+    现在 price in 的是：<b>12 月加息 25 个基点</b>（CME 92.7%），以及到明年 1 月<b>累计加 50 个基点</b>（CME 68.1%）——也就是说，"连加两次"已经成了默认剧本。<br>
+    没被 price in 的是：<b>12 月一次加 50 个基点</b>（CME 只给 7.3%，而沃勒公开说"要么给我 1 月的可信信号，要么 12 月一次到位"），以及"加息把 AI 基建的融资链条打崩"这种尾部情形。<br>
+    <b>证伪条件</b>：① 11 月 CPI 明显回落；② 12 月改成"鹰派暂停"；③ 美元指数跌回 102 下方——三条里出现任何一条，"加息交易"就要回撤一大截。
+  </div>
+
+  <div class="street-signal">
+    <b>【G1 · 街角信号】</b><br>
+    <b>黄金回收 / 典当：今天是最热的一格。</b>金店足金 1132 元/克（-1.65%），银行投资金条 823–833 元/克（-1.41% 至 -1.93%），上海金 T+D 793.97 元/克（-1.33%）。回收价贴盘更紧，一线反馈是"<b>价跌人冷</b>"——年初跟风入场的人浮亏普遍超 20%，多数人既不卖也不买，柜台流水反而更淡；婚嫁"六金"有一小波跨省捡便宜的，但没形成规模。<br>
+    <b>其余四格</b>：方便面/5 元袋面、折扣零售（拼多多/名创优品/零食很忙）、5 万以下新车与二手、劳务工价，今日无显著新变化，不硬凑。
+  </div>
+
+  <div class="step step-1">
+    <h4>① 事件表象：两天，两道整数关，全都破了</h4>
+    <p><b>11-18 破 3800，11-19 破 3700。</b>伦敦金现 11-19 收 <b>3634.42 美元/盎司（-2.82%）</b>，日内最低 3632.77、最高 3758.25；COMEX 黄金 3661（-2.16%），12 月期金跌破 3700（新华社口径"跌幅接近 2%"）；12 月白银期价跌破 45 美元、跌超 2%。</p>
+    <p><b>把时间轴拉长看，这不是"回调"，是"换锚"。</b>金价年初最高 5598.75 美元（1 月 29 日），到今天 3634，<b>回撤超过 33%</b>；上周还在 3900 上方，两天之内连丢两道关。同一时刻，上海金 T+D 793.97 元/克（-1.33%）、沪金主力 794.34 元/克（-1.45%），金店足金 1132 元/克（-1.65%）——<b>国内零售端比国际盘跌得慢半拍，但方向一致。</b></p>
+    <p><b>最能说明问题的是同一天的另一组数字：</b>VIX 收 <b>28.04（+14.17%）</b>，日内最高冲到 28.99；港股恒指 <b>22841.62（-1.95%）</b>、恒生科技 3649.14（-2.33%）；A 股两市成交 <b>13051 亿，创今年以来新低</b>。黄金在跌、波动率在涨、成交在缩——<b>三件事同时发生，指向的不是"恐慌"，而是"折现率"。</b></p>
+  </div>
+
+  <div class="step step-2">
+    <h4>② 直接影响：同一天，四个市场给出四种反应</h4>
+    <p><b>贵金属：连续第二日重挫。</b>两天里金价从 3800 上方掉到 3634，累计跌超 4%；白银跌破 45 美元。最反常识的一点：<b>同一夜油价是涨的</b>——WTI 84.02（+0.78%）、布油 92.65（+0.76%）。按老逻辑，"油涨 = 通胀预期升 = 买黄金抗通胀"，结果金价照跌。这条老逻辑，这次不成立。</p>
+    <p><b>美元：摸到 19 个月新高，但没站上 104。</b>ICE 美元指数 11-19 纽约尾盘 103.899（+0.03%），日内区间 103.588–103.974，<b>高点 103.974 是 2025 年 4 月以来最高</b>，离 104 差不到 3 个点。这个"差一点"，正好是昨天卡片里那个问题的答案——详见文末台账。</p>
+    <p><b>美债：收益率反而小幅回落。</b>10Y 5.0461%（-2.22BP）、2Y 4.7682%（-3.60BP）、30Y 5.3982%（-1.27BP），20 年期新债招标需求稳健。注意这处细节：<b>收益率当天是跌的，金价却是暴跌的</b>——因为压金价的不是"长端收益率"，而是<b>美元 + 加息路径 + 通胀预期</b>三件套；10 年期通胀保值国债（TIPS）收益率仍在 2.8546% 的高位，这才是"实际利率"那把尺子。</p>
+    <p><b>A 股：缩量下跌，越跌越没量。</b>上证 3577.62（-0.28%，成交 6369.09 亿）、深成 10583.20（-0.71%，6682.38 亿）、创业板 2293.34（-0.79%，3101.21 亿）、科创综指 -0.33%；<b>但沪深 300 +0.03%、上证 50 +0.32% 逆势翻红</b>。两市合计 13051 亿，创年内新低；盘面唯一亮点是<b>先进封装</b>，蓝箭电子 20% 幅度涨停。</p>
+    <p><b>港股：跌幅最大。</b>恒指 -1.95%、恒生科技 -2.33%，对美元与外资流动最敏感的市场，先跌为敬。A50 收 12781.28（+0.04%），说明外资对 A 股的定价暂时没跟着港股走。</p>
+  </div>
+
+  <div class="step step-3">
+    <h4>③ 连锁传导：一条分母，四条出口</h4>
+    <p><b>出口一（实际利率 → 无息资产）</b>：加息路径上移 → 持有黄金的机会成本上升 → 金价按 TIPS 收益率重算。这条链条里没有"恐慌"，只有"算式"：TIPS 2.85%，就是金价的对手盘。</p>
+    <p><b>出口二（美元 → 新兴市场与输入型成本）</b>：美元 103.974 创 19 个月新高 → 以美元计价的商品对非美买家更贵 → 反过来再压金价；同时抬高新兴市场美元债成本。<b>人民币这次开始有反应了</b>：USDCNH 6.6940，日内 +0.3869%（前一天几乎零变动），USDJPY 159.70（+0.23%）。</p>
+    <p><b>出口三（波动率 → 风险预算）</b>：VIX 一天从 24.56 跳到 28.04（+14.17%）。波动率是机构的"风险预算开关"——VIX 一上 28，很多按波动率控仓的资金就被动降杠杆，于是<b>港股先跌、A 股缩量</b>。这就是"分母"从商品市场传导到股票市场的路径：不是基本面变差，是仓位被规则逼着减。</p>
+    <p><b>出口四（融资成本 → 长久期资本开支）</b>：利率高位 + 美元强势 → 高杠杆、长久期的项目（新能源扩产、AI 基建的债务与表外融资）最先被重新审核。前一日电力设备单日净流出 205 亿，就是这条出口的第一次显现。</p>
+    <p><b>【F4 · 交易拥挤度观察】</b>现在仓位最重的两头：<b>一头是黄金多头</b>——两日跌超 4%、年内回撤 33%，这是最典型的"拥挤交易解体"形态，越跌越有人被迫平仓；<b>另一头是 A 股的算力/先进封装抱团</b>——今天全场只剩先进封装一条线还在涨（蓝箭电子 20% 涨停），其余方向几乎全绿。<b>边际买盘跟不跟得上？答案明确偏"跟不上"：两市成交 13051 亿创年内新低</b>，缩量下跌意味着<b>卖盘不算汹涌，但买盘已经退场</b>——这种市况下，任何抱团的持续性都要打折。</p>
+    <p><b>【G3 · 这一轮收缩，最先被冻住/被点名的是哪类人？】</b>① <b>黄金回收、典当、金饰柜台的一线人员</b>——价跌人冷，客流和流水同时掉；② <b>有色贸易与冶炼环节的持库存者</b>——银、铜跟跌，库存当天就在减值；③ <b>做题材接力的短线资金</b>——成交创年内新低，能接的"棒"越来越少；④ <b>出口型中小制造</b>——美元走强、外需偏弱，报价与订单两头受压，这类岗位（流水线、外贸跟单）通常最先感到冷。</p>
+  </div>
+
+  <div class="step step-4">
+    <h4>④ 深层目的：不是要打金价，是要把"实际利率"重新钉死</h4>
+    <p><b>第一层，沃勒那句话的分量。</b>他公开说：如果不提前释放明年 1 月还要加的信号，<b>12 月就该一次加 50 个基点</b>；理由是通胀"正朝着错误的方向发展，且范围在扩大"。这句话的真正用意不是"50BP"，而是<b>逼政策沟通给出路径</b>——要么你承诺 1 月继续，要么你 12 月一次到位。无论哪种，结果都是"实际利率更高、且更久"。</p>
+    <p><b>第二层，纪要把它从"个例"变成"共识"。</b>10 月纪要写的是"几乎所有官员认为进一步行动合适"、"一些官员称 12 月加超 25BP 合理"、10 月按兵不动是"险胜"。<b>当一个人的极端表态被写进集体记录，它就不再是噪音，而是基准情形。</b>市场今天做的，是把"基准情形"再往上抬一格。</p>
+    <p><b>第三层，黄金的"抗通胀"卖点这次彻底失效。</b>油价在涨（WTI +0.78%）、地缘风险还在，按老剧本金价该涨；实际是连跌两日。原因只有一个：<b>这轮通胀是"内源 + 粘性"，它带来的不是"买金抗通胀"，而是"加息压通胀"。</b>通胀越高，金价越跌——这个反直觉的因果关系，就是当下最贵的一课。</p>
+    <div class="review-box">
+      <h4>【H1 · 头条没报道的那个数字】</h4>
+      <p>头条都在喊：<b>"金价两天跌破 3800、3700，创 14 个月新低，抢购潮退烧！"</b><br>
+      头条没说的是：<b>全球央行三季度仍在净购金 321 吨</b>——真正的大买家一股没减，跑掉的是杠杆多头和年初追高的散户。<br>
+      一句话：<b>同一批"黄金买家"里，长线的那批在买，短线的那批在割。</b>把这两批人混为一谈，就会把"多头拥挤度出清"误读成"黄金没人要了"。这才是今天最该看的那一格。</p>
+    </div>
+  </div>
+
+  <div class="step step-5">
+    <h4>⑤ 时间窗口：今天开盘、11 月 CPI、12 月议息</h4>
+    <p><b>今天（11-20，周五 09:30 开盘）</b>：这是本周最后一个交易日，也是"A 股对加息交易第二次投票"的日子。要看的不是指数涨跌，是<b>两个量</b>：① 成交能不能从 13051 亿的年内新低回升（放量下跌比缩量下跌更危险，缩量止跌才算喘住）；② 先进封装这条独苗能不能带出第二梯队（只有一条线，说明接力已经断了）。</p>
+    <p><b>11 月内</b>：11 月 CPI（发布时间以官方为准）。这是"12 月加不加、加多少"的唯一硬证据；也是本卡片所有推演的总开关。</p>
+    <p><b>12 月上旬</b>：议息会议（日期以美联储官网日程为准）。市场把 25BP 当默认、把"1 月再补一次"当剧本，<b>真正的意外只有两个：12 月直接 50BP，或"不加但措辞更鹰"</b>。前者伤风险资产，后者伤黄金。</p>
+    <p><b>黄金的位置</b>：3634 已跌破高盛 2026 年底 4150 的目标价，说明<b>卖方在追着价格改口</b>；这种时候任何目标价都要打折看。真正的参考坐标是 TIPS 收益率——它不回头，金价就很难有像样的反弹。</p>
+  </div>
+
+  <div class="step step-6">
+    <h4>⑥ 普通人影响：先看钱包，再看资产</h4>
+    <p><b>① 你的钱包（短期、看得见）</b></p>
+    <p>· <b>黄金回收价跟跌，而且贴得更紧</b>：金店足金 1132 元/克（-1.65%），银行投资金条 823–833 元/克，上海金 T+D 793.97 元/克。手里有旧金想变现的，今天比上周少一截；想"跌了就买"的，请先记住：<b>它年内还跌着三成多，而且跌的理由（实际利率）今天没有变</b>。<br>
+    · <b>油价没继续松</b>：WTI 回到 84.02（+0.78%）、布油 92.65（+0.76%），前一日"油价大跌缓解出行成本"的那口气，今天停住了；国内成品油下一轮调价的方向，重新变得不确定。<br>
+    · <b>汇率开始有反应</b>：USDCNH 6.6940、日内 +0.3869%（前一天几乎不动）。海淘、进口药、进口奶粉这类以美元计价的东西，成本会慢半拍往上抬；出国游的换汇成本也略升。</p>
+    <p><b>② 你的资产（四档，只讲攻守比例，不讲具体标的）</b></p>
+    <p><b>· 保守型（存款 / 国债 / 银行高股息）</b>：<b>压力</b>——利率锚被抬高后，低波资产的相对吸引力被"更贵的钱"稀释；<b>支撑</b>——今天沪深 300 +0.03%、上证 50 +0.32% 逆势翻红，说明"大盘价值"在这轮分母收紧里是最抗跌的一档。<b>攻守比例上，这一档今天最不需要动。</b></p>
+    <p><b>· 稳健型（+ 黄金）</b>：<b>压力最大</b>——黄金正处在"两天破两关"的最弱位置，抗通胀与避险两条叙事同时失效；<b>支撑</b>——央行三季度仍净购金 321 吨，长线筹码没走，且价格已回撤 33%，不再是极端高位。<b>这一档今天最该做的是"不因一根阴线改比例"，也不因"跌得多"就加码——因为压它的变量还没转向。</b></p>
+    <p><b>· 平衡型（+ A 股宽基 / 沪深 300）</b>：<b>压力</b>——成交创年内新低、外资对港股定价更悲观（恒指 -1.95%），宽基的上沿被压；<b>支撑</b>——沪深 300 逆势收红、A50 微涨，指数层面的"跌不动"是真的，缩量也意味着恐慌盘不多。<b>攻守比例上，这一档是"守多攻少"，等量能回来再谈方向。</b></p>
+    <p><b>· 积极型（+ A 股成长 / 纳指 / 港股科技）</b>：<b>压力最大的一档</b>——VIX 28.04（+14.17%）意味着按波动率控仓的资金会被动降杠杆，港股科技 -2.33% 已经先挨了一刀；<b>支撑</b>——AI 的"分子"还在（前一日英伟达把 FY2028 指引上调到 75%），先进封装今天还是红的。<b>但请注意：分母在收紧时，"分子好"只能保住业绩，保不住估值。这一档的攻守比例，应该比单边看多时更保守。</b></p>
+  </div>
+
+  <div class="watch">
+    <b>【F2 · 今日唯一要盯的就是】11-20（周五）09:30 之后，两市成交能否从 13051 亿的年内新低回升，同时美元指数能不能补上最后 3 个点、真正站上 104。</b><br>
+    成交回升 + 美元不破 104 → 说明"A 股缩量"只是观望不是撤退，分母压力短期见顶；<br>
+    成交继续缩 + 美元站上 104 → 两个信号同向，下周（11-23）风险偏好还要再降一档；<br>
+    成交回升但美元也破 104 → 最拧巴的组合，说明内部有资金在逆势接，但外部压力更大，持续性存疑。
+  </div>
+
+  <div class="ledger">
+    <h3>【H3 · 本周预测追踪台账（周五一并结账）】</h3>
+    <p>规则：每周五在卡片末尾回顾本周一至周四每天 F2 喊的"今日唯一要盯"，逐条对答案；<b>周五当天的 F2 要等下周一（11-23）才能验，本周不给自己打分。</b></p>
+    <table>
+      <tr><th>日期</th><th>当天 F2 喊的是什么</th><th>实际结果</th><th>判定</th></tr>
+      <tr><td>11-16（周一）</td><td>11-17 美东盘后英伟达 FY2027 Q3 财报 + 电话会</td><td>营收 1158 亿、超预期约 7%，数据中心 1076 亿，盘后仅涨 2.8%；次日 A 股指数微涨但 4133 只下跌</td><td><b>对了一半</b>：需求确有验证，但没换来风险偏好修复</td></tr>
+      <tr><td>11-17（周二）</td><td>11-18 05:20 财报 + 06:00 电话会</td><td>FY2028 指引上调至 75%（超最乐观假设），正股当日 -0.44% 近乎平收</td><td><b>错</b>：以为财报能定方向，实际财报只定了"分子"，方向被"分母"接管</td></tr>
+      <tr><td>11-18（周三）</td><td>11-18 06:00 电话会（25 分钟后）</td><td>电话会给了 75% 指引，当日 A 股仍是"指数红、个股绿"（涨 1318 / 跌 4133）</td><td><b>对了一半</b>：事件方向对，传导力度估高了</td></tr>
+      <tr><td>11-19（周四）</td><td>美元指数能否站上 104 + 12 月是否落地加息</td><td>DXY 日内最高 <b>103.974</b>、收 103.899，<b>差 3 个点没站上</b>；议息在 12 月，尚未落地</td><td><b>对了一半</b>：方向对（美元强势），阈值未达（104 未破）</td></tr>
+    </table>
+    <p style="margin-top:10px;"><b>本周总结：四次 F2，两次半对、一次半错。</b>共同的问题出在同一处——<b>把"事件"当成了"方向"，把"阈值"当成了"必然"</b>：英伟达财报确实超预期，但股价由分母决定；美元确实很强，但差 3 个点就是没破关。<b>教训：以后 F2 要么写成"可验证的阈值"（如"站上 104"），要么写成"可验证的方向"（如"成交能否回升"），不要混着写。</b></p>
+  </div>
+
+  <div class="inflation-box">
+    <h3>【I1 · 通胀三问：这一轮，到底是哪一种通胀？】</h3>
+    <p class="q">口径声明：本节讨论的是<b>美国 CPI / 核心 CPI / PCE 与 FOMC 纪要的通胀定性</b>，不涉及中国 PPI，不混用口径；10 月 CPI 具体读数未逐项核对，涉及数值处一律标注"待核"，只做结构判断。</p>
+    <p class="q"><b>一问：一次性还是粘性？——偏粘性，而且"范围在扩大"。</b><br>
+    证据一（分项）：纪要明确"通胀担忧已不限于关税与能源"——关税与能源属典型一次性/外源，被单独"划出去"，说明压力留在服务与内需。<br>
+    证据二（同比与环比）：具体读数待核，但"10 月维持不变被形容为险胜"这句话本身，就说明多数官员认为环比方向已经不对。<br>
+    证据三（工资—价格链条）：沃勒的原话是通胀"正朝着错误的方向发展，且范围在扩大"，配合"消费与企业投资保持强劲"，这是"涨价—涨薪—再涨价"链条仍在运转的标准表述。<br>
+    <b>结论：偏粘性，所以它不能被"看穿"，只能被"加息"处理。</b></p>
+    <p class="q"><b>二问：内源还是外源？——内源为主，外源正在退场。</b><br>
+    判断依据：① 今天油价是<b>涨的</b>（WTI +0.78%、布油 +0.76%），金价却<b>跌的</b>（-2.82%）——如果通胀由外源（能源）主导，加息预期不该在这种情况下继续升温，这个"反常"本身就是外源退场的证据；② "消费与企业投资强劲"是典型内源需求；③ AI 基础设施投资被点名为"短期推升需求、加剧通胀压力"，这是全新的、结构性的内源。<br>
+    对中国：USDCNH 6.6940（+0.3869%）开始走贬，输入型压力有抬头迹象，但幅度仍可控（单日不到 0.4%）。</p>
+    <p class="q"><b>三问：危害三层，不能只写"通胀有压力"。</b><br>
+    <b>对政策</b>：粘性 + 内源，正是"压缩宽松空间、逼出反向操作"的标准组合——这是 12 月从降息改写成加息、且沃勒敢提 50BP 的全部背景。<br>
+    <b>对企业</b>：利率与美元双高，抬高再融资成本，最脆弱的是高杠杆与依赖表外/循环融资的 AI 基建链条；对能转嫁成本的上游是提价窗口，对中下游是毛利两头被挤。<br>
+    <b>对普通人</b>：这一轮先涨的不是菜价，是"<b>钱的价格</b>"——房贷、消费贷、信用卡分期的成本；次序是<b>实际利率上行 → 贷款成本 → 高估值资产重定价（黄金/成长股先挨打）→ 最后才到消费品</b>。这跟"油价先打到油箱"完全不同：油价影响的是每次加油，利率影响的是每个月月供。</p>
+    <p class="q" style="color:var(--red);"><b>硬规则提醒：单一月度数据不得下"通胀回来了"或"通胀结束了"的结论，至少看三个月方向。今天判断的是"偏粘性"，不是"通胀失控"。</b></p>
+  </div>
+
+  <div class="review-box">
+    <h4>【F5 · 这个判断在什么情况下不成立】</h4>
+    <p>① 若 11 月 CPI <b>明显回落</b>——"粘性"前提被数据证伪，加息交易整体回撤，黄金与成长同时反弹，本卡片定性作废；<br>
+    ② 若 12 月议息最终<b>改成"鹰派暂停"</b>——分母不再上行，黄金最大的一根压力消失；<br>
+    ③ 若美元指数<b>跌回 102 下方</b>——说明 103.974 只是抢跑，不是趋势；<br>
+    ④ 若央行购金从"净增"转为"净减"——长线筹码松动，H1 那条"长线在买、短线在割"的判断就不成立；<br>
+    ⑤ 若 VIX 快速回落到 22 以下——说明风险预算开关已经复位，"缩量"就只是观望，不是撤退；<br>
+    ⑥ 若油价重新冲高到 95 以上并持续——通胀路径从"内源粘性"变成"能源二次冲击"，是另一套剧本（滞胀），本卡片推演不适用。</p>
+  </div>
+
+  <div class="self-check">
+    <h3>逻辑自检（10 项）</h3>
+    <table>
+      <tr><th>#</th><th>检查项</th><th>结论</th></tr>
+      <tr><td>1</td><td>数据是否标注归属交易日</td><td>通过：金/银/美债/VIX 标 11-19 美盘；A 股与港股标 11-19 收盘；汇率标 11-20 05:26</td></tr>
+      <tr><td>2</td><td>是否引用当日盘中行情</td><td>未引用：A 股 09:30 未开盘，今日部分只写"开盘要看什么"</td></tr>
+      <tr><td>3</td><td>未取得/未更新数据是否标注</td><td>通过：11-19 美股三大指数与道指/纳指点位未逐项核对，全文未引用其点位，只引用已验证的 VIX 与美债</td></tr>
+      <tr><td>4</td><td>通胀三问是否齐全</td><td>齐全：一次性/粘性、内源/外源、三层危害，并标口径为美国 CPI/核心 CPI/PCE</td></tr>
+      <tr><td>5</td><td>是否用单月数据下趋势结论</td><td>未违反：明确"偏粘性≠通胀失控，至少看三个月"</td></tr>
+      <tr><td>6</td><td>是否给出具体标的或点位建议</td><td>未违反：四档只讲攻守比例，无个股、无点位、无买卖用语</td></tr>
+      <tr><td>7</td><td>F2 是否唯一且可验证</td><td>通过：唯一变量为"成交能否回升 + 美元能否站上 104"，两者均可次日验证</td></tr>
+      <tr><td>8</td><td>F5 正反两面是否都写</td><td>通过：列 6 条不成立条件</td></tr>
+      <tr><td>9</td><td>H3 台账是否按规则只做周一至周四</td><td>通过：仅回顾 11-16 至 11-19，明确标注周五 F2 待下周一验</td></tr>
+      <tr><td>10</td><td>前后是否矛盾</td><td>已核对：昨日"加息交易成立"与今日"两天破两关"同向，不是反转；昨日"美债 10Y 待观察"今日已补齐（5.0461%），且与"金价暴跌"不矛盾——压金价的是美元与TIPS，不是长端名义收益率，文中已专门说明</td></tr>
+    </table>
+  </div>
+
+  <div class="footnote">
+    数据来源：伦敦金现 3634.42（-2.82%，日区间 3632.77–3758.25）、COMEX 黄金 3661（-2.16%）与黄金 T+D、沪金（同花顺、Wind 万得，11-19 美盘）；12 月期金跌破 3700、白银跌破 45（新华社纽约 11-19 电，11-20 05:03 发布）；金店足金与银行金条报价（同花顺实物黄金，11-20 更新）；WTI 84.02（+0.78%）、ICE 布油 92.65（+0.76%）（Wind 万得、同花顺主连）；ICE 美元指数 103.899、日内高 103.974 与 19 个月新高（华尔街见闻纽约尾盘、FXStreet）；美债 10Y 5.0461%、2Y 4.7682%、30Y 5.3982%、10Y TIPS 2.8546%（华尔街见闻、新浪财经、美国财政部 11-18 CMT）；VIX 28.04（+14.17%，日内 22.12–28.99）（同花顺 CBOE 波动率）；A 股 11-19 收盘、成交 13051 亿创年内新低、先进封装领涨与蓝箭电子 20% 涨停（上海证券交易所、上海证券报、证券时报、新浪财经收评）；恒指 22841.62（-1.95%）、恒生科技 3649.14（-2.33%）、A50 12781.28（Wind 万得、同花顺）；USDCNH 6.6940（+0.3869%）、USDJPY 159.70（新浪财经，11-20 05:26）；沃勒"12 月可加 50BP"与"通胀朝错误方向、范围扩大"（CNBC 采访，经新浪财经、财富中文网转述）；CME 12 月加息 25BP 92.7%、50BP 7.3%、1 月累计 50BP 68.1%（21 世纪经济报道、财联社）；央行三季度净购金 321 吨（新浪财经美联储小时报引机构汇总，口径待核）；金饰消费"价跌人冷"与年初入场者浮亏超 20%（新浪财经 11-19 报道）。<br>
+    客观事件分析，不含投资建议 · 不荐股 · 不给点位 · 不出现买卖用语。
+  </div>
+
+</article>
+</body>
+</html>
