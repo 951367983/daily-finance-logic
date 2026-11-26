@@ -1,68 +1,53 @@
 {
-  "date": "2026-11-26",
-  "data_attribution": "A股/港股 2026-11-25 收盘；美股 2026-11-25 美东收盘；黄金/汇率 2026-11-26 05:30；金店 2026-11-26 挂牌；A股未开盘",
-  "us_stocks": {
-    "dow": {"close": 50182.95, "chg": 164.25, "pct": 0.33, "open": 49469.86, "high": 50395.24, "low": 48913.74},
-    "nasdaq": {"close": 23585.80, "chg": -147.73, "pct": -0.62, "open": 22948.48, "high": 23627.45, "low": 22632.40},
-    "spx": {"close": 7182.78, "chg": -18.31, "pct": -0.25, "open": 7060.33, "high": 7199.31, "low": 6970.11},
-    "sox": {"close": 8630.63, "chg": -201.87, "pct": -2.29, "open": 8832.50, "high": 8751.99, "low": 8129.23, "note": "同花顺日K；Wind 同时点读数 8774.86/-0.65%，两源分歧，以日K为准"},
-    "sectors": {"up": ["材料 +1.84%", "房地产 +0.84%"], "down": ["非必需消费 -0.98%", "科技 -0.97%"], "up_count": 7, "down_count": 4},
-    "note": "道指盘中一度跌超1100点(-2.2%)后翻红，创2022年以来盘中低点至收涨最大反转；纳指盘中最大跌4.6%、标普最大跌3.2%"
+  "date": "2026-11-27",
+  "generated_at": "2026-11-27T05:35+08:00",
+  "data_attribution": {
+    "a_share": "2026-11-26 收盘（上一交易日）",
+    "us_stocks": "2026-11-25 收盘（美东；11-26 感恩节全天休市，故为两日前数据）",
+    "gold_fx": "2026-11-27 05:30 前后实时",
+    "jewelry_bar": "2026-11-27 挂牌",
+    "note": "今日 11-27 美股为半日市，美东 13:00（北京 11-28 02:00）收盘；下一次完整美股收盘为北京 12-01 05:00"
   },
-  "vix": {"close": 26.36, "date": "2026-11-24", "note": "11-25 读数待观察；沪深300VIX 11-25 为 20.3134"},
-  "gold": {
-    "london_spot": {"price": 3584.17, "chg": 33.37, "pct": 0.94, "prev_close": 3550.80, "high": 3589.07, "low": 3426.47, "time": "2026-11-26 05:30"},
-    "prev_day_close": {"price": 3555.72, "pct": -2.17, "date": "2026-11-24"},
-    "comex": {"price": 3598.80, "chg": 7.70, "pct": 0.21, "prev_close": 3591.10},
-    "sh_gold": {"price": 757.40, "date": "2026-11-25 close"},
-    "td": {"price": 756.90, "date": "2026-11-25 close"},
-    "jewelry": {"price": 1068.0, "pct": -3.17, "brand_list": {"周大福": 1068, "周大生": 1068, "老凤祥": 1065, "周生生": 1062, "金至尊": 1066}, "date": "2026-11-26"},
-    "bank_bar": {"price": 777.90, "pct": -3.03, "brand_list": {"建设银行": 777.90, "工商银行": 779.25, "中国银行": 777.48, "平安银行": 781.10, "浦发银行": 786.00}, "date": "2026-11-26"},
-    "spread": {"abs": 290.10, "premium_pct": 37.29}
-  },
-  "oil": {
-    "wti": {"close": 84.15, "chg": 2.46, "pct": 2.24, "open": 81.68, "high": 84.19, "low": 80.13, "date": "2026-11-25"},
-    "brent": {"close": 90.96, "pct": 1.78, "date": "2026-11-24", "note": "11-25 结算价待观察"}
-  },
-  "fx": {
-    "usdcnh": 6.6670, "usdcnh_pct": 0.033, "usdcny": 6.6681, "usdjpy": 159.19, "usdjpy_pct": -0.038,
-    "dxy": {"close": 103.755, "pct": -0.48, "date": "2026-11-24", "note": "11-25 待观察"}
-  },
-  "rates": {"us10y": "待观察", "us2y": "待观察", "note": "仅取到 11-24 总收益指数（10Y 109.3525 / 2Y 115.5179），收益率读数未更新"},
   "a_share": {
-    "sh": {"close": 3476.47, "chg": -71.90, "pct": -2.03, "open": 3522.59, "high": 3526.34, "low": 3468.65, "turnover_yi": 6527.09},
-    "sz": {"close": 10086.35, "chg": -337.25, "pct": -3.24, "open": 10272.19, "high": 10402.35, "low": 10086.35, "turnover_yi": 7303.88},
-    "cyb": {"close": 2183.58, "chg": -95.41, "pct": -4.19, "open": 2233.18, "high": 2274.18, "low": 2183.58, "turnover_yi": 3595.07},
-    "kc50": {"close": 1186.14, "pct": -5.12, "turnover_yi": 822.83},
-    "hs300": {"close": 3898.24, "chg": -65.59, "pct": -1.65, "turnover_yi": 4109.85},
-    "total_turnover_yi": 13830.97,
-    "turnover_chg_yi": -2720,
-    "breadth": {"up": 586, "down": 4926, "flat": 78, "limit_up": 57, "limit_down": 44, "note": "全市场口径；沪深主板口径 578涨/4645跌/78平"}
+    "sh_close": 3476.88, "sh_chg_pct": 0.0118, "sh_open": 3490.14, "sh_high": 3497.81, "sh_low": 3455.04, "sh_turnover_yi": 6133.33,
+    "sz_close": 10084.04, "sz_chg_pct": -0.0229, "sz_open": 10184.94, "sz_high": 10235.50, "sz_low": 9979.06, "sz_turnover_yi": 7040.44,
+    "cyb_close": 2189.82, "cyb_chg_pct": 0.29, "cyb_turnover_yi": 3379,
+    "kc50_close": 1169.99, "kc50_chg_pct": -1.36,
+    "hs300_close": 3900.55, "hs300_chg_pct": 0.06, "hs300_turnover_yi": 3713.98,
+    "turnover_total_yi": 13173, "turnover_delta_yi": -657,
+    "up": 1730, "flat": 173, "down": 3395, "up_ratio_pct": 31,
+    "limit_up": 68, "limit_down": 7, "limit_ratio": "9.7:1",
+    "main_net_flow_yi": 8.25,
+    "sectors_lead": {"渔业": 6.58, "贵金属": 4.22, "覆铜板": 3.37, "元件": 3.10, "白银": 2.94, "油服工程": 2.83, "通信设备": 2.74, "煤炭": 2.39, "银行": 0.74},
+    "sectors_lag": {"科创50": -1.36}
   },
-  "hk": {
-    "hsi": {"close": 21966.01, "pct": -1.14, "turnover_yi": 2299.76},
-    "hscei": {"close": 7384.94, "pct": -0.91},
-    "a50": {"close": 12623.58, "pct": -1.45}
+  "us_stocks": {
+    "dow": 50182.95, "dow_chg_pct": 0.33, "dow_low": 48913.74, "dow_high": 50395.24,
+    "nasdaq": 23585.80, "nasdaq_chg_pct": -0.62, "nasdaq_low": 22632.40,
+    "sp500": 7182.78, "sp500_chg_pct": -0.25,
+    "sox": 8774.86, "sox_chg_pct": -0.65,
+    "nasdaq100_note": "盘中一度较历史收盘高点回撤20%，触及技术性熊市后收回",
+    "nvda_chg_pct": -3.91, "nvda_mktcap_w": 3.61, "nvda_mktcap_loss_usd_yi": 1468,
+    "sector_up": {"材料": 1.84, "房地产": 0.84},
+    "sector_down": {"非必需消费": -0.98, "科技": -0.97}
   },
-  "asia_other": {
-    "kospi": {"close": 4697.51, "pct": -6.16, "note": "三星电子 -9.87%、SK海力士 -11.05%；盘中触发 sidecar 熔断"},
-    "nikkei": {"close": 57011.62, "pct": -2.78},
-    "taiex": {"pct": -6.0, "note": "台积电约 -6%"}
+  "vix": {"close": 28.29, "chg_pct": 7.32, "date": "2026-11-25"},
+  "rates": {"us10y": 4.86, "us10y_chg_bp": -3.8, "us2y": 4.65, "us2y_chg_bp": -2.1, "date": "2026-11-25"},
+  "dxy": {"close": 103.70, "chg_pct": -0.11, "date": "2026-11-25"},
+  "gold": {
+    "spot_now": 3565.42, "spot_chg_pct": -0.30, "spot_prev_close": 3576.14, "spot_high": 3606.93, "spot_low": 3550.79,
+    "eod_1126": 3576.14, "eod_1125": 3583.10, "eod_1124": 3555.72,
+    "comex": 3593.40, "comex_chg_pct": 0.81,
+    "sh_gold_fut": 766, "sh_gold_fut_chg_pct": 1.28,
+    "jewelry": {"周大福": 1068, "周大生": 1068, "周生生": 1070, "老凤祥": 1078, "金至尊": 1066},
+    "jewelry_chg": {"周大福": 0, "周生生": 0.75, "老凤祥": 1.22},
+    "bank_bar": {"建行": 783.20, "工行": 783.94, "中行": 784.13, "平安": 786.80, "浦发": 792.00},
+    "spread": 284.80, "spread_pct": 36.36, "spread_prev": 290.10, "spread_prev_pct": 37.29
   },
-  "key_event": {
-    "name": "美国10月PCE",
-    "headline_pce_yoy": 3.8, "headline_pce_mom": 0.3, "core_pce_yoy": 3.3, "core_pce_mom": 0.3,
-    "core_expect": 3.2, "core_prev_revised": 3.14,
-    "core_mom_consecutive": 3,
-    "gdp_q3_annualized": 4.3,
-    "personal_income_mom": 0.7, "real_pce_mom": 0.0,
-    "cme_dec_hike_prob": 97.8,
-    "note": "核心PCE同比为2023年11月以来最高；核心环比连续第三个月 +0.3%"
-  },
-  "next_catalyst": [
-    "2026-11-26 美股休市（感恩节）",
-    "2026-11-27 美股提前收盘 13:00 美东（黑色星期五半天市）",
-    "2026-12-03 黄仁勋众议院闭门听证",
-    "2026-12-08/09 美联储FOMC"
-  ]
+  "oil": {"wti": 84.15, "wti_chg_pct": 2.24, "date": "2026-11-25", "brent_cont": 94.20, "brent_settle": 94.61, "brent_main": 90.64, "note": "11-26 为感恩节，CME 原油提前至北京 11-27 03:30 结束，无完整交易日"},
+  "fx": {"usdcny": 6.6609, "usdcny_chg_point": 72, "usdcny_time": "2026-11-27 03:00", "usdjpy": null, "usdjpy_note": "待观察"},
+  "hk": {"hsi": 22226.88, "hsi_chg_pct": 1.19, "hsi_open": 22234.89, "hsi_high": 22543.75, "hsi_low": 22217.01, "date": "2026-11-26"},
+  "asia_other": {"msci_a50_1125": 2229.63, "msci_a50_chg_pct_1125": -1.65, "note": "富时A50 11-26 待观察"},
+  "key_event": "美股感恩节连续休市造成外部锚真空：11-26 全天休市、11-27 半日市（北京 11-28 02:00 收）；上一次完整收盘 11-26 05:00，下一次完整收盘 12-01 05:00，间隔 120 小时",
+  "next_catalyst": "11-27 09:30 A股开盘（无新增外部信息）；11-28 02:00 美股半日市收盘；12-01 05:00 美股完整收盘；12月美联储议息（12月加息定价 97.8%）"
 }

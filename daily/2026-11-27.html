@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>2026-11-27 日更 · 120 小时没有一个完整的美国收盘：A股在真空里自己写了答案——买实物，卖故事</title>
+<style>
+  :root{
+    --green:#1d4d3f;--green-soft:#e8f1ed;--teal:#0e7490;--teal-soft:#e0f2f7;
+    --amber:#d97706;--amber-soft:#fef3c7;--red:#b91c1c;--red-soft:#fee2e2;
+    --line:#e5e7eb;--muted:#6b7280;--card:#fafaf9;--bg:#f5f5f4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:#1f2937;line-height:1.7;padding:16px;max-width:860px;margin:0 auto;}
+  .daily-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:18px;box-shadow:0 1px 3px rgba(0,0,0,0.04);}
+  .daily-card-header{border-bottom:2px solid var(--line);padding-bottom:12px;margin-bottom:14px;}
+  .daily-date{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--green);padding:2px 12px;border-radius:10px;}
+  .daily-title{margin:10px 0 8px;font-size:20px;color:var(--green);line-height:1.45;}
+  .daily-symbols{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+  .symbol-chip{font-size:11.5px;background:var(--green-soft);color:var(--green);padding:3px 9px;border-radius:10px;}
+  .back-link,.prev-link{display:inline-block;font-size:12.5px;color:var(--green);text-decoration:none;background:#fff;border:1px solid var(--line);padding:5px 12px;border-radius:8px;margin-bottom:10px;}
+  .prev-link{float:right;}
+  .macro-snapshot{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 16px;}
+  .macro-snapshot th{background:var(--green);color:#fff;padding:6px 8px;text-align:left;font-weight:600;}
+  .macro-snapshot td{padding:5px 8px;border-bottom:1px solid var(--line);}
+  .tag-red{color:var(--red);font-weight:600;}
+  .tag-green{color:var(--green);font-weight:600;}
+  .tag-amber{color:var(--amber);font-weight:600;}
+  .market-pricing{background:var(--teal-soft);border-left:4px solid var(--teal);border-radius:0 8px 8px 0;padding:12px 14px;margin:12px 0;font-size:13.5px;}
+  .street-signal{background:var(--amber-soft);border-left:4px solid var(--amber);border-radius:0 8px 8px 0;padding:12px 14px;margin:12px 0;font-size:13.5px;}
+  .market-pricing h4,.street-signal h4{font-size:14px;margin-bottom:6px;}
+  .step{margin:18px 0;padding-bottom:6px;border-bottom:1px dashed var(--line);}
+  .step h4{font-size:15px;color:var(--green);margin-bottom:8px;padding-left:9px;border-left:3px solid var(--amber);}
+  .step p{font-size:14px;margin-bottom:10px;text-align:justify;}
+  .review-box{background:var(--red-soft);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:12px 14px;margin:12px 0;font-size:13.5px;}
+  .review-box h4{font-size:14px;color:var(--red);margin-bottom:6px;}
+  .watch{background:#fffbeb;border:1px solid #f3d9a8;border-left:5px solid var(--amber);border-radius:8px;padding:12px 14px;margin:16px 0;font-size:14px;}
+  .inflation-box{background:var(--green-soft);border:1px solid #cfe3da;border-radius:10px;padding:14px 16px;margin:16px 0;}
+  .inflation-box h3{font-size:15px;color:var(--green);margin-bottom:8px;}
+  .inflation-box .q{font-size:13.5px;margin-bottom:9px;}
+  .self-check{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:16px 0;}
+  .self-check h3{font-size:15px;color:var(--green);margin-bottom:8px;}
+  .self-check table{width:100%;border-collapse:collapse;font-size:12.5px;}
+  .self-check th{background:var(--green);color:#fff;padding:6px 8px;text-align:left;}
+  .self-check td{padding:6px 8px;border-bottom:1px solid var(--line);}
+  .footnote{font-size:11.5px;color:var(--muted);line-height:1.65;margin-top:16px;padding-top:12px;border-top:1px solid var(--line);}
+  @media(max-width:640px){body{padding:10px;} .daily-card{padding:14px;} .daily-title{font-size:17.5px;} .macro-snapshot{font-size:12px;}}
+</style>
+</head>
+<body>
+
+<div class="daily-card">
+  <div class="daily-card-header" data-symbols="A股,贵金属,科创50,涨停跌停,感恩节,纳指100,金店溢价,VIX,美债,港股">
+    <span class="daily-date">2026-11-27 周五 · 05:30</span>
+    <h1 class="daily-title">120 小时没有一个完整的美国收盘：<br>A股在真空里自己写了答案——买实物，卖故事</h1>
+    <div style="font-size:12.5px;color:#6b7280;margin:8px 0 4px;">
+      <b>数据归属</b>：A股 = 11-26 收盘（上一交易日）｜美股 = <b>11-25 收盘</b>（11-26 感恩节全天休市，为两日前数据，非昨夜）｜黄金汇率 = 11-27 05:30 实时｜金店与金条 = 11-27 挂牌
+    </div>
+    <div class="daily-symbols">
+      <span class="symbol-chip">上证 3476.88 +0.01%</span>
+      <span class="symbol-chip">深成 10084.04 −0.02%</span>
+      <span class="symbol-chip">创业板 2189.82 +0.29%</span>
+      <span class="symbol-chip">科创50 1169.99 −1.36%</span>
+      <span class="symbol-chip">成交 1.32 万亿（缩 657 亿）</span>
+      <span class="symbol-chip">涨停 68 / 跌停 7</span>
+    </div>
+  </div>
+
+  <table class="macro-snapshot">
+    <tr><th>指标</th><th>数值</th><th>变动</th><th>归属交易日</th></tr>
+    <tr><td>上证指数</td><td>3476.88</td><td class="tag-green">+0.01%</td><td>11-26 收盘</td></tr>
+    <tr><td>深证成指</td><td>10084.04</td><td class="tag-red">−0.02%</td><td>11-26 收盘</td></tr>
+    <tr><td>创业板指</td><td>2189.82</td><td class="tag-green">+0.29%</td><td>11-26 收盘</td></tr>
+    <tr><td>科创 50</td><td>1169.99</td><td class="tag-red">−1.36%</td><td>11-26 收盘</td></tr>
+    <tr><td>恒生指数</td><td>22226.88</td><td class="tag-green">+1.19%</td><td>11-26 收盘</td></tr>
+    <tr><td>道琼斯</td><td>50182.95</td><td class="tag-green">+0.33%</td><td><b>11-25 收盘</b></td></tr>
+    <tr><td>纳斯达克</td><td>23585.80</td><td class="tag-red">−0.62%</td><td><b>11-25 收盘</b></td></tr>
+    <tr><td>费城半导体</td><td>8774.86</td><td class="tag-red">−0.65%</td><td><b>11-25 收盘</b></td></tr>
+    <tr><td>VIX</td><td>28.29</td><td class="tag-red">+7.32%</td><td><b>11-25 收盘</b></td></tr>
+    <tr><td>美债 10Y / 2Y</td><td>4.86% / 4.65%</td><td class="tag-green">−3.8bp / −2.1bp</td><td><b>11-25 收盘</b></td></tr>
+    <tr><td>美元指数</td><td>103.70</td><td class="tag-green">−0.11%</td><td><b>11-25 收盘</b></td></tr>
+    <tr><td>WTI 原油</td><td>84.15 美元</td><td class="tag-red">+2.24%</td><td><b>11-25 收盘</b></td></tr>
+    <tr><td>布伦特（连续/主连）</td><td>94.20 / 90.64 美元</td><td class="tag-red">+3.6% / −0.35%</td><td><b>11-25 收盘</b></td></tr>
+    <tr><td>伦敦金现</td><td>3565.42 美元</td><td class="tag-red">−0.30%</td><td>11-27 05:30 实时</td></tr>
+    <tr><td>金店金价（周大福 / 老凤祥）</td><td>1068 / 1078 元克</td><td>0% / +1.22%</td><td>11-27 挂牌</td></tr>
+    <tr><td>银行金条（建行）</td><td>783.20 元克</td><td class="tag-red">+0.68%</td><td>11-27 挂牌</td></tr>
+    <tr><td>柜台−金条差价</td><td>284.80 元克（溢价 36.36%）</td><td>昨 290.10 / 37.29%</td><td>11-27</td></tr>
+    <tr><td>在岸人民币</td><td>6.6609</td><td class="tag-green">+72 点</td><td>11-27 03:00</td></tr>
+    <tr><td>USDJPY</td><td colspan="2">待观察（未取得可信读数）</td><td>—</td></tr>
+  </table>
+
+  <div class="market-pricing">
+    <h4>市场当前定价了什么（F1）</h4>
+    <p><b>已经 price in：</b>① 12 月加息（CME 定价 97.8%）；② 核心 PCE 3.3% 是"粘的"而不是"临时的"；③ AI 叙事开始打折扣（纳指 100 盘中一度较历史高点回撤 20%，英伟达单日 −3.91%、市值蒸发约 1468 亿美元）；④ A股 开始给"实物资产"溢价（贵金属、白银、煤炭、油服集体领涨）。</p>
+    <p><b>证伪条件：</b>① 12 月不加息——当前定价 97.8%，等于不留余地，一旦落空是反向冲击；② 核心 PCE 下月环比掉到 0.1% 以下，且服务分项同步降温；③ 今天 A股 资源股不能连续第二天领涨（说明昨天只是超跌反弹，市场没有真的接受"通胀交易"）。</p>
+  </div>
+
+  <div class="street-signal">
+    <h4>街角信号（G1）</h4>
+    <p><b>黄金回收/典当这一项今天动了：</b>柜台挂牌（周大福 1068）一天没动，银行金条从 777.90 涨到 783.20（+0.68%），差价从 290.10 收窄到 284.80，溢价 37.29% → 36.36%。<b>这是昨天"柜台慢一天"的反向验证——这次是金条先动、柜台不动，零售端的加价空间被压缩了。</b>回收端通常贴金条价走，这条线索说明"卖金"的报价在往上抬、"买金"的零售价没敢跟。</p>
+    <p>其余四项（方便面、折扣零售、低价车/二手、劳务工价）今日无显著街角信号变化，不硬凑。</p>
+  </div>
+
+  <div class="step">
+    <h4>一 · 事件表象：指数几乎没动，内部换了 5 个百分点</h4>
+    <p>11-26 的 A股 是这样一个盘面：上证 3476.88（<b>+0.01%</b>，靠尾盘集合竞价从全天最低 3455.04 拉回）、深成 10084.04（−0.02%）、创业板 2189.82（+0.29%，午后一度跌超 1% 又翻红）。三大指数几乎是一条平线。</p>
+    <p>但掀开指数看内部：<b>渔业 +6.58%、贵金属 +4.22%、覆铜板 +3.37%、元件 +3.10%、白银 +2.94%、油服工程 +2.83%、通信设备 +2.74%、煤炭 +2.39%、银行 +0.74%</b>——涨幅前列清一色是"看得见摸得着的东西"和"当期就有现金流的生意"。而<b>科创 50 −1.36%</b>，连续第二天跌。</p>
+    <p>指数平，风格动了 5 个百分点。<b>这是"平静"和"安静"的区别——平静是没人动，安静是所有人都在悄悄换座位。</b></p>
+  </div>
+
+  <div class="step">
+    <h4>二 · 直接影响：极端抛售停了，但宽度没修好</h4>
+    <p>看三个数：<b>跌停 7 家</b>（11-25 是 44 家，一天掉了 84%）、<b>涨停 68 家</b>（11-25 是 57 家）、<b>成交 13173 亿</b>（缩量 657 亿）。</p>
+    <p>翻译过来：前一天那种"夺门而出"的极端交易<b>停了</b>。但另一面，<b>涨 1730 家、跌 3395 家，上涨占比只有 31%</b>。跌停少了，不是因为买盘回来了，是因为<b>该砸的已经砸完了，剩下的人不想砸了</b>。</p>
+    <p>这两个信号要分开读：「跌停塌缩」是恐慌退潮，「宽度仍差」是承接不足。<b>没有承接的止跌，只能叫"横住"，不能叫"修复"。</b></p>
+  </div>
+
+  <div class="step">
+    <h4>三 · 连锁传导：一条从华盛顿传到深圳的链条</h4>
+    <p>① <b>通胀端</b>：核心 PCE 同比 3.3%、环比连续三个月 +0.3%（11-25 公布，详见下方通胀框）→ 抗通胀的实物资产获得定价理由 → 贵金属、白银、煤炭、油服被买。</p>
+    <p>② <b>贴现端</b>：利率 10Y 4.86%（−3.8bp）虽回落，但 12 月加息定价 97.8% 没松 → 靠"未来现金流"估值的资产继续被压制 → 科创 50 两天累计 −6.4%（−5.12% + −1.36%），比创业板两天 −3.9% 跌得更狠。</p>
+    <p>③ <b>资金端</b>：沪深主板净流入仅 <b>8.25 亿</b>。这个数很关键——它不是"新钱进场"，是"同一批钱换了个口袋"。<b>交易拥挤度观察（F4）：现在仓位最重的是谁？是抱着资源股的那批短线资金，他们刚从成长股换过来，成本就在昨天。边际买盘跟不跟得上？跟不上——8 亿的净流入撑不起 1.3 万亿的成交，说明今天买的人里，多数是卖别的东西换来的钱。</b></p>
+    <p>④ <b>最先被冻住的是哪类人（G3）</b>：这一轮冻的不是流水线，是<b>高薪技术岗的"增量部分"</b>——芯片设计、AI 应用、算力运维这些靠"未来叙事"扩张出来的岗位，招聘最先停；而实物链（矿业、冶炼、油服、航运）的用工还在。这跟 11-25 那天"最可替代岗位先冻"是两个层次：那天冻的是存量，今天冻的是增量。</p>
+  </div>
+
+  <div class="step">
+    <h4>四 · 深层目的：为什么 A股 敢在没人给答案的时候自己定价</h4>
+    <p>昨天（11-25）A股 是把最坏的剧本一次性结完账的——创业板 −4.19%、科创 50 −5.12%、跌停 44 家。今天没有新的坏消息进来（美股休市，连"别人的收盘价"都没有），于是市场只能做一件事：<b>按自己对通胀的理解重新排仓位</b>。</p>
+    <p>而它排出来的结论是：<b>买实物，卖故事</b>。这不是被动反应，这是 A股 本周第一次"自己拿主意"。过去这一周，A股 的开盘价一直由"别人的昨天"决定；今天它第一次没有别人可看。</p>
+    <p><b>头条没说的那个数字（H1）</b>：昨天所有收评都在写"沪指微涨 0.01%、超 3600 股下跌"，<b>没有一家把"涨停 68 : 跌停 7 = 9.7 : 1"写进标题</b>。而 11-25 这个比值是 57 : 44 = 1.3 : 1。<b>一天之内，极端多空比改善了 7 倍。</b>头条选的是"指数涨了多少"，真正变化的是"最极端的卖压还剩多少"。</p>
+    <p>另一个没被点明的：科创 50 两天 −6.4%、创业板两天 −3.9%。<b>"故事"跌得比"业绩"狠一倍，这不是普跌，是市场在给"叙事"单独打折。</b></p>
+  </div>
+
+  <div class="inflation-box">
+    <h3>通胀三问（I1，针对核心 PCE 3.3% 与今天 A股 的"通胀交易"）</h3>
+    <p class="q"><b>1）一次性还是粘性？→ 粘性。</b>三个证据：① 环比连续三个月 +0.3%，不是单月跳涨；② 核心同比 3.3% 高于预期 3.2%，且前值由 3.1% 上修至 3.14%（基数还被抬高了，读数仍超预期）；③ 个人收入 +0.7% 而实际消费支出环比 0.0%——<b>说明涨价不是需求过热推的，是成本与服务价格在自己延续</b>。商品与服务分项是否背离，需等下月细分数据确认，此处标注"待验证"。</p>
+    <p class="q"><b>2）内源还是外源？→ 混合，偏内源。</b>外源部分清楚：WTI 两日从 80.25 涨到 84.15（约 +4.3%），布伦特连续合约单日 +3.6%，输入型压力真实存在。但主导项是内源——收入涨 0.7% 而消费 0.0%，意味着多出来的钱没花掉，<b>这不是需求拉动型通胀，而是服务价格与租金滞后传导的内源粘性</b>。</p>
+    <p class="q"><b>3）三层危害：</b><br>
+    · <b>对政策</b>：粘性 + 内源，直接压缩宽松空间。12 月加息定价 97.8%，几乎不留回旋余地——这是"被通胀绑住手脚"，不是"主动选择紧缩"。<br>
+    · <b>对企业</b>：外源（油价）挤压运输、化工等中下游毛利，成本转嫁不出去；内源（服务）反而是提价窗口，但提价会杀需求——两头的企业都不舒服。<br>
+    · <b>对普通人</b>：外源 + 粘性最伤。油价上涨的传导有次序：<b>先交通（加油、打车、物流），再食品（运输成本进菜价），最后化工（塑料、化纤、日用品）</b>。而工资端不动（实际消费 0.0% 就是这个结果），实际购买力被动下降。</p>
+    <p class="q" style="margin-bottom:0;color:#6b7280;font-size:12.5px;">口径说明：本节数据为核心 PCE 与整体 PCE（商务部 BEA，11-25 发布），不与 CPI 混用；单月数据不下"通胀回来了/结束了"的结论，已连续三个月环比 +0.3%。</p>
+  </div>
+
+  <div class="step">
+    <h4>五 · 时间窗口：接下来 4 个交易日，市场没有"校准器"</h4>
+    <p>把日历摊开看，这是本周最特殊的一段：</p>
+    <p>· <b>11-26（周四）</b>：美股感恩节全天休市（Nasdaq / NYSE 官方日历已核）。<br>
+    · <b>11-27（今天）</b>：美股正常开盘但<b>美东 13:00 提前收盘</b>（北京 11-28 02:00）。CME 贵金属与原油期货提前至北京 11-28 03:45 结束，股指期货 02:15，ICE 布伦特 04:00。<br>
+    · <b>11-28 ~ 11-30</b>：周末，无交易。<br>
+    · <b>12-01 05:00</b>：下一次<b>完整的</b>美股收盘。</p>
+    <p>也就是说：<b>上一次完整的美国收盘是 11-26 05:00，下一次是 12-01 05:00，中间 120 小时，没有一个完整的美国收盘</b>。今天那个半天市，成交量通常只有正常日的三分之一，<b>它的涨跌不能当方向用</b>。</p>
+    <p>结论：<b>11-27 到 11-30 这 4 个交易日，A股 在"无锚区"里交易。无锚区的特征是——情绪自己强化自己，方向容易走过头，波动被放大。</b>这不是"趋势确认"的窗口，是"波动失真"的窗口。</p>
+  </div>
+
+  <div class="step">
+    <h4>六 · 这跟你有什么关系</h4>
+    <p><b>① 你的钱包（先看这个）</b></p>
+    <p>· <b>油价</b>：WTI 84.15，两日累计涨约 4.3%。国内成品油下一轮调价窗口大概率跟着上调。传导次序是：<b>加油 → 打车/物流 → 菜价与日用品</b>。你不会立刻感觉到，但两周后会。</p>
+    <p>· <b>买金</b>：柜台 1068 元/克，银行金条 783.20 元/克，<b>差价 284.80 元、溢价 36.36%</b>。昨天这个差是 290.10（37.29%），今天收窄了 5.3 元。<b>要买实物金，柜台从来不是唯一入口，这个价差一年也没缩到合理位置——它不会因为金价波动而消失。</b></p>
+    <p><b>② 你的资产（只讲攻守比例，不讲具体标的，不给点位）</b></p>
+    <p>· <b>保守型（存款/国债/银行高股息）</b>：银行昨天逆势 +0.74%。在"无锚区"里，这是最不需要操心的位置——它不靠叙事定价，靠当期现金流。<b>压力来自利率若继续上行（10Y 4.86%），支撑来自资金无处可去时的回流。</b></p>
+    <p>· <b>稳健型（+黄金）</b>：这里有个必须点破的背离——<b>昨天贵金属股 +4.22%，而现货金 3565.42 还在跌（−0.30%）</b>。股在涨、金在跌，说明市场买的是"抗通胀的预期"，不是"金价本身"。<b>这一档短期有支撑，但你要清楚自己持有的是"预期"还是"实物"，两者在无锚期会分道走。</b></p>
+    <p>· <b>平衡型（+A股宽基/沪深300）</b>：沪深 300 收 3900.55（+0.06%），指数横住。<b>压力在宽度——上涨占比只有 31%，指数是尾盘拉红的，不是全天强的。支撑在于极端抛售已停（跌停 7 家）。</b></p>
+    <p>· <b>积极型（+A股成长/纳指/港股科技）</b>：这是压力最大的一档。科创 50 两天 −6.4%，纳指 100 盘中一度回撤 20% 触及技术性熊市。<b>唯一有支撑的是港股——恒指 11-26 收 22226.88（+1.19%），在亚太普跌之后反而站住了。</b></p>
+    <p style="font-size:12.5px;color:#6b7280;">以上只描述板块层面的攻守比例与压力来源，不构成任何交易指引。</p>
+  </div>
+
+  <div class="review-box">
+    <h4>昨日判断复盘（F2 老实记账）</h4>
+    <p>昨天卡片写的是三条<b>行为指标</b>（已明确放弃点位口径）：跌停从 44 家收敛到 20 家以内、涨停从 57 家扩散到 60 家以上、成交守住 1.2 万亿。</p>
+    <p><b>实测：跌停 7 家（要求 ≤20）✓、涨停 68 家（要求 ≥60）✓、成交 13173 亿（要求 ≥12000 亿）✓——三条全中。</b></p>
+    <p>这是本周第一次三条全中。更值得记的是方法本身：<b>前三天用点位判断（创业板 2280）连错三次，换成行为指标后第一次就中。</b>这不是运气，是判据选对了——点位是别人定的，行为是自己做的。</p>
+  </div>
+
+  <div class="watch">
+    <h4>今日唯一要盯的（F2）</h4>
+    <p><b>2026-11-27（周五）· 资源股能不能连续第二天领涨，同时科创 50 止不止跌。</b></p>
+    <p><b>为什么盯这一条：</b>今天没有外部新增信息（美股休市、无新数据），A股 只能自己走。如果资源继续涨、科创继续跌 → 说明"通胀交易"在 A股 扎下根了，昨天的分化是新逻辑而不是超跌反弹；如果资源回落、科创反弹 → 说明昨天只是跌多了弹一下，市场并没有真的接受"买实物卖故事"。</p>
+    <p><b>反面（F5）——什么情况下这个判断不成立：</b>① 如果今天成交跌破 1.1 万亿，那么无论涨跌都不算数——那是"两边都没人接"的无差别退潮，不是风格选择；② 如果资源股涨但科创 50 也涨，说明是普涨而非结构性转移，昨天的分化结论要推翻；③ 如果资源股领涨但成交骤增到 1.6 万亿以上，那可能是短线资金一日游而非配置盘进场，需要看第二天是否延续。</p>
+  </div>
+
+  <div class="watch">
+    <h4>本周预测追踪台账（H3 · 周五追加）</h4>
+    <p>回顾本周一至周四每天 F2 喊的"今日唯一要盯"，逐条对账：</p>
+    <table class="macro-snapshot" style="margin-top:8px;">
+      <tr><th>日期</th><th>当天喊的判据</th><th>实测结果</th><th>判定</th></tr>
+      <tr><td>11-23 周一</td><td>创业板守 2200 + 半小时成交 4000 亿</td><td>开盘 2195.52 破位，收 2280.20</td><td class="tag-amber">半对（盘中破、收盘站回）</td></tr>
+      <tr><td>11-24 周二</td><td>创业板站稳 2280 + 半小时成交超 4500 亿</td><td>开盘 2368.70，10:00 约 5392 亿，收 2278.99（差 1.01 点）</td><td class="tag-amber">量对价错</td></tr>
+      <tr><td>11-25 周三</td><td>创业板收复 2280 + 半小时成交 4500 亿以上</td><td>开 2234.12，10:00 为 2256.72，半小时约 2644 亿，收 2183.58</td><td class="tag-red">指标全错 / 方向对</td></tr>
+      <tr><td>11-26 周四</td><td>跌停 ≤20、涨停 ≥60、成交 ≥1.2 万亿（行为指标）</td><td>跌停 7、涨停 68、成交 13173 亿</td><td class="tag-green">三条全中</td></tr>
+      <tr><td>11-27 周五</td><td>资源股连续第二天领涨 + 科创 50 止跌</td><td>—</td><td class="tag-amber">待下周一验</td></tr>
+    </table>
+    <p style="margin-top:8px"><b>本周的方法学结论：四次判据里，三次用了"点位"（2280 / 2200），全部错位；唯一一次改用"行为"（跌停家数、涨停家数、成交额），三条全中。</b>点位是别人在盘中定的，行为是自己盘后能数的——后者才是可验证的判据。周五这条同样只用了行为，不掺任何点位。</p>
+  </div>
+
+  <div class="self-check">
+    <h3>本卡自检</h3>
+    <table>
+      <tr><th>检查项</th><th>结论</th></tr>
+      <tr><td>数据归属</td><td>A股 = 11-26 收盘；美股全部 = <b>11-25 收盘</b>（11-26 感恩节休市），已在表头逐行标注"11-25 收盘"，未冒充昨夜数据；黄金汇率 11-27 05:30 实时，金店金条 11-27 挂牌</td></tr>
+      <tr><td>待观察项</td><td>USDJPY 未取得可信读数，标"待观察"；富时 A50 11-26 未取得，仅引 MSCI 中国 A50 的 11-25 读数并注明标的差异</td></tr>
+      <tr><td><b>数据修正（重要）</b></td><td>昨日卡片采用费半日 K 读数 8630.63（−2.29%），今日两处独立源（隔夜美股晨报、Swingfolio）均给 <b>8774.86（−0.65%）</b>。本轮采用 8774.86，并在此明确声明：<b>昨日该数据取错，误差约 2 个百分点</b>。因此今日不再引用"费半两日 −10%"这一结论</td></tr>
+      <tr><td>补全项</td><td>昨日标注"待观察"的 VIX（28.29 / +7.32%）、美债 10Y（4.86% / −3.8bp）、美元指数（103.70 / −0.11%）、布油（连续 94.20 / 结算 94.61，主连 90.64）今日均已取得并标注归属</td></tr>
+      <tr><td>口径一致</td><td>成交额采沪深主板口径 13173 亿（另注全市场口径 13260 亿、缩量 667 亿）；创板成交 3379 亿单列；涨跌家数采沪深两市口径 1730/173/3395，未与沪深 300 成分口径（114/182/4）混用</td></tr>
+      <tr><td>前后一致性</td><td>昨日"亚洲按最坏价卖、美国按第二好价捡"的判断今日推进为"A股 第一次自己定价"，是同一逻辑的时间延伸，非改口；昨日"金店慢一天"判断今日获反向验证（金条动、柜台不动），已显式说明"这次方向相反"</td></tr>
+      <tr><td>通胀三问</td><td>粘性/一次性、内源/外源、三层危害齐备；核心 PCE 与整体 PCE 分列，未混用 CPI；单月不下趋势结论，已注明连续三个月</td></tr>
+      <tr><td>选题合规</td><td>按"事件 vs 读数"标准筛：入位 1 个结构性事件（A股 在无锚期自我定价，属"机制类"）；纳指 100 回撤 20% 属"里程碑类"并入传导链引用；金店溢价、成交、涨跌家数等<b>读数类不单独占位</b>，仅作证据。未为凑数设置事件位</td></tr>
+      <tr><td>红线</td><td>无方向性交易指令词；F3 四档只讲攻守比例与压力来源；未给任何点位作为操作依据；未做价格预测</td></tr>
+    </table>
+  </div>
+
+  <div class="footnote">
+    数据来源：同花顺 / Wind（A股与美股指数日 K、商品日 K、金店与银行金条挂牌）、新华社（美股 11-25 收盘与板块）、Fidelity / MT Newswires（美债 10Y 4.86%、2Y 4.65%）、隔夜美股晨报与 Swingfolio（VIX 28.29、费半 8774.86）、财联社（在岸人民币 03:00 收盘、感恩节与半天市安排）、Nasdaq 与 NYSE 官方交易日历（11-26 休市、11-27 13:00 提前收盘）、上海证券报与同花顺复盘（A股板块与涨跌停）、今日头条市场收评（涨跌家数 1730/3395、成交 13173 亿）。<br>
+    本卡为公开数据的逻辑梳理，不含投资建议，不构成任何交易指引。过去走势不代表未来表现。
+  </div>
+</div>
+
+</body>
+</html>
